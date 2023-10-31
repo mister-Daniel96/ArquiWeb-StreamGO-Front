@@ -1,0 +1,86 @@
+/* * {
+    border: 1px solid red;
+} */
+.container {
+    padding: 20px 30px;
+}
+
+.portada {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+}
+
+.portada-info {
+    width: 60%;
+}
+
+.portada-info h1 {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.portada-info p {
+    width: 60%;
+}
+
+.portada-img {
+    width: 40%;
+    overflow: hidden;
+    position: relative;
+    z-index: -1;
+}
+
+.portada-img img {
+    width: 600px;
+    height: 600px;
+    border-radius: 50% 0 0 50%;
+}
+
+.portada-img span::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 600px;
+    height: 600px;
+    border-radius: 50% 0 0 50%;
+    background-color: #3f51b577;
+
+}
+
+/* AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA */
+.btnRegistrar {
+    position: relative;
+    margin-top: 50px;
+    background-color: whitesmoke;
+    color: #3f51b5da;
+    width: 200px;
+    height: 45px;
+    font-weight: bold;
+    overflow: hidden;
+}
+
+
+
+.btnRegistrar::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: -200px;
+    width: 100%;
+    height: 45px;
+    background-color: #3f51b5da;
+    color: whitesmoke;
+    transition: 0.3s all;
+}
+
+.btnRegistrar:hover::before {
+    top: 0;
+    left: 0;
+}
+.btnRegistrar:hover span {
+    color: white;
+    z-index: 2;
+}
+/*AAAAAAAAAAAAAAAAAAAAAAAAA */
