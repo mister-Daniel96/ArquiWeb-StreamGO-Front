@@ -8,7 +8,7 @@
 
 .portada {
     /*  max-height: 80vh;  */
-    max-height: 80vh;
+    height: 100vh;
     width: 100%;
     display: flex;
     align-items: center;
@@ -49,13 +49,27 @@
     position: relative;
     top: 0;
     right: 0;
-    width: 700px;
-    height: 700px;
-    border: 1px solid black;
+    width: 100%;
+    height: 100%;
     border-radius: 50% 0 0 50%;
     overflow: hidden;
-    margin-left:auto ;
+    margin-left: auto;
 }
+
+.portada-img .mascara img {
+    height: 100%;
+}
+.portada-img .mascara span {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #3f51b579;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+}
+
 
 
 
