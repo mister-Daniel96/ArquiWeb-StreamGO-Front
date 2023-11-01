@@ -1,0 +1,45 @@
+.form {
+    width: 40%;
+    height: 500px;
+    margin-top: 20px;
+    margin-left: 20px;
+    padding-top: 20px;
+}
+
+.img-user {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    color: #3F51B5;
+    font-size: 40px;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+.title-user {
+    text-align: center;
+    font-size: 30px;
+}
+
+.table-form {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 30px;
+}
+
+.btnRegistrar {
+    display: block;
+    margin: 0 auto;
+}
+
+.btnRegistrar span {
+    font-weight: bold;
+    color: #3F51B5;
+}
+
+.form-img {
+    width: 50%;
+}
