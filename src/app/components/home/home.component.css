@@ -1,15 +1,21 @@
-/* * {
-    border: 1px solid red;
-} */
+* {
+    box-sizing: border-box;
+}
+
 .container {
     padding: 20px 40px;
 }
 
 .portada {
-  /*  max-height: 80vh;  */
-    min-height:80px;
+    /*  max-height: 80vh;  */
+    max-height: 80vh;
+    width: 100%;
     display: flex;
     align-items: center;
+}
+
+.portada-info {
+    width: 55%;
 }
 
 .portada-info .saludo {
@@ -34,28 +40,25 @@
 }
 
 .portada-img {
-    width: 40%;
+    width: 35%;
+    height: 100%;
     overflow: hidden;
+}
+
+.portada-img .mascara {
     position: relative;
-}
-
-.portada-img img {
-    width: 600px;
-    height: 600px;
-    border-radius: 50% 0 0 50%;
-}
-
-.portada-img span::after {
-    content: "";
-    position: absolute;
     top: 0;
-    left: 0;
-    width: 600px;
-    height: 600px;
+    right: 0;
+    width: 700px;
+    height: 700px;
+    border: 1px solid black;
     border-radius: 50% 0 0 50%;
-    background-color: #3f51b577;
-
+    overflow: hidden;
+    margin-left:auto ;
 }
+
+
+
 
 /* AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA */
 .btnRegistrar {
@@ -69,7 +72,9 @@
     overflow: hidden;
 }
 
-
+.portada-img {
+    width: 45%;
+}
 
 .btnRegistrar::before {
     content: "";
