@@ -9,33 +9,35 @@
 
 <body>
 
-    <div class="form">
-        <i class="fa-solid fa-user img-user"></i>
-                <h2 class="title-user">Login</h2>
-        <form class="example-form table-form">
-            <mat-form-field class="example-full-width">
-                <mat-label>Username</mat-label>
-                <input matInput placeholder="Username">
-            </mat-form-field>
-            <mat-form-field>
-                <mat-label>Password</mat-label>
-                <input matInput [type]="hide ? 'password' : 'text'">
-                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
-                    [attr.aria-pressed]="hide">
-                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                </button>
-            </mat-form-field>
+    <div class="caja">
+        <div class="form">
+            <i class="fa-solid fa-user img-user"></i>
+            <h2 class="title-user">Login</h2>
+            <form class="example-form table-form">
+                <mat-form-field class="example-full-width">
+                    <mat-label>Username</mat-label>
+                    <input matInput placeholder="Username">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Password</mat-label>
+                    <input matInput [type]="hide ? 'password' : 'text'">
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                        [attr.aria-pressed]="hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                </mat-form-field>
 
-            <button mat-raised-button color="primary">
-                login </button>
-        </form>
-        <button mat-flat-button color="basic" class="btnRegistrar" routerLink="/register">
-            ¿No tienes una cuenta? <span>Registrate</span>
-        </button>
-    </div>
+                <button mat-raised-button color="primary">
+                    login </button>
+            </form>
+            <button mat-flat-button color="basic" class="btnRegistrar" routerLink="/register">
+                ¿No tienes una cuenta? <span>Registrate</span>
+            </button>
+        </div>
 
-    <div class="form-img">
-
+        <div class="form-img">
+            <img src="../../../assets/images/avengers.jpg" alt="">
+        </div>
     </div>
 
 </body>

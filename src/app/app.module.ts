@@ -24,7 +24,8 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AdministratorComponent } from './components/administrator/administrator.component';
 import { ClientComponent } from './components/client/client.component';
-
+import {MatExpansionModule} from '@angular/material/expansion';
+import { ProfileComponent } from './components/administrator/profile/profile.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,13 +33,13 @@ import { ClientComponent } from './components/client/client.component';
     LoginComponent,
     RegisterComponent,
     AdministratorComponent,
-    ClientComponent
+    ClientComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-
 
 
     
@@ -58,7 +59,8 @@ import { ClientComponent } from './components/client/client.component';
     MatToolbarModule,
     MatButtonModule,
     MatMenuModule,
-    MatIconModule
+    MatIconModule,
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent]

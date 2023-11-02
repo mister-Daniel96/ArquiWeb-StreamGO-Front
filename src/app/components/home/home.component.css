@@ -4,6 +4,43 @@
 html{
     scroll-behavior: smooth;
 }
+
+
+header{
+    position: sticky;
+    top: 0;
+    z-index: 11;
+}
+.navbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.navbar img {
+    width: 180px;
+}
+
+.menu button {
+    margin: 0 10px;
+    box-shadow: none;
+    transition: 0.2s all;
+}
+
+.menu button:hover {
+    transform: scale(1.2);
+}
+
+.menu button:nth-child(5) {
+    background-color: whitesmoke;
+    color: #3F51B5;
+}
+a{
+    font-size: hidden;
+    text-decoration: none;
+    color:whitesmoke;
+}
 .container {
     padding: 20px 40px;
 }

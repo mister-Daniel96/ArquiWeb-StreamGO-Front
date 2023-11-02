@@ -1,1 +1,33 @@
-<p>administrator works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <mat-toolbar color="primary" class="menu">
+        <button color="primary" class="img-user">
+            <i class="fa-solid fa-user-tie"></i>
+            <span>Administrator</span>
+        </button>
+    
+        <div class="btnOptions">
+            <button  mat-flat-button color="primary" routerLink="/administrator/profile">Perfil</button>
+            <button  mat-flat-button color="primary">Peliculas</button>
+            <button  mat-flat-button color="primary">Agregar</button>
+        </div>
+    
+    </mat-toolbar>
+    <div class="contenido">
+        <!-- DENTRO DE ESTO APARECEN TODOS LOS COMPONENTES  -->
+        <router-outlet></router-outlet>
+        <div [hidden]="route.children.length!==0">
+            <!-- SE ELIMINA TODO LO DE AQUI CUANDO VAMOS A OTRO COMPONENTE -->
+            <app-home></app-home>
+        </div>
+    </div>
+    
+    
+</body>
+</html>
