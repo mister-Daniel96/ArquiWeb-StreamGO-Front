@@ -1,29 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-
-<body>
-
-  <header>
-    <mat-toolbar color="primary" class="navbar">
-      <img src="../assets/svg/logo.svg" alt="">
-      <div class="menu">
-        <button mat-raised-button color="pink" routerLink="home">Inicio</button>
-        <button mat-raised-button color="pink" routerLink="nuevo">Nosotros</button>
-        <button mat-raised-button color="pink" routerLink="viejo">Beneficios</button>
-        <button mat-raised-button color="pink" routerLink="">Planes</button>
-        <button mat-raised-button color="pink" routerLink="">Iniciar sesion</button>
-        <button mat-raised-button color="pink" routerLink="">Registrar</button>
-      </div>
-    </mat-toolbar>
-  </header>
-
-  <router-outlet></router-outlet>
-</body>
-
-</html>
+<router-outlet></router-outlet>
+<div [hidden]="route.children.length!==0">
+  <app-home></app-home>
+</div>
+<!-- CONSIDERO A ESTE COMO MI COMPONENTE PADRE -->

@@ -19,22 +19,30 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatInputModule} from '@angular/material/input';
-import { NuevoComponent } from './components/nuevo/nuevo.component';
-import { ViejoComponent } from './components/viejo/viejo.component';
 import { HomeComponent } from './components/home/home.component';
-
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { AdministratorComponent } from './components/administrator/administrator.component';
+import { ClientComponent } from './components/client/client.component';
+import {MatExpansionModule} from '@angular/material/expansion';
+import { ProfileAdministratorComponent } from './components/administrator/profile-administrator/profile-administrator.component';
+import { SupportsAdministratorComponent } from './components/administrator/supports-administrator/supports-administrator.component';
 @NgModule({
   declarations: [
     AppComponent,
-    NuevoComponent,
-    ViejoComponent,
-    HomeComponent
+    HomeComponent,
+    LoginComponent,
+    RegisterComponent,
+    AdministratorComponent,
+    ClientComponent,
+    ProfileAdministratorComponent,
+    SupportsAdministratorComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-
 
 
     
@@ -54,7 +62,8 @@ import { HomeComponent } from './components/home/home.component';
     MatToolbarModule,
     MatButtonModule,
     MatMenuModule,
-    MatIconModule
+    MatIconModule,
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent]
