@@ -25,7 +25,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { AdministratorComponent } from './components/administrator/administrator.component';
 import { ClientComponent } from './components/client/client.component';
 import {MatExpansionModule} from '@angular/material/expansion';
-import { ProfileComponent } from './components/administrator/profile/profile.component';
+import { ProfileAdministratorComponent } from './components/administrator/profile-administrator/profile-administrator.component';
+import { SupportsAdministratorComponent } from './components/administrator/supports-administrator/supports-administrator.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +35,9 @@ import { ProfileComponent } from './components/administrator/profile/profile.com
     RegisterComponent,
     AdministratorComponent,
     ClientComponent,
-    ProfileComponent
+    ProfileAdministratorComponent,
+    SupportsAdministratorComponent,
+    
   ],
   imports: [
     BrowserModule,
