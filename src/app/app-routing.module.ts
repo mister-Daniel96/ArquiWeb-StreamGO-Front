@@ -1,3 +1,4 @@
+import { ListUsersAdministratorComponent } from './components/administrator/list-users-administrator/list-users-administrator.component';
 import { ProfileAdministratorComponent } from './components/administrator/profile-administrator/profile-administrator.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -31,7 +32,9 @@ const routes: Routes = [
       {
         path: 'supports',
         component: SupportsAdministratorComponent,
-      },
+      },{
+        path:'list-users',component:ListUsersAdministratorComponent
+      }
     ],
   },
   {

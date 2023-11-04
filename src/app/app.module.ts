@@ -8,7 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { HttpClientModule } from '@angular/common/http';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
@@ -27,6 +27,9 @@ import { ClientComponent } from './components/client/client.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { ProfileAdministratorComponent } from './components/administrator/profile-administrator/profile-administrator.component';
 import { SupportsAdministratorComponent } from './components/administrator/supports-administrator/supports-administrator.component';
+import { ListUsersAdministratorComponent } from './components/administrator/list-users-administrator/list-users-administrator.component';
+
+import { MatChipsModule} from '@angular/material/chips';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +40,7 @@ import { SupportsAdministratorComponent } from './components/administrator/suppo
     ClientComponent,
     ProfileAdministratorComponent,
     SupportsAdministratorComponent,
+    ListUsersAdministratorComponent,
     
   ],
   imports: [
@@ -56,14 +60,16 @@ import { SupportsAdministratorComponent } from './components/administrator/suppo
     MatDatepickerModule,
     MatNativeDateModule,
     MatButtonModule,
-
+    
     ReactiveFormsModule,
-
+    
     MatToolbarModule,
     MatButtonModule,
     MatMenuModule,
     MatIconModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatChipsModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
