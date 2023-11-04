@@ -68,7 +68,7 @@ import { MatChipsModule} from '@angular/material/chips';
     MatMenuModule,
     MatIconModule,
     MatExpansionModule,
-    MatChipsModule,
+    MatChipsModule
     
   ],
   providers: [],

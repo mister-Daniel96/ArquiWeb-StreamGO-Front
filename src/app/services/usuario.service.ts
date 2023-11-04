@@ -17,6 +17,9 @@ export class UsuarioService {
   list() {
     return this.http.get<Usuario[]>(this.url);
   }
+  listClient(){
+    return this.http.get<Usuario[]>(`${this.url}/usuariosroluser`);
+  }
   insert(usuario: Usuario) {
     return this.http.post(this.url, usuario);
   }
