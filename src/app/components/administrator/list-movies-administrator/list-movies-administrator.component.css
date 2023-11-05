@@ -1,0 +1,23 @@
+.card-deck {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.card-img-top {
+    width: 256px;
+    height: 380px;
+}
+
+.card {
+    position: relative;
+}
+
+.options {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+display: flex;
+justify-content: space-around;
+margin-bottom: 20px;
+}

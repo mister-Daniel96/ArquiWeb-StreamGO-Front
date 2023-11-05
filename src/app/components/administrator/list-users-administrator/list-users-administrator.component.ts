@@ -18,8 +18,9 @@ export class ListUsersAdministratorComponent implements OnInit {
     'contrasena',
     'correo',
     'activado',
+    'accion01'
   ];
-
+  usuario: Usuario = new Usuario();
   @ViewChild(MatPaginator) paginatorClient!: MatPaginator;
   /**
    *   @ViewChild('paginatorAdmin') paginatorClient!: MatPaginator;
@@ -31,13 +32,13 @@ export class ListUsersAdministratorComponent implements OnInit {
   constructor(private uS: UsuarioService) {}
   ngOnInit(): void {
     //Para el Administrador
-    this.uS.list().subscribe((data) => {
+    this.uS.listAdmin().subscribe((data) => {
       this.dataSourceAdmin = new MatTableDataSource(data);
     });
     this.uS.getList().subscribe((data) => {
       this.dataSourceAdmin = new MatTableDataSource(data);
     });
-    
+
     //para los clientes
     this.uS.listClient().subscribe((data) => {
       this.dataSourceClient = new MatTableDataSource(data);
@@ -46,6 +47,14 @@ export class ListUsersAdministratorComponent implements OnInit {
     this.uS.getList().subscribe((data) => {
       this.dataSourceClient = new MatTableDataSource(data);
       this.dataSourceClient.paginator = this.paginatorClient;
+    });
+  }
+
+  eliminar(id: number) {
+    this.uS.delete(id).subscribe((data) => {
+      this.uS.list().subscribe((data) => {
+        this.uS.setList(data);
+      });
     });
   }
 }

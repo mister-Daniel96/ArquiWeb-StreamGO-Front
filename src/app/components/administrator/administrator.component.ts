@@ -7,7 +7,6 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./administrator.component.css']
 })
 export class AdministratorComponent {
-  panelOpenState = false;
 /* ES COMO SI FUERA EL DESSERT */
   constructor(public route:ActivatedRoute){
 

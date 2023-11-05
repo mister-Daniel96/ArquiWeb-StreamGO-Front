@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-
+import {MatRadioModule} from '@angular/material/radio';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { HttpClientModule } from '@angular/common/http';
 import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
@@ -30,6 +30,11 @@ import { SupportsAdministratorComponent } from './components/administrator/suppo
 import { ListUsersAdministratorComponent } from './components/administrator/list-users-administrator/list-users-administrator.component';
 
 import { MatChipsModule} from '@angular/material/chips';
+import { CreaeditaUsersAdministratorComponent } from './components/administrator/creaedita-users-administrator/creaedita-users-administrator.component';
+import { ListMoviesAdministratorComponent } from './components/administrator/list-movies-administrator/list-movies-administrator.component';
+
+import {MatCardModule} from '@angular/material/card';
+import {MatGridListModule} from '@angular/material/grid-list';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +46,9 @@ import { MatChipsModule} from '@angular/material/chips';
     ProfileAdministratorComponent,
     SupportsAdministratorComponent,
     ListUsersAdministratorComponent,
-    
+    CreaeditaUsersAdministratorComponent,
+    ListMoviesAdministratorComponent,
+   
   ],
   imports: [
     BrowserModule,
@@ -68,7 +75,10 @@ import { MatChipsModule} from '@angular/material/chips';
     MatMenuModule,
     MatIconModule,
     MatExpansionModule,
-    MatChipsModule
+    MatChipsModule,
+    MatRadioModule,
+    MatCardModule,
+    MatGridListModule
     
   ],
   providers: [],

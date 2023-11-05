@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="form ">
+        <form class="example-form" [formGroup]="form" (submit)="aceptar()">
+            <mat-form-field class="example-full-width">
+                <mat-label>Codigo</mat-label>
+                <input matInput placeholder="Codigo" formControlName="idUsuario" readonly="">
+                <mat-error *ngIf="obtenerControlCampo('idUsuario')?.errors?.['required']">
+                    El codigo es obligatorio.
+                </mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field class="example-full-width">
+                <mat-label>Nombre</mat-label>
+                <input matInput placeholder="Nombre" formControlName="nameUsuario">
+                <mat-error *ngIf="obtenerControlCampo('nameUsuario')?.errors?.['required']">
+                    El nombre es obligatorio.
+                </mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <mat-label>Password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" formControlName="passwordUsuario">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                    [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-error *ngIf="obtenerControlCampo('passwordUsuario')?.errors?.['required']">
+                    El password es obligatorio.
+                </mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <mat-label>E-mail</mat-label>
+                <input matInput placeholder="pat@example.com" formControlName="emailUsuario">
+                <mat-error *ngIf="obtenerControlCampo('emailUsuario')?.errors?.['required']">
+                    El correo es obligatorio.
+                </mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <mat-label>Activo</mat-label>
+                <mat-select formControlName="enabledUsuario">
+                    <mat-option *ngFor="let food of enabledTypes" [value]="food.value">
+                        {{food.viewValue}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="obtenerControlCampo('enabledUsuario')?.errors?.['required']">
+                    El activo es obligatorio.
+                </mat-error>
+            </mat-form-field>
+
+            <button mat-raised-button color="primary">Aceptar</button>
+        </form>
+    </div>
+</body>
+
+</html>
