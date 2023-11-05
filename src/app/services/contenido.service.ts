@@ -31,7 +31,7 @@ export class ContenidoService {
     return this.http.delete(`${this.url}/${id}`)
   }
   listId(id:number){
-    return this.http.get(`${this.url}/${id}`);
+    return this.http.get<Contenido>(`${this.url}/${id}`);
   }
   update(contenido:Contenido){
 return this.http.put(this.url,contenido);

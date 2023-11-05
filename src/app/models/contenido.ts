@@ -1,9 +1,11 @@
+import { ListaDeReproduccion } from "./listaDeReproduccion";
+
 export class Contenido{
 
     idContenido:number=0;
     titleContenido:string='';
-    descripContenido:string='';
-    yearContenido:number=0;
+    descripContenido:string='';//******* */
+    yearContenido:Date=new Date(Date.now());
     directorContenido:string='';
     typeContenido:string='';
     genderContenido:string='';
@@ -11,5 +13,5 @@ export class Contenido{
     urlContenido:string='';
     urlImageContenido:string='';
     languageContenido:string='';
-    listadereproduccion:string='';
+    listadereproduccion:ListaDeReproduccion=new ListaDeReproduccion();
 }

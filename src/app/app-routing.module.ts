@@ -9,6 +9,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { AdministratorComponent } from './components/administrator/administrator.component';
 import { SupportsAdministratorComponent } from './components/administrator/supports-administrator/supports-administrator.component';
 import { CreaeditaUsersAdministratorComponent } from './components/administrator/creaedita-users-administrator/creaedita-users-administrator.component';
+import { CreaeditaMoviesAdministratorComponent } from './components/administrator/creaedita-movies-administrator/creaedita-movies-administrator.component';
 
 const routes: Routes = [
   {
@@ -30,10 +31,16 @@ const routes: Routes = [
       },{
         path:'list-users',component:ListUsersAdministratorComponent
       },{
-        path:'ediciones/:id',component:CreaeditaUsersAdministratorComponent
+        path:'ediciones-users/:id',component:CreaeditaUsersAdministratorComponent
       }
       ,{
         path:'list-movies',component:ListMoviesAdministratorComponent
+      },
+      {
+        path:'nuevo-movies',component:CreaeditaMoviesAdministratorComponent
+      }
+      ,{
+        path:'ediciones-movies/:id',component:CreaeditaMoviesAdministratorComponent
       }
     ],
   }

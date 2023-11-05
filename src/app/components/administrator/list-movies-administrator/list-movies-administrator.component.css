@@ -11,13 +11,26 @@
 
 .card {
     position: relative;
+    cursor: pointer;
+    transition: 0.3s all;
+}
+
+.card:hover {
+    box-shadow: 2px 2px 5px 5px rgba(0, 0, 0, 0.466);
 }
 
 .options {
     position: absolute;
     bottom: 0;
     width: 100%;
-display: flex;
-justify-content: space-around;
-margin-bottom: 20px;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
 }
+.options button{
+    transition: 0.3s all;
+}
+.options button:hover{
+    transform: scale(1.2);
+}
+
