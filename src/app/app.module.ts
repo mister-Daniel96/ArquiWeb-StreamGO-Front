@@ -8,7 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { HttpClientModule } from '@angular/common/http';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
@@ -25,7 +25,11 @@ import { RegisterComponent } from './components/register/register.component';
 import { AdministratorComponent } from './components/administrator/administrator.component';
 import { ClientComponent } from './components/client/client.component';
 import {MatExpansionModule} from '@angular/material/expansion';
-import { ProfileComponent } from './components/administrator/profile/profile.component';
+import { ProfileAdministratorComponent } from './components/administrator/profile-administrator/profile-administrator.component';
+import { SupportsAdministratorComponent } from './components/administrator/supports-administrator/supports-administrator.component';
+import { ListUsersAdministratorComponent } from './components/administrator/list-users-administrator/list-users-administrator.component';
+
+import { MatChipsModule} from '@angular/material/chips';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +38,10 @@ import { ProfileComponent } from './components/administrator/profile/profile.com
     RegisterComponent,
     AdministratorComponent,
     ClientComponent,
-    ProfileComponent
+    ProfileAdministratorComponent,
+    SupportsAdministratorComponent,
+    ListUsersAdministratorComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -53,14 +60,16 @@ import { ProfileComponent } from './components/administrator/profile/profile.com
     MatDatepickerModule,
     MatNativeDateModule,
     MatButtonModule,
-
+    
     ReactiveFormsModule,
-
+    
     MatToolbarModule,
     MatButtonModule,
     MatMenuModule,
     MatIconModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatChipsModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
