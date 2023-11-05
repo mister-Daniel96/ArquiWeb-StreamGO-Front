@@ -20,6 +20,9 @@ export class UsuarioService {
   listClient(){
     return this.http.get<Usuario[]>(`${this.url}/usuariosroluser`);
   }
+  listAdmin(){
+    return this.http.get<Usuario[]>(`${this.url}/usuariosroladmin`)
+  }
   insert(usuario: Usuario) {
     return this.http.post(this.url, usuario);
   }

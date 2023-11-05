@@ -1,3 +1,4 @@
+import { ListMoviesAdministratorComponent } from './components/administrator/list-movies-administrator/list-movies-administrator.component';
 import { ListUsersAdministratorComponent } from './components/administrator/list-users-administrator/list-users-administrator.component';
 import { ProfileAdministratorComponent } from './components/administrator/profile-administrator/profile-administrator.component';
 import { NgModule } from '@angular/core';
@@ -7,41 +8,35 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AdministratorComponent } from './components/administrator/administrator.component';
 import { SupportsAdministratorComponent } from './components/administrator/supports-administrator/supports-administrator.component';
+import { CreaeditaUsersAdministratorComponent } from './components/administrator/creaedita-users-administrator/creaedita-users-administrator.component';
 
 const routes: Routes = [
   {
-    path: 'home',
-    component: HomeComponent,
+    path: 'home',component: HomeComponent,
   },
   {
-    path: 'login',
-    component: LoginComponent,
+    path: 'login', component: LoginComponent,
   },
   {
-    path: 'register',
-    component: RegisterComponent,
+    path: 'register',component: RegisterComponent,
   },
   {
-    path: 'administrator',
-    component: AdministratorComponent,
-    children: [
+    path: 'administrator',component: AdministratorComponent,children: [
       {
-        path: 'profile',
-        component: ProfileAdministratorComponent,
+        path: 'profile',component: ProfileAdministratorComponent,
       },
       {
-        path: 'supports',
-        component: SupportsAdministratorComponent,
+        path: 'supports',component: SupportsAdministratorComponent,
       },{
         path:'list-users',component:ListUsersAdministratorComponent
+      },{
+        path:'ediciones/:id',component:CreaeditaUsersAdministratorComponent
+      }
+      ,{
+        path:'list-movies',component:ListMoviesAdministratorComponent
       }
     ],
-  },
-  {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full',
-  },
+  }
 ];
 
 @NgModule({
