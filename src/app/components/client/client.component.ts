@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-client',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./client.component.css']
 })
 export class ClientComponent {
+  constructor(public route:ActivatedRoute){
 
+  }
 }

@@ -9,6 +9,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { AdministratorComponent } from './components/administrator/administrator.component';
 import { SupportsAdministratorComponent } from './components/administrator/supports-administrator/supports-administrator.component';
 import { CreaeditaUsersAdministratorComponent } from './components/administrator/creaedita-users-administrator/creaedita-users-administrator.component';
+import { ClientComponent } from './components/client/client.component';
+import { ListMoviesClientComponent } from './components/client/list-movies-client/list-movies-client.component';
 
 const routes: Routes = [
   {
@@ -36,6 +38,13 @@ const routes: Routes = [
         path:'list-movies',component:ListMoviesAdministratorComponent
       }
     ],
+  },
+  {
+    path: 'streamgo',component: ClientComponent,children: [
+      {
+        path:'begin',component: ListMoviesClientComponent,
+      }
+    ]
   }
 ];
 
