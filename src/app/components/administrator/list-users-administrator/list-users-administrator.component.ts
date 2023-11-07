@@ -18,9 +18,8 @@ export class ListUsersAdministratorComponent implements OnInit {
     'contrasena',
     'correo',
     'activado',
-    'accion01'
+    'accion01',
   ];
-  usuario: Usuario = new Usuario();
   @ViewChild(MatPaginator) paginatorClient!: MatPaginator;
   /**
    *   @ViewChild('paginatorAdmin') paginatorClient!: MatPaginator;
@@ -35,9 +34,9 @@ export class ListUsersAdministratorComponent implements OnInit {
     this.uS.listAdmin().subscribe((data) => {
       this.dataSourceAdmin = new MatTableDataSource(data);
     });
-    this.uS.getList().subscribe((data) => {
+     this.uS.getList().subscribe((data) => {
       this.dataSourceAdmin = new MatTableDataSource(data);
-    });
+    }); 
 
     //para los clientes
     this.uS.listClient().subscribe((data) => {
@@ -47,7 +46,9 @@ export class ListUsersAdministratorComponent implements OnInit {
     this.uS.getList().subscribe((data) => {
       this.dataSourceClient = new MatTableDataSource(data);
       this.dataSourceClient.paginator = this.paginatorClient;
-    });
+    }); 
+
+    /* DETALLE ES QUE CUANDO USO listClient o listAdmin  no actualiza automaticamente */
   }
 
   eliminar(id: number) {

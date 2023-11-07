@@ -17,5 +17,17 @@ export class ListMoviesAdministratorComponent implements OnInit {
       this.listaContenidos = data; //paso todos los datos a la data
     });
    
+    this.cS.getList().subscribe((data) => {
+      this.listaContenidos = data; //paso todos los datos a la data
+    });
+   
+  }
+
+  eliminar(id:number){
+    this.cS.delete(id).subscribe(data=>{
+      this.cS.list().subscribe(data=>{
+        this.cS.setList(data);
+      })
+    })
   }
 }

@@ -24,6 +24,9 @@
                 routerLink="/administrator/supports">Soporte</button>
             <button mat-flat-button class="btnMenu" color="primary"
                 routerLink="/administrator/list-movies">Peliculas</button>
+            <button mat-flat-button class="btnMenu cerrar" color="primary" routerLink="/login">
+                <i class="fa-solid fa-right-from-bracket fa-rotate-180 " style="color: #ffffff;font-size: 30px;"></i>
+            </button>
 
         </div>
     </mat-toolbar>
@@ -34,6 +37,7 @@
         <div [hidden]="route.children.length!==0">
             <!-- SE ELIMINA TODO LO DE AQUI CUANDO VAMOS A OTRO COMPONENTE -->
             <app-profile-administrator></app-profile-administrator>
+
         </div>
     </div>
 

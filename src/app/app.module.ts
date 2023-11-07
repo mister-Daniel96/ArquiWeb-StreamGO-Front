@@ -35,7 +35,10 @@ import { ListMoviesAdministratorComponent } from './components/administrator/lis
 
 import {MatCardModule} from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list';
+
 import { ListMoviesClientComponent } from './components/client/list-movies-client/list-movies-client.component';
+import { CreaeditaMoviesAdministratorComponent } from './components/administrator/creaedita-movies-administrator/creaedita-movies-administrator.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,6 +53,8 @@ import { ListMoviesClientComponent } from './components/client/list-movies-clien
     CreaeditaUsersAdministratorComponent,
     ListMoviesAdministratorComponent,
     ListMoviesClientComponent,
+
+    CreaeditaMoviesAdministratorComponent,
    
   ],
   imports: [

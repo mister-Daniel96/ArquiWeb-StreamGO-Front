@@ -39,7 +39,7 @@ export class CreaeditaUsersAdministratorComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe((data:Params) => {
       this.id = data['id'];
-      this.edicion = data['id'] != null;
+      this.edicion = data['id'] !== null;
       this.init();
     });
 
@@ -74,7 +74,7 @@ export class CreaeditaUsersAdministratorComponent implements OnInit {
         });
       }
 
-      this.router.navigate(['administrator/list-users']);
+      this.router.navigate(['/administrator/list-users']);
     } else {
       this.mensaje = 'Ingrese todos los datos!!!';
     }
@@ -96,6 +96,7 @@ export class CreaeditaUsersAdministratorComponent implements OnInit {
           passwordUsuario : new FormControl(data.passwordUsuario),
           emailUsuario : new FormControl(data.emailUsuario),
           enabledUsuario : new FormControl(data.enabledUsuario),
+     
         });
       });
     }

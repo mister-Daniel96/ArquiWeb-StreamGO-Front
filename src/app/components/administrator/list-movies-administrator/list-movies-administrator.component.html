@@ -2,50 +2,48 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
 
 <body>
 
-    <div class="container">
-        <h1>PELICULAS</h1>
-        <div class="card-deck  container">
-            <div class="card" *ngFor="let item of listaContenidos">
-                <!--  <div class="card-header">
-                {{ item.titleContenido }}
-              </div> -->
-                <div class="img">
-                    <img class="card-img-top " src="{{ item.urlImageContenido }}" alt="{{ item.titleContenido }}">
-                </div>
-                <div class="options">
-                    <button mat-mini-fab color="primary" aria-label="Example icon button with a menu icon">
-                        <!--                         <mat-icon></mat-icon>
- --> <i class="fa-solid fa-pen-to-square" style="color: #ffffff;"></i>
-                    </button>
-                    <button mat-mini-fab color="warn" aria-label="Example icon button with a menu icon">
-                        <!--    <mat-icon></mat-icon> -->
-                        <i class="fa-solid fa-trash" style="color: #ffffff;"></i>
-                    </button>
-                </div>
-                <!-- <div class="card-body">
-                <h5 class="card-title">Director: {{ item.directorContenido }}</h5>
-                <p class="card-text">{{ item.descripContenido }}</p>
-              </div>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item">Año: {{ item.yearContenido }}</li>
-                <li class="list-group-item">Género: {{ item.genderContenido }}</li>
-                <li class="list-group-item">País de origen: {{ item.originCountryContenido }}</li>
-                <li class="list-group-item">Idioma: {{ item.languageContenido }}</li>
-              </ul>
-              <div class="card-body">
-                <a href="{{ item.urlContenido }}" class="card-link">Ver</a>
-              </div> -->
-            </div>
-        </div>
+  <div class="container">
+    <h1 style="text-align: center;">PELICULAS</h1>
+    <div style="width: 100%;display: flex;justify-content: center;">
+      <button routerLink="/administrator/nuevo-movies" mat-raised-button color="primary" class="btnNuevo">Nuevo</button>
+    </div>
+
+    <div class="card-deck  container " style="margin-top:50px">
+
+      <mat-card class="example-card card" *ngFor="let item of listaContenidos">
+       <!--  <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>{{item.titleContenido}}</mat-card-title> 
+            <mat-card-subtitle>Dog Breed</mat-card-subtitle> 
+        </mat-card-header> -->
+        <img mat-card-image class="card-img-top" src="{{ item.urlImageContenido }}" alt="{{item.titleContenido}}">
+        <mat-card-content>
+
+        </mat-card-content>
+        <mat-card-actions class="options">
+          <button mat-mini-fab color="primary" aria-label="Example icon button with a menu icon"
+            [routerLink]="['/administrator/ediciones-movies',item.idContenido]">
+            <!--<mat-icon></mat-icon>-->
+            <i class="fa-solid fa-pen-to-square" style="color: #ffffff;"></i>
+          </button>
+          <button (click)="eliminar(item.idContenido)" mat-mini-fab color="warn"
+            aria-label="Example icon button with a menu icon">
+            <!--    <mat-icon></mat-icon> -->
+            <i class="fa-solid fa-trash" style="color: #ffffff;"></i>
+          </button>
+        </mat-card-actions>
+      </mat-card>
 
     </div>
+
+  </div>
 
 </body>
 
