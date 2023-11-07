@@ -43,6 +43,8 @@ const routes: Routes = [
         path:'ediciones-movies/:id',component:CreaeditaMoviesAdministratorComponent
       }
     ],
+  },{
+    path:"",redirectTo:'home',pathMatch:"full"
   }
 ];
 

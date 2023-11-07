@@ -114,20 +114,27 @@
                 </mat-error>
             </mat-form-field>
             <br>
-            <mat-form-field class="example-full-width">
-                <mat-label>ListaReproduccion</mat-label>
-                <input matInput placeholder="lista" formControlName="listadereproduccion">
+            
+            <!--  <mat-form-field>
+                <mat-label>Listas</mat-label>
+                <mat-select formControlName="listadereproduccion">
+                    <mat-option *ngFor="let t of listas" [value]="t.idListaDeReproduccion">
+                        {{t.nameListaDeReproduccion}}
+                    </mat-option>
+                </mat-select>
                 <mat-error *ngIf="obtenerControlCampo('listadereproduccion')?.errors?.['required']">
-                    la lista es obligatorio.
+                    La  lista es obligatorio.
                 </mat-error>
-            </mat-form-field>
-            <br>
-
+            </mat-form-field> -->
             <br>
            
 
-            <button mat-raised-button color="primary">Aceptar</button>
+            <button class="btnAceptar" mat-raised-button color="primary">Aceptar</button>
         </form>
+        <div class="imgActual">
+            <h2 *ngIf="edicion" style="width: 100%;text-align: center; font-size: 30px;">Editando</h2>
+            <img src="{{imgActual}}" alt="" >
+        </div>
     </div>
 
 </body>

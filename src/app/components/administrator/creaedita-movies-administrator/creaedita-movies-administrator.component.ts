@@ -1,3 +1,5 @@
+import { ListaDeReproduccion } from './../../../models/listaDeReproduccion';
+import { ListadeReproduccionService } from './../../../services/listade-reproduccion.service';
 import { Contenido } from './../../../models/contenido';
 import { Component, OnInit } from '@angular/core';
 import {
@@ -25,27 +27,32 @@ export class CreaeditaMoviesAdministratorComponent implements OnInit {
   id: number = 0;
   edicion: boolean = false;
 
+  imgActual:string='';
   types: { value: string; viewValue: string }[] = [
     { value: 'pelicula', viewValue: 'Pelicula' },
   ];
   languajes: { value: string; viewValue: string }[] = [
     { value: 'latino', viewValue: 'Latino' },
-    { value: 'americano', viewValue: 'Americano' }
+    { value: 'americano', viewValue: 'Americano' },
   ];
   genders: { value: string; viewValue: string }[] = [
-    { value: 'pelicula', viewValue: 'Pelicula' },
     { value: 'comedia', viewValue: 'Comedia' },
     { value: 'drama', viewValue: 'Drama' },
     { value: 'accion', viewValue: 'Acción' },
-    { value: 'terror', viewValue: 'Terror' }
+    { value: 'terror', viewValue: 'Terror' },
   ];
+  listas: ListaDeReproduccion[] = [];
   constructor(
     private cS: ContenidoService,
     private formBuilder: FormBuilder,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private lS: ListadeReproduccionService
   ) {}
   ngOnInit(): void {
+    this.lS.list().subscribe((data) => {
+      this.listas = data;
+    });
     this.route.params.subscribe((data: Params) => {
       this.id = data['id'];
       this.edicion = data['id'] != null;
@@ -64,7 +71,7 @@ export class CreaeditaMoviesAdministratorComponent implements OnInit {
       urlContenido: ['', Validators.required],
       urlImageContenido: ['', Validators.required],
       languageContenido: ['', Validators.required],
-      listadereproduccion: [''],
+      listadereproduccion: [] //siempre es asi cuando es opcional si ponemos  ' '   da problemas
     });
   }
 
@@ -82,7 +89,8 @@ export class CreaeditaMoviesAdministratorComponent implements OnInit {
       this.contenido.urlContenido = this.form.value.urlContenido;
       this.contenido.urlImageContenido = this.form.value.urlImageContenido;
       this.contenido.languageContenido = this.form.value.languageContenido;
-      this.contenido.listadereproduccion = this.form.value.listadereproduccion;
+
+      this.contenido.listadereproduccion=this.form.value.listadereproduccion;//no guarda ni hace nada solo nullo
 
       if (this.edicion) {
         this.cS.update(this.contenido).subscribe((data) => {
@@ -125,10 +133,10 @@ export class CreaeditaMoviesAdministratorComponent implements OnInit {
           urlImageContenido: new FormControl(data.urlImageContenido),
           languageContenido: new FormControl(data.languageContenido),
           listadereproduccion: new FormControl(data.listadereproduccion),
+          
         });
+        this.imgActual=data.urlImageContenido;
       });
     }
   }
 }
-
-
