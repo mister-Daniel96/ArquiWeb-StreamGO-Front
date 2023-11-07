@@ -72,6 +72,9 @@
         <div class="table-clients container">
             <h1 style="text-align: left;">Clientes</h1>
             <div class="mat-elevation-z8">
+                <mat-form-field>
+                    <input matInput (keyup)=filter($event) placeholder="Ingresa un nombre"/>
+                  </mat-form-field>
                 <table mat-table [dataSource]="dataSourceClient">
 
                     <ng-container matColumnDef="codigo">
