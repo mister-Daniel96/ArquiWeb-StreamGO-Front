@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="form ">
+        <form class="example-form" [formGroup]="form" (submit)="aceptar()">
+            <mat-form-field class="example-full-width" *ngIf="edicion">
+                <mat-label>Codigo</mat-label>
+                <input matInput placeholder="Codigo" formControlName="idContenido" readonly="">
+                <mat-error *ngIf="obtenerControlCampo('idContenido')?.errors?.['required']">
+                    El codigo es obligatorio.
+                </mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field class="example-full-width">
+                <mat-label>Titulo</mat-label>
+                <input matInput placeholder="Titulo" formControlName="titleContenido">
+                <mat-error *ngIf="obtenerControlCampo('titleContenido')?.errors?.['required']">
+                    El titulo es obligatorio.
+                </mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field class="example-full-width">
+                <mat-label>Descripcion</mat-label>
+                <textarea class="textArea" matInput placeholder="Descripcion"
+                    formControlName="descripContenido"></textarea>
+            </mat-form-field>
+            <!-- AÑOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO -->
+            <br>
+            <mat-form-field appearance="fill" class="example-full-width">
+                <input matInput placeholder="Ingrese fecha" [matDatepicker]="picker" formControlName="yearContenido"
+                    [max]="maxFecha" />
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <mat-error *ngIf="obtenerControlCampo('yearContenido')?.errors?.['required']">
+                    La fecha de creación es obligatoria.
+                </mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field class="example-full-width">
+                <mat-label>Director</mat-label>
+                <input matInput placeholder="Director" formControlName="directorContenido">
+                <mat-error *ngIf="obtenerControlCampo('directorContenido')?.errors?.['required']">
+                    El Director es obligatorio.
+                </mat-error>
+            </mat-form-field>
+            <br>
+            <!-- TIPOSSSSSSSS -->
+            <mat-form-field>
+                <mat-label>Tipos</mat-label>
+                <mat-select formControlName="typeContenido">
+                    <mat-option *ngFor="let t of types" [value]="t.value">
+                        {{t.viewValue}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="obtenerControlCampo('typeContenido')?.errors?.['required']">
+                    El tipo es obligatorio.
+                </mat-error>
+            </mat-form-field>
+            <!-- GENEROSSSSSSSSS -->
+            <br>
+            <mat-form-field>
+                <mat-label>Genero</mat-label>
+                <mat-select formControlName="genderContenido">
+                    <mat-option *ngFor="let g of genders" [value]="g.value">
+                        {{g.viewValue}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="obtenerControlCampo('genderContenido')?.errors?.['required']">
+                    El generoes obligatorio.
+                </mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field class="example-full-width">
+                <mat-label>Origen</mat-label>
+                <input matInput placeholder="Origen" formControlName="originCountryContenido">
+                <mat-error *ngIf="obtenerControlCampo('originCountryContenido')?.errors?.['required']">
+                    El Origen es obligatorio.
+                </mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field class="example-full-width">
+                <mat-label>URL-video</mat-label>
+                <input matInput placeholder="URL-video" formControlName="urlContenido">
+                <mat-error *ngIf="obtenerControlCampo('urlContenido')?.errors?.['required']">
+                    la url es obligatorio.
+                </mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field class="example-full-width">
+                <mat-label>URL-image</mat-label>
+                <input matInput placeholder="URL-image" formControlName="urlImageContenido">
+                <mat-error *ngIf="obtenerControlCampo('urlImageContenido')?.errors?.['required']">
+                    la url es obligatorio.
+                </mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <mat-label>Idioma</mat-label>
+                <mat-select formControlName="languageContenido">
+                    <mat-option *ngFor="let t of languajes" [value]="t.value">
+                        {{t.viewValue}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="obtenerControlCampo('languageContenido')?.errors?.['required']">
+                    El Isioma es obligatorio.
+                </mat-error>
+            </mat-form-field>
+            <br>
+            
+            <!--  <mat-form-field>
+                <mat-label>Listas</mat-label>
+                <mat-select formControlName="listadereproduccion">
+                    <mat-option *ngFor="let t of listas" [value]="t.idListaDeReproduccion">
+                        {{t.nameListaDeReproduccion}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="obtenerControlCampo('listadereproduccion')?.errors?.['required']">
+                    La  lista es obligatorio.
+                </mat-error>
+            </mat-form-field> -->
+            <br>
+           
+
+            <button class="btnAceptar" mat-raised-button color="primary">Aceptar</button>
+        </form>
+        <div class="imgActual">
+            <h2 *ngIf="edicion" style="width: 100%;text-align: center; font-size: 30px;">Editando</h2>
+            <img src="{{imgActual}}" alt="" >
+        </div>
+    </div>
+
+</body>
+
+</html>

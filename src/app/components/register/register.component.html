@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+   <div class="caja">
+
+    <div class="form-img">
+        <img src="../../../assets/images/avengers.jpg" alt="">
+    </div>
+    <div class="form">
+        <i class="fa-solid fa-user-plus img-user"></i>
+        <h2 class="title-user">Register</h2>
+        <form class="example-form table-form">
+            <mat-form-field class="example-full-width">
+                <mat-label>Username</mat-label>
+                <input matInput placeholder="Username">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                    [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>E-mail</mat-label>
+                <input matInput placeholder="pat@example.com" [formControl]="email" required>
+                <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+            </mat-form-field>
+            <button mat-raised-button color="primary">
+                <!-- routerLink="/login"    NO VA EL ESTO PORQUE SE TIENE QUE VALIDA ESTO DE REDIRIGIR 
+                SERA POR CODIGO-->
+                Register </button>
+        </form>
+        <button mat-flat-button color="basic" class="btnRegistrar" routerLink="/login">
+            ¿Ya tienes una cuenta? <span>Login</span>
+        </button>
+
+    </div>
+
+    
+
+   </div>
+</body>
+
+</html>

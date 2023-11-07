@@ -1,0 +1,188 @@
+* {
+    box-sizing: border-box;
+}
+html{
+    scroll-behavior: smooth;
+}
+
+
+header{
+    position: sticky;
+    top: 0;
+    z-index: 11;
+}
+.navbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.navbar img {
+    width: 180px;
+}
+
+.menu button {
+    margin: 0 10px;
+    box-shadow: none;
+    transition: 0.2s all;
+}
+
+.menu button:hover {
+    transform: scale(1.2);
+}
+
+.menu button:nth-child(5) {
+    background-color: whitesmoke;
+    color: #3F51B5;
+}
+a{
+    font-size: hidden;
+    text-decoration: none;
+    color:whitesmoke;
+}
+.container {
+    padding: 20px 40px;
+}
+
+#portada {
+    /*  max-height: 80vh;  */
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.portada-info {
+    width: 55%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+
+.portada-info .saludo {
+    display: block;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+
+
+.portada-info h1 {
+    font-size: 50px;
+    font-weight: bold;
+    line-height: 1.1;
+}
+
+.portada-info p {
+    width: 70%;
+    text-align: justify;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.portada-img {
+    width: 35%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.portada-img .mascara {
+    position: relative;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50% 0 0 50%;
+    overflow: hidden;
+    margin-left: auto;
+}
+
+.portada-img .mascara img {
+    height: 100%;
+}
+
+.portada-img .mascara span {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #3f51b579;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+
+/* AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA */
+.btnRegistrar {
+    position: relative;
+    margin-top: 50px;
+    background-color: whitesmoke;
+    color: #3f51b5da;
+    width: 200px;
+    height: 45px;
+    font-weight: bold;
+    overflow: hidden;
+}
+
+.portada-img {
+    width: 45%;
+}
+
+.btnRegistrar::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: -200px;
+    width: 100%;
+    height: 45px;
+    background-color: #3f51b5da;
+    color: whitesmoke;
+    transition: 0.3s all;
+}
+
+.btnRegistrar:hover::before {
+    top: 0;
+    left: 0;
+}
+
+.btnRegistrar:hover span {
+    color: white;
+    z-index: 2;
+}
+
+/*AAAAAAAAAAAAAAAAAAAAAAAAA */
+
+#variedad {
+    margin-top: 80px;
+    background:  linear-gradient(to top, #4a608a 0%, rgb(186, 200, 224) 100%),url(../../../assets/images/avengers.jpg);
+    padding: 20px 40px;
+    padding-top: 40px;
+}
+
+#variedad h2 {
+    text-align: center;
+    font-size: 35px;
+    transition: 0.2s all;
+}
+#variedad h2:hover {
+   font-weight: bold;
+   
+}
+
+#variedad img {
+    width: 100%;
+    height: 90px;
+}
+
+
+#beneficios{
+    margin-top: 20px;
+}
+#beneficios h2{
+    text-align: center;
+}
