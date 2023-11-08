@@ -45,9 +45,9 @@ export class CreaeditaUsersAdministratorComponent implements OnInit {
 
     this.form = this.formBuilder.group({
       idUsuario: [''],
-      nameUsuario: ['', Validators.required],
+      nameUsuario: ['', Validators.required,Validators.toString],
       passwordUsuario: ['', Validators.required],
-      emailUsuario: ['', Validators.required],
+      emailUsuario: ['', Validators.required,Validators.email],
       enabledUsuario: ['', Validators.required],
     });
   }
@@ -76,7 +76,7 @@ export class CreaeditaUsersAdministratorComponent implements OnInit {
 
       this.router.navigate(['/administrator/list-users']);
     } else {
-      this.mensaje = 'Ingrese todos los datos!!!';
+      this.mensaje = 'Ingrese todos los datos e ingrese los datos correctos!!';
     }
   }
   obtenerControlCampo(nombreCampo: string) {

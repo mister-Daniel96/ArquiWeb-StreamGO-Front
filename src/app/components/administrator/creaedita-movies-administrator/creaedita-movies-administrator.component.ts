@@ -22,7 +22,7 @@ export class CreaeditaMoviesAdministratorComponent implements OnInit {
   contenido: Contenido = new Contenido();
   mensaje: string = '';
 
-  maxFecha: Date = moment().add(-1, 'days').toDate();
+  maxFecha: Date = moment().toDate();
 
   id: number = 0;
   edicion: boolean = false;
@@ -105,9 +105,11 @@ export class CreaeditaMoviesAdministratorComponent implements OnInit {
           });
         });
       }
+     
       this.router.navigate(['administrator/list-movies']);
     } else {
       this.mensaje = 'Ingrese todos los datos!!!';
+      
     }
   }
   obtenerControlCampo(nombreCampo: string) {
@@ -139,4 +141,6 @@ export class CreaeditaMoviesAdministratorComponent implements OnInit {
       });
     }
   }
+
+  
 }

@@ -36,6 +36,7 @@
             <mat-form-field appearance="fill" class="example-full-width">
                 <input matInput placeholder="Ingrese fecha" [matDatepicker]="picker" formControlName="yearContenido"
                     [max]="maxFecha" />
+                <!-- [max]="maxFecha" -->
                 <mat-hint>MM/DD/YYYY</mat-hint>
                 <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
@@ -114,7 +115,7 @@
                 </mat-error>
             </mat-form-field>
             <br>
-            
+
             <!--  <mat-form-field>
                 <mat-label>Listas</mat-label>
                 <mat-select formControlName="listadereproduccion">
@@ -127,13 +128,13 @@
                 </mat-error>
             </mat-form-field> -->
             <br>
-           
+
 
             <button class="btnAceptar" mat-raised-button color="primary">Aceptar</button>
         </form>
         <div class="imgActual">
             <h2 *ngIf="edicion" style="width: 100%;text-align: center; font-size: 30px;">Editando</h2>
-            <img src="{{imgActual}}" alt="" >
+            <img src="{{imgActual}}" alt="">
         </div>
     </div>
 
