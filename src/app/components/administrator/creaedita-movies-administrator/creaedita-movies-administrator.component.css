@@ -1,0 +1,30 @@
+.textArea {
+    resize: none;
+}
+
+.example-form {
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+mat-form-field {
+    width: 45%;
+    margin: 5px 10px;
+}
+
+.btnAceptar {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.form {
+    display: flex;
+}
+
+.imgActual {
+    width: 50%;
+    display: grid;
+    place-content: center;
+}

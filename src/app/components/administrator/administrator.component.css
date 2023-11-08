@@ -15,7 +15,10 @@
      /*   padding: 10px 15px; */
      padding: 20px 0;
  }
-
+.cerrar{
+    position: absolute;
+    bottom: 0;
+}
  .img-user {
      width: 100%;
      background-color: transparent;
@@ -58,4 +61,5 @@
  /*   CONTENIDO */
  .contenido {
      margin-left: 160px;
+     padding: 10px 20px;
  }
