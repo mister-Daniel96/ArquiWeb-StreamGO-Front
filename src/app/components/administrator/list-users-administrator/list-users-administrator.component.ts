@@ -17,9 +17,9 @@ export class ListUsersAdministratorComponent implements OnInit {
   }
 
   filter(en: any) {
-    this.dataSourceClient.filter = en.target.value.trim()
+    /* this.dataSourceClient.filter = en.target.value.trim()
     this.dataSourceClient.filterPredicate = (data: Usuario, filter: string) => {
       return data.nameUsuario.includes(filter);
-    };
+    }; */
   }
 }
