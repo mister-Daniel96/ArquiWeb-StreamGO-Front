@@ -40,6 +40,10 @@ import { ListMoviesClientComponent } from './components/client/list-movies-clien
 import { CreaeditaMoviesAdministratorComponent } from './components/administrator/creaedita-movies-administrator/creaedita-movies-administrator.component';
 import { DetailsMoviesClientComponent } from './components/client/details-movies-client/details-movies-client.component';
 
+
+import { TableAdminComponent } from './components/administrator/list-users-administrator/table-admin/table-admin.component';
+import { TableClientComponent } from './components/administrator/list-users-administrator/table-client/table-client.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,7 +60,9 @@ import { DetailsMoviesClientComponent } from './components/client/details-movies
     ListMoviesClientComponent,
 
     CreaeditaMoviesAdministratorComponent,
-      DetailsMoviesClientComponent,
+    DetailsMoviesClientComponent,
+    TableAdminComponent,
+    TableClientComponent,
    
   ],
   imports: [

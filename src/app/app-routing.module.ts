@@ -26,7 +26,7 @@ const routes: Routes = [
     path: 'register',component: RegisterComponent,
   },
   {
-    path: 'administrator',component: AdministratorComponent,children: [
+    path: 'administrator/:id',component: AdministratorComponent,children: [
       {
         path: 'profile',component: ProfileAdministratorComponent,
       },

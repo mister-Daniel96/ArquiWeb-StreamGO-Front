@@ -16,7 +16,23 @@
 
         <div class="btnOptions">
 
-            <button mat-flat-button class="btnMenu" color="primary" routerLink="/administrator/profile">Mi
+            <!-- <button mat-flat-button class="btnMenu" color="primary" [routerLink]="['/administrator',id,'profile']">Mi
+                Perfil</button>  -->
+                <!-- sera asi porque empieza en el padre -->
+            <button mat-flat-button class="btnMenu" color="primary" [routerLink]="['/administrator',id]">Mi
+                Perfil</button>
+            <button mat-flat-button class="btnMenu" color="primary"
+                [routerLink]="['/administrator',id,'list-users']">Usuarios</button>
+            <button mat-flat-button class="btnMenu" color="primary"
+                [routerLink]="['/administrator',id,'supports']">Soporte</button>
+            <button mat-flat-button class="btnMenu" color="primary"
+                [routerLink]="['/administrator',id,'list-movies']">Peliculas</button>
+            <button mat-flat-button class="btnMenu cerrar" color="primary" routerLink="/login">
+                <i class="fa-solid fa-right-from-bracket fa-rotate-180 " style="color: #ffffff;font-size: 30px;"></i>
+            </button>
+            <!-- DENTRO DE LA RUTA DE ADMINISTRADORES USAMOS EL   administrator/:id -->
+
+            <!-- <button mat-flat-button class="btnMenu" color="primary" routerLink="/administrator/profile">Mi
                 Perfil</button>
             <button mat-flat-button class="btnMenu" color="primary"
                 routerLink="/administrator/list-users">Usuarios</button>
@@ -26,7 +42,7 @@
                 routerLink="/administrator/list-movies">Peliculas</button>
             <button mat-flat-button class="btnMenu cerrar" color="primary" routerLink="/login">
                 <i class="fa-solid fa-right-from-bracket fa-rotate-180 " style="color: #ffffff;font-size: 30px;"></i>
-            </button>
+            </button> -->
 
         </div>
     </mat-toolbar>
@@ -38,6 +54,8 @@
             <!-- SE ELIMINA TODO LO DE AQUI CUANDO VAMOS A OTRO COMPONENTE -->
             <app-profile-administrator></app-profile-administrator>
 
+            <!--  <app-list-users-administrator></app-list-users-administrator>
+ -->
         </div>
     </div>
 

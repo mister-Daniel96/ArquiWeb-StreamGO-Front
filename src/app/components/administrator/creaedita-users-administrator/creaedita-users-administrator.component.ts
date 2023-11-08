@@ -21,7 +21,7 @@ export class CreaeditaUsersAdministratorComponent implements OnInit {
 
   id: number = 0;
   edicion: boolean = false;
-
+  idPantent: number = 0;
   enabledTypes: { value: string; viewValue: string }[] = [
     { value: 'true', viewValue: 'Enabled' },
     { value: 'false', viewValue: 'Disabled' },
@@ -37,7 +37,12 @@ export class CreaeditaUsersAdministratorComponent implements OnInit {
   /* email = new FormControl('', [Validators.required, Validators.email]); */
 
   ngOnInit(): void {
-    this.route.params.subscribe((data:Params) => {
+    //captura parametros
+    this.route.parent?.params.subscribe((data) => {
+      this.idPantent = data['id'];
+    });
+    //capturando de la variable hijo
+    this.route.params.subscribe((data: Params) => {
       this.id = data['id'];
       this.edicion = data['id'] !== null;
       this.init();
@@ -45,9 +50,9 @@ export class CreaeditaUsersAdministratorComponent implements OnInit {
 
     this.form = this.formBuilder.group({
       idUsuario: [''],
-      nameUsuario: ['', Validators.required],
+      nameUsuario: ['', Validators.required, Validators.toString],
       passwordUsuario: ['', Validators.required],
-      emailUsuario: ['', Validators.required],
+      emailUsuario: ['', Validators.required, Validators.email],
       enabledUsuario: ['', Validators.required],
     });
   }
@@ -74,9 +79,9 @@ export class CreaeditaUsersAdministratorComponent implements OnInit {
         });
       }
 
-      this.router.navigate(['/administrator/list-users']);
+      this.router.navigate([`/administrator/${this.idPantent}/list-users`]);
     } else {
-      this.mensaje = 'Ingrese todos los datos!!!';
+      this.mensaje = 'Ingrese todos los datos e ingrese los datos correctos!!';
     }
   }
   obtenerControlCampo(nombreCampo: string) {
@@ -91,12 +96,11 @@ export class CreaeditaUsersAdministratorComponent implements OnInit {
     if (this.edicion) {
       this.uS.listId(this.id).subscribe((data) => {
         this.form = new FormGroup({
-          idUsuario : new FormControl(data.idUsuario),
-          nameUsuario : new FormControl(data.nameUsuario),
-          passwordUsuario : new FormControl(data.passwordUsuario),
-          emailUsuario : new FormControl(data.emailUsuario),
-          enabledUsuario : new FormControl(data.enabledUsuario),
-     
+          idUsuario: new FormControl(data.idUsuario),
+          nameUsuario: new FormControl(data.nameUsuario),
+          passwordUsuario: new FormControl(data.passwordUsuario),
+          emailUsuario: new FormControl(data.emailUsuario),
+          enabledUsuario: new FormControl(data.enabledUsuario),
         });
       });
     }
