@@ -13,7 +13,7 @@ import { CreaeditaUsersAdministratorComponent } from './components/administrator
 import { ClientComponent } from './components/client/client.component';
 import { ListMoviesClientComponent } from './components/client/list-movies-client/list-movies-client.component';
 import { CreaeditaMoviesAdministratorComponent } from './components/administrator/creaedita-movies-administrator/creaedita-movies-administrator.component';
-import { DetailsMoviesClientComponent } from './components/client/details-movies-client/details-movies-client.component';
+import { ViewMoviesClientComponent } from './components/client/view-movies-client/view-movies-client.component';
 
 const routes: Routes = [
   {
@@ -55,7 +55,7 @@ const routes: Routes = [
         path:'home',component: ListMoviesClientComponent,
       },
       {
-        path:'movie-detail/:id',component: DetailsMoviesClientComponent,
+        path:'movie-detail/:id',component: ViewMoviesClientComponent,
       }
       
     ]
