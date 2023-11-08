@@ -38,6 +38,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import { CreaeditaMoviesAdministratorComponent } from './components/administrator/creaedita-movies-administrator/creaedita-movies-administrator.component';
 import { TableAdminComponent } from './components/administrator/list-users-administrator/table-admin/table-admin.component';
 import { TableClientComponent } from './components/administrator/list-users-administrator/table-client/table-client.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { ListMoviesClientComponent } from './components/client/list-movies-client/list-movies-client.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,6 +56,7 @@ import { TableClientComponent } from './components/administrator/list-users-admi
     CreaeditaMoviesAdministratorComponent,
     TableAdminComponent,
     TableClientComponent,
+    ListMoviesClientComponent,
    
   ],
   imports: [
@@ -84,7 +87,8 @@ import { TableClientComponent } from './components/administrator/list-users-admi
     MatChipsModule,
     MatRadioModule,
     MatCardModule,
-    MatGridListModule
+    MatGridListModule,
+    MatSidenavModule
     
   ],
   providers: [],

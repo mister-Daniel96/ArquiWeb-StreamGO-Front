@@ -7,6 +7,11 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./administrator.component.css'],
 })
 export class AdministratorComponent implements OnInit {
+
+  
+
+
+
   /* ES COMO SI FUERA EL DESSERT */
   id: number = 0;
   active: boolean = false;

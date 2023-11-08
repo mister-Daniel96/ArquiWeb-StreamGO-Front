@@ -1,3 +1,4 @@
+import { ClientComponent } from './components/client/client.component';
 import { ListMoviesAdministratorComponent } from './components/administrator/list-movies-administrator/list-movies-administrator.component';
 import { ListUsersAdministratorComponent } from './components/administrator/list-users-administrator/list-users-administrator.component';
 import { ProfileAdministratorComponent } from './components/administrator/profile-administrator/profile-administrator.component';
@@ -43,7 +44,11 @@ const routes: Routes = [
         path:'ediciones-movies/:id',component:CreaeditaMoviesAdministratorComponent
       }
     ],
-  },{
+  },
+  {
+    path:'client',component:ClientComponent
+  }
+  ,{
     path:"",redirectTo:'home',pathMatch:"full"
   }
 ];
