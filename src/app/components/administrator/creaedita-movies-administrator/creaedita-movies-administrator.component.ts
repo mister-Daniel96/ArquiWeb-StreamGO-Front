@@ -26,8 +26,8 @@ export class CreaeditaMoviesAdministratorComponent implements OnInit {
 
   id: number = 0;
   edicion: boolean = false;
-
-  imgActual:string='';
+  idParent: number = 0;
+  imgActual: string = '';
   types: { value: string; viewValue: string }[] = [
     { value: 'pelicula', viewValue: 'Pelicula' },
   ];
@@ -50,6 +50,10 @@ export class CreaeditaMoviesAdministratorComponent implements OnInit {
     private lS: ListadeReproduccionService
   ) {}
   ngOnInit(): void {
+    this.route.parent?.params.subscribe((data) => {
+      this.idParent = data['id'];
+    });
+
     this.lS.list().subscribe((data) => {
       this.listas = data;
     });
@@ -71,7 +75,7 @@ export class CreaeditaMoviesAdministratorComponent implements OnInit {
       urlContenido: ['', Validators.required],
       urlImageContenido: ['', Validators.required],
       languageContenido: ['', Validators.required],
-      listadereproduccion: [] //siempre es asi cuando es opcional si ponemos  ' '   da problemas
+      listadereproduccion: [], //siempre es asi cuando es opcional si ponemos  ' '   da problemas
     });
   }
 
@@ -90,7 +94,7 @@ export class CreaeditaMoviesAdministratorComponent implements OnInit {
       this.contenido.urlImageContenido = this.form.value.urlImageContenido;
       this.contenido.languageContenido = this.form.value.languageContenido;
 
-      this.contenido.listadereproduccion=this.form.value.listadereproduccion;//no guarda ni hace nada solo nullo
+      this.contenido.listadereproduccion = this.form.value.listadereproduccion; //no guarda ni hace nada solo nullo
 
       if (this.edicion) {
         this.cS.update(this.contenido).subscribe((data) => {
@@ -105,11 +109,10 @@ export class CreaeditaMoviesAdministratorComponent implements OnInit {
           });
         });
       }
-     
-      this.router.navigate(['administrator/list-movies']);
+
+      this.router.navigate([`administrator/${this.idParent}/list-movies`]);
     } else {
       this.mensaje = 'Ingrese todos los datos!!!';
-      
     }
   }
   obtenerControlCampo(nombreCampo: string) {
@@ -135,12 +138,9 @@ export class CreaeditaMoviesAdministratorComponent implements OnInit {
           urlImageContenido: new FormControl(data.urlImageContenido),
           languageContenido: new FormControl(data.languageContenido),
           listadereproduccion: new FormControl(data.listadereproduccion),
-          
         });
-        this.imgActual=data.urlImageContenido;
+        this.imgActual = data.urlImageContenido;
       });
     }
   }
-
-  
 }

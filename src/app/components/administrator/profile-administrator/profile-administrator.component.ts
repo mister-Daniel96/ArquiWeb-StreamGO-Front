@@ -23,27 +23,31 @@ export class ProfileAdministratorComponent implements OnInit {
   ) {}
   ngOnInit(): void {
     // PARA ACCEDER A LA RUTA ACTUAL SI TENGO
-    /* this.route.params.subscribe((data) => {
+    /* SI ESTE COMPONENTE ES LLAMADO DIRECTAMENTE POR EL PADRE SE USA EL PARAMS
+     */
+    this.route.params.subscribe((data) => {
       this.id = data['id'];
       this.active = data['id'] !== null;
-      this.init();
-    }); */
+       this.init();
+    });
 
     //PARA ACCEDER A LA URL DEL PADRE
-     this.route.parent?.params.subscribe((data) => {
-      this.id = data['id'];
-      this.active = data['id'] !== null;
-      // Usa this.parentId según sea necesario
-      this.init();
-    }); 
+    /* if (!this.active) {
+      this.route.parent?.params.subscribe((data) => {
+        this.id = data['id'];
+        this.active = data['id'] != null;
+        // Usa this.parentId según sea necesario
+        this.init();
+      });
+    } */
 
     //Aqui defino como sera el formulario sin esto no me aparece todo lo del init
     this.form = this.formBuilder.group({
-      idUsuario: [],
-      nameUsuario: [],
-      passwordUsuario: [],
-      emailUsuario: [],
-      enabledUsuario: [],
+      idUsuario: [''],
+      nameUsuario: [''],
+      passwordUsuario: [''],
+      emailUsuario: [''],
+      enabledUsuario: [''],
     });
   }
 
@@ -57,7 +61,6 @@ export class ProfileAdministratorComponent implements OnInit {
           emailUsuario: new FormControl(data.emailUsuario),
           enabledUsuario: new FormControl(data.enabledUsuario),
         });
-        this.usuario.idUsuario = data.idUsuario;
       });
     }
   }

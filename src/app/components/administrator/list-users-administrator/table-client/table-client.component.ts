@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { ActivatedRoute } from '@angular/router';
 import { Usuario } from 'src/app/models/usuario';
 import { UsuarioService } from 'src/app/services/usuario.service';
 
@@ -9,7 +10,7 @@ import { UsuarioService } from 'src/app/services/usuario.service';
   templateUrl: './table-client.component.html',
   styleUrls: ['./table-client.component.css'],
 })
-export class TableClientComponent  implements OnInit{
+export class TableClientComponent implements OnInit {
   dataSource: MatTableDataSource<Usuario> = new MatTableDataSource();
   displayedColumns: string[] = [
     'codigo',
@@ -19,6 +20,7 @@ export class TableClientComponent  implements OnInit{
     'activado',
     'accion01',
   ];
+  id: number = 0;
   @ViewChild(MatPaginator) paginatorClient!: MatPaginator;
   /**
    *   @ViewChild('paginatorAdmin') paginatorClient!: MatPaginator;
@@ -27,8 +29,11 @@ export class TableClientComponent  implements OnInit{
    *    = caso contrario solo va a funcionar uno, cada uno tiene un identificador
    */
 
-  constructor(private uS: UsuarioService) {}
+  constructor(private uS: UsuarioService, private route: ActivatedRoute) {}
   ngOnInit(): void {
+    this.route.parent?.params.subscribe((data) => {
+      this.id = data['id'];
+    });
     //para los clientes
     this.uS.listClient().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);

@@ -16,7 +16,10 @@
 
         <div class="btnOptions">
 
-            <button mat-flat-button class="btnMenu" color="primary" [routerLink]="['/administrator',id,'profile']">Mi
+            <!-- <button mat-flat-button class="btnMenu" color="primary" [routerLink]="['/administrator',id,'profile']">Mi
+                Perfil</button>  -->
+                <!-- sera asi porque empieza en el padre -->
+            <button mat-flat-button class="btnMenu" color="primary" [routerLink]="['/administrator',id]">Mi
                 Perfil</button>
             <button mat-flat-button class="btnMenu" color="primary"
                 [routerLink]="['/administrator',id,'list-users']">Usuarios</button>
@@ -51,6 +54,8 @@
             <!-- SE ELIMINA TODO LO DE AQUI CUANDO VAMOS A OTRO COMPONENTE -->
             <app-profile-administrator></app-profile-administrator>
 
+            <!--  <app-list-users-administrator></app-list-users-administrator>
+ -->
         </div>
     </div>
 

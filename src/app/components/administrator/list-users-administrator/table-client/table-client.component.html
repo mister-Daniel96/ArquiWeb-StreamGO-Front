@@ -45,7 +45,7 @@
                 <th mat-header-cell *matHeaderCellDef> Acciones </th>
                 <td mat-cell *matCellDef="let element">
                     <button mat-raised-button color="primary"
-                        [routerLink]="['/administrator/ediciones-users', element.idUsuario]">
+                        [routerLink]="['/administrator',id,'ediciones-users', element.idUsuario]">
                         <i class="fa-solid fa-pen-to-square" style="color: #ffffff;"></i>
                     </button>
                 </td>

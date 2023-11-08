@@ -26,3 +26,7 @@ si soy hijo y quiero acceder a las variables de las rutas de los padres debo usa
         RUTAS
         MENU 
         TS PADRE ADMINISTRADOR
+
+
+        #### OTRA EXCEPCION
+        si eres hijo y eres llamado directamente por el padre se usa solo el param y no el parent
