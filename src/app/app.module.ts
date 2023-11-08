@@ -38,6 +38,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 
 import { ListMoviesClientComponent } from './components/client/list-movies-client/list-movies-client.component';
 import { CreaeditaMoviesAdministratorComponent } from './components/administrator/creaedita-movies-administrator/creaedita-movies-administrator.component';
+import { DetailsMoviesClientComponent } from './components/client/details-movies-client/details-movies-client.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { CreaeditaMoviesAdministratorComponent } from './components/administrato
     ListMoviesClientComponent,
 
     CreaeditaMoviesAdministratorComponent,
+      DetailsMoviesClientComponent,
    
   ],
   imports: [

@@ -34,6 +34,6 @@ export class ContenidoService {
     return this.http.get<Contenido>(`${this.url}/${id}`);
   }
   update(contenido:Contenido){
-return this.http.put(this.url,contenido);
+    return this.http.put(this.url,contenido);
   }
 }
