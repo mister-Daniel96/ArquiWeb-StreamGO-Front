@@ -14,6 +14,7 @@ import { ClientComponent } from './components/client/client.component';
 import { ListMoviesClientComponent } from './components/client/list-movies-client/list-movies-client.component';
 import { CreaeditaMoviesAdministratorComponent } from './components/administrator/creaedita-movies-administrator/creaedita-movies-administrator.component';
 import { DetailsMoviesClientComponent } from './components/client/details-movies-client/details-movies-client.component';
+import { ProfileClientComponent } from './components/client/profile-client/profile-client.component';
 
 const routes: Routes = [
   {
@@ -50,9 +51,12 @@ const routes: Routes = [
 
   },
   {
-    path: 'cliente',component: ClientComponent,children: [
+    path: 'cliente/:id',component: ClientComponent,children: [
       {
-        path:'home',component: ListMoviesClientComponent,
+        path: 'profile',component: ProfileClientComponent,
+      },
+      {
+        path: 'list-movies',component: ListMoviesClientComponent,
       },
       {
         path:'movie-detail/:id',component: DetailsMoviesClientComponent,

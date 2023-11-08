@@ -9,9 +9,16 @@
 
 <body>
     <mat-toolbar color="primary" class="menu">
-        <button color="primary" class="img-user">
+
+        <button color="primary" class="img-inicio"[routerLink]="['/cliente',id]">
+            <i class="fa-solid fa-house"></i>
+            <span>Mi perfil</span>
+            
+        </button>
+        <button color="primary" class="img-user"[routerLink]="['/cliente',id,'list-movies']">
             <i class="fa-solid fa-user-tie"></i>
-            <span>Usuario</span>
+            <span>Peliculas</span>
+            
         </button>
 
     </mat-toolbar>
@@ -21,8 +28,9 @@
         <router-outlet></router-outlet>
         <div [hidden]="route.children.length!==0">
             <!-- SE ELIMINA TODO LO DE AQUI CUANDO VAMOS A OTRO COMPONENTE -->
-            <app-list-movies-client></app-list-movies-client>
+            <app-profile-client></app-profile-client>
         </div>
+        
     </div>
 
 </body>

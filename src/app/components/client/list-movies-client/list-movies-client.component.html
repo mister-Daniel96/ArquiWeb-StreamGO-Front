@@ -16,7 +16,7 @@
               class="card-img-top"
               src="{{ item.urlImageContenido }}"
               alt="{{ item.titleContenido }}"
-              [routerLink]="['/cliente/movie-detail', item.idContenido]"
+              [routerLink]="['/cliente',idParent,'movie-detail', item.idContenido]"
             />
           </div>
         </div>

@@ -12,6 +12,7 @@ export class DetailsMoviesClientComponent implements OnInit {
   movieId: number = 0;
   movie: Contenido = new Contenido();
   url: string="";
+  idParent:number=0;
 
   constructor(
     private route: ActivatedRoute,
@@ -27,4 +28,5 @@ export class DetailsMoviesClientComponent implements OnInit {
     this.url=this.movie.urlContenido;
     
   }
+
 }

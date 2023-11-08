@@ -1,0 +1,11 @@
+h1{
+    margin: 40px 0;
+}
+.example-form {
+    width: 50%;
+    
+    margin:0 auto;
+}
+mat-form-field{
+    width: 100%;
+}

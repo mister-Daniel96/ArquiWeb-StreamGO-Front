@@ -43,6 +43,7 @@ import { DetailsMoviesClientComponent } from './components/client/details-movies
 
 import { TableAdminComponent } from './components/administrator/list-users-administrator/table-admin/table-admin.component';
 import { TableClientComponent } from './components/administrator/list-users-administrator/table-client/table-client.component';
+import { ProfileClientComponent } from './components/client/profile-client/profile-client.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ import { TableClientComponent } from './components/administrator/list-users-admi
     DetailsMoviesClientComponent,
     TableAdminComponent,
     TableClientComponent,
+    ProfileClientComponent,
    
   ],
   imports: [
