@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Detalles de la película</h2>
+        <p>Título: {{ movie.titleContenido }}</p>
+        <p>Descripción: {{ movie.descripContenido }}</p>
+        <p>Año: {{ movie.yearContenido | date }}</p>
+        <p>Director: {{ movie.directorContenido }}</p>
+        <p>Tipo: {{ movie.typeContenido }}</p>
+        <p>Género: {{ movie.genderContenido }}</p>
+        <p>País de origen: {{ movie.originCountryContenido }}</p>
+        <p>Idioma: {{ movie.languageContenido }}</p>
+        <p>URL: {{ movie.urlContenido }}</p>
+        <iframe
+  width="560"
+  height="315"
+  src="{{ movie.urlContenido }}"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowfullscreen
+></iframe>
+    </div>
+</body>
+</html>

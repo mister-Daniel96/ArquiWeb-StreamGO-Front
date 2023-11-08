@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1 >Peliculas</h1>
+      <div class="card-deck container">
+        <div class="card" *ngFor="let item of listaContenidos">
+          <div class="img">
+            <img
+              class="card-img-top"
+              src="{{ item.urlImageContenido }}"
+              alt="{{ item.titleContenido }}"
+              [routerLink]="['/cliente/movie-detail', item.idContenido]"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

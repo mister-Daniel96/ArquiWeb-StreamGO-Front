@@ -9,7 +9,11 @@ import { RegisterComponent } from './components/register/register.component';
 import { AdministratorComponent } from './components/administrator/administrator.component';
 import { SupportsAdministratorComponent } from './components/administrator/supports-administrator/supports-administrator.component';
 import { CreaeditaUsersAdministratorComponent } from './components/administrator/creaedita-users-administrator/creaedita-users-administrator.component';
+
+import { ClientComponent } from './components/client/client.component';
+import { ListMoviesClientComponent } from './components/client/list-movies-client/list-movies-client.component';
 import { CreaeditaMoviesAdministratorComponent } from './components/administrator/creaedita-movies-administrator/creaedita-movies-administrator.component';
+import { DetailsMoviesClientComponent } from './components/client/details-movies-client/details-movies-client.component';
 
 const routes: Routes = [
   {
@@ -43,8 +47,22 @@ const routes: Routes = [
         path:'ediciones-movies/:id',component:CreaeditaMoviesAdministratorComponent
       }
     ],
+
+  },
+  {
+    path: 'cliente',component: ClientComponent,children: [
+      {
+        path:'home',component: ListMoviesClientComponent,
+      },
+      {
+        path:'movie-detail/:id',component: DetailsMoviesClientComponent,
+      }
+      
+    ]
+
   },{
     path:"",redirectTo:'home',pathMatch:"full"
+
   }
 ];
 
