@@ -24,4 +24,13 @@ export class ResenaService {
   getList() {
     return this.listaCambio.asObservable();
   }
+  delete(id:number){
+    return this.http.delete(`${this.url}/${id}`)
+  }
+  listId(id:number){
+    return this.http.get<Resena>(`${this.url}/${id}`);
+  }
+  update(resena:Resena){
+    return this.http.put(this.url,resena);
+  }
 }

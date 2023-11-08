@@ -1,3 +1,6 @@
+import { Contenido } from "./contenido";
+import { Usuario } from "./usuario";
+
 export class Calificacion {
   idCalificacion: number = 0;
   score: number = 0;
