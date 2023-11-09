@@ -79,7 +79,7 @@ export class CreaeditaUsersAdministratorComponent implements OnInit {
         });
       }
 
-      this.router.navigate([`/administrator/${this.idPantent}/list-users`]);
+      this.router.navigate([`/components/administrator/${this.idPantent}/list-users`]);
     } else {
       this.mensaje = 'Ingrese todos los datos e ingrese los datos correctos!!';
     }

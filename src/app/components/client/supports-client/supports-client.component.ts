@@ -52,7 +52,7 @@ export class SupportsClientComponent implements OnInit {
         });
       });
 
-      this.router.navigate([`/client/${this.idParent}`]);
+      this.router.navigate([`/components/client/${this.idParent}`]);
     } else {
       this.mensaje = 'Ingrese todos los datos!!!';
     }

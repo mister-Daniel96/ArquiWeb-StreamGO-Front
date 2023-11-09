@@ -25,7 +25,7 @@
       <mat-card class="example-card card" *ngFor="let item of listaContenidos" data-aos="zoom-in">
 
         <img class="card-img-top" src="{{ item.urlImageContenido }}" alt="{{ item.titleContenido }}"
-          [routerLink]="['/client',idParent,'view-movies', item.idContenido]" />
+          [routerLink]="['/components/client',idParent,'view-movies', item.idContenido]" />
 
       </mat-card>
 
