@@ -11,46 +11,87 @@ import { AdministratorComponent } from './components/administrator/administrator
 import { SupportsAdministratorComponent } from './components/administrator/supports-administrator/supports-administrator.component';
 import { CreaeditaUsersAdministratorComponent } from './components/administrator/creaedita-users-administrator/creaedita-users-administrator.component';
 import { CreaeditaMoviesAdministratorComponent } from './components/administrator/creaedita-movies-administrator/creaedita-movies-administrator.component';
+import { SupportsClientComponent } from './components/client/supports-client/supports-client.component';
+import { ListMoviesClientComponent } from './components/client/list-movies-client/list-movies-client.component';
+import { ViewMoviesClientComponent } from './components/client/view-movies-client/view-movies-client.component';
+import { ProfileClientComponent } from './components/client/profile-client/profile-client.component';
+import { FavoritesMoviesClientComponent } from './components/client/favorites-movies-client/favorites-movies-client.component';
 
 const routes: Routes = [
   {
-    path: 'home',component: HomeComponent,
+    path: 'home',
+    component: HomeComponent,
   },
   {
-    path: 'login', component: LoginComponent,
+    path: 'login',
+    component: LoginComponent,
   },
   {
-    path: 'register',component: RegisterComponent,
+    path: 'register',
+    component: RegisterComponent,
   },
   {
-    path: 'administrator/:id',component: AdministratorComponent,children: [
+    path: 'administrator/:id',
+    component: AdministratorComponent,
+    children: [
       {
-        path: 'profile',component: ProfileAdministratorComponent,
+        path: 'profile',
+        component: ProfileAdministratorComponent,
       },
       {
-        path: 'supports',component: SupportsAdministratorComponent,
-      },{
-        path:'list-users',component:ListUsersAdministratorComponent
-      },{
-        path:'ediciones-users/:id',component:CreaeditaUsersAdministratorComponent
-      }
-      ,{
-        path:'list-movies',component:ListMoviesAdministratorComponent
+        path: 'supports',
+        component: SupportsAdministratorComponent,
       },
       {
-        path:'nuevo-movies',component:CreaeditaMoviesAdministratorComponent
-      }
-      ,{
-        path:'ediciones-movies/:id',component:CreaeditaMoviesAdministratorComponent
+        path: 'list-users',
+        component: ListUsersAdministratorComponent,
+      },
+      {
+        path: 'ediciones-users/:id',
+        component: CreaeditaUsersAdministratorComponent,
+      },
+      {
+        path: 'list-movies',
+        component: ListMoviesAdministratorComponent,
+      },
+      {
+        path: 'nuevo-movies',
+        component: CreaeditaMoviesAdministratorComponent,
+      },
+      {
+        path: 'ediciones-movies/:id',
+        component: CreaeditaMoviesAdministratorComponent,
+      },
+    ],
+  },
+  {
+    path: 'client/:id',
+    component: ClientComponent,
+    children: [
+      {
+        path: 'profile',component:ProfileClientComponent
+      },
+      {
+        path: 'supports',
+        component: SupportsClientComponent,
+      },
+      {
+        path: 'list-movies',
+        component: ListMoviesClientComponent,
+      },
+      {
+        path: 'view-movies/:id',
+        component: ViewMoviesClientComponent,
+      },{
+        path:'favorites',component:FavoritesMoviesClientComponent
       }
     ],
   },
   {
-    path:'client',component:ClientComponent
-  }
-  ,{
-    path:"",redirectTo:'home',pathMatch:"full"
-  }
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full',
+  },
 ];
 
 @NgModule({

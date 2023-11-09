@@ -40,6 +40,10 @@ import { TableAdminComponent } from './components/administrator/list-users-admin
 import { TableClientComponent } from './components/administrator/list-users-administrator/table-client/table-client.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { ListMoviesClientComponent } from './components/client/list-movies-client/list-movies-client.component';
+import { SupportsClientComponent } from './components/client/supports-client/supports-client.component';
+import { ViewMoviesClientComponent } from './components/client/view-movies-client/view-movies-client.component';
+import { ProfileClientComponent } from './components/client/profile-client/profile-client.component';
+import { FavoritesMoviesClientComponent } from './components/client/favorites-movies-client/favorites-movies-client.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,6 +61,10 @@ import { ListMoviesClientComponent } from './components/client/list-movies-clien
     TableAdminComponent,
     TableClientComponent,
     ListMoviesClientComponent,
+    SupportsClientComponent,
+    ViewMoviesClientComponent,
+    ProfileClientComponent,
+    FavoritesMoviesClientComponent,
    
   ],
   imports: [

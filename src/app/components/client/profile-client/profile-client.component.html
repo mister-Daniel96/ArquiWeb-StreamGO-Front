@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="form ">
+        
+        <h1 style="text-align: center;">Mi Perfil</h1>
+        <form class="example-form" [formGroup]="form">
+            <mat-form-field class="example-full-width">
+               
+                <input matInput placeholder="Codigo" formControlName="idUsuario" readonly="">
+            </mat-form-field>
+            <br>
+            <mat-form-field class="example-full-width">
+                <mat-label>Nombre</mat-label>
+                <input matInput placeholder="Nombre" formControlName="nameUsuario" readonly="">
+
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <mat-label>Password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" formControlName="passwordUsuario" readonly="">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                    [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <mat-label>E-mail</mat-label>
+                <input matInput placeholder="pat@example.com" formControlName="emailUsuario" readonly="">
+
+            </mat-form-field>
+            <br>
+
+
+        </form>
+    </div>
+</body>
+
+</html>
