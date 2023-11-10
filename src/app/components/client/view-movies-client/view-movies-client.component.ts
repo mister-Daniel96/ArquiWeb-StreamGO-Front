@@ -5,6 +5,8 @@ import { Contenido } from 'src/app/models/contenido';
 import { ContenidoService } from 'src/app/services/contenido.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { ResenaService } from 'src/app/services/resena.service';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+
 
 @Component({
   selector: 'app-view-movies-client',
@@ -18,11 +20,13 @@ export class ViewMoviesClientComponent {
 
   movieId: number = 0;
   movie: Contenido = new Contenido();
+  urlSegura: SafeResourceUrl="";
 
   constructor(
     private route: ActivatedRoute,
     private cS: ContenidoService,
     private rS: ResenaService,
+    private sanitizer: DomSanitizer
   ) {}
 
   ngOnInit(): void {
@@ -32,6 +36,10 @@ export class ViewMoviesClientComponent {
       this.movie = data;
     });
     this.obtenerComentariosDePelicula(this.movieId);
+    const urlInsegura = this.movie.urlContenido // Reemplaza esto con tu URL
+
+    // Marca la URL como segura
+    this.urlSegura = this.sanitizer.bypassSecurityTrustResourceUrl(urlInsegura);
   }
   
   //Kurt gaaaaaaa
