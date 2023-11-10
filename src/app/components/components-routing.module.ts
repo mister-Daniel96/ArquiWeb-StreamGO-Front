@@ -14,8 +14,10 @@ import { SupportsClientComponent } from './client/supports-client/supports-clien
 import { ListMoviesClientComponent } from './client/list-movies-client/list-movies-client.component';
 import { ViewMoviesClientComponent } from './client/view-movies-client/view-movies-client.component';
 import { FavoritesMoviesClientComponent } from './client/favorites-movies-client/favorites-movies-client.component';
+import { GuardService } from '../services/guard.service';
 const routes: Routes = [
   {
+    canActivate: [GuardService], //llamo al guard.service DENTRO DEL COMPONENT-ROUTING MODULE protege estas rutas
     path: 'administrator/:id',
     component: AdministratorComponent,
     children: [

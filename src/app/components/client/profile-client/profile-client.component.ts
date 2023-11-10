@@ -10,7 +10,7 @@ import { UsuarioService } from 'src/app/services/usuario.service';
   styleUrls: ['./profile-client.component.css'],
 })
 export class ProfileClientComponent implements OnInit {
-  hide = false;
+  hide = true;
 
   form: FormGroup = new FormGroup({});
   usuario: Usuario = new Usuario();

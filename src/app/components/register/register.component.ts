@@ -29,9 +29,9 @@ export class RegisterComponent implements OnInit {
   ) {}
   ngOnInit(): void {
     this.form = this.FormBuilder.group({
-      nameUsuario: ['',Validators.required],
-      passwordUsuario: ['',Validators.required],
-      emailUsuario: ['',Validators.required],
+      nameUsuario: ['', Validators.required],
+      passwordUsuario: ['', Validators.required],
+      emailUsuario: ['', Validators.required],
       enabledUsuario: [],
     });
   }
@@ -42,10 +42,10 @@ export class RegisterComponent implements OnInit {
       this.usuarioNuevo.passwordUsuario = this.form.value.passwordUsuario;
       this.usuarioNuevo.emailUsuario = this.form.value.emailUsuario;
       this.usuarioNuevo.enabledUsuario = this.enabledUser;
-console.log(this.usuarioNuevo.nameUsuario)
-console.log(this.usuarioNuevo.passwordUsuario)
-console.log(this.usuarioNuevo.emailUsuario)
-console.log(this.usuarioNuevo.enabledUsuario)
+      console.log(this.usuarioNuevo.nameUsuario);
+      console.log(this.usuarioNuevo.passwordUsuario);
+      console.log(this.usuarioNuevo.emailUsuario);
+      console.log(this.usuarioNuevo.enabledUsuario);
 
       this.rS.insert(this.usuarioNuevo).subscribe((data) => {
         this.rS.list().subscribe((data) => {

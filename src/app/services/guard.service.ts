@@ -12,6 +12,7 @@ import {
 export class GuardService {
   constructor(private lService: LoginService, private router: Router) {}
 
+
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     const rpta = this.lService.verificar();
     if (!rpta) {

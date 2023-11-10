@@ -14,7 +14,6 @@
         <div class="contenido">
             <div class="contenido-info">
                 <h2 class="movie-title">{{ movie.titleContenido }}</h2>
-                <p class="movie-description">{{ movie.descripContenido }}</p>
                 <div class="movie-metadata">
                     <p><strong>Año:</strong> {{ movie.yearContenido | date }}</p>
                     <p><strong>Director:</strong> {{ movie.directorContenido }}</p>
@@ -22,7 +21,7 @@
                     <p><strong>Género:</strong> {{ movie.genderContenido }}</p>
                     <p><strong>País de origen:</strong> {{ movie.originCountryContenido }}</p>
                     <p><strong>Idioma:</strong> {{ movie.languageContenido }}</p>
-                    <p><strong>Descripcion:</strong> {{ movie.descripContenido }}</p>
+                    <p style="text-align: justify;"><strong>Descripcion:</strong> {{ movie.descripContenido }}</p>
                 </div>
 
             </div>
