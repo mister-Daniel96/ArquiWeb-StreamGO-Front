@@ -7,9 +7,10 @@
 .form {
     width: 40%;
     height: 500px;
-    margin-top: 20px;
-    margin-left: 20px;
+    /* margin-top: 20px;
+    margin-left: 20px; */
     padding-top: 20px;
+    margin: auto;
 }
 
 .img-user {
@@ -53,7 +54,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-   
+
 }
 
 .form-img::before {
@@ -82,9 +83,33 @@
 .form-img .logo {
     display: block;
     position: absolute;
-    width: 500px;
+    width: 100%;
     height: 300px;
     z-index: 111;
-/*     filter: drop-shadow(1px 1px 2px white);
- */    object-fit: contain;
+    /*     filter: drop-shadow(1px 1px 2px white);
+ */
+    object-fit: contain;
+}
+
+.form-img .btnBefore {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 30px;
+    margin-top: 30px;
+    color: whitesmoke;
+    border: none;
+    background-color: transparent;
+    z-index: 500;
+}
+
+.form-img .btnBefore i {
+    font-size: 40px;
+    color: whitesmoke;
+    transition: 0.3s all;
+}
+.form-img .btnBefore i:hover {
+    font-size: 50px;
+    color: whitesmoke;
 }

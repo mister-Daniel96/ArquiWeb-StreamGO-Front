@@ -17,6 +17,7 @@ import { FavoritesMoviesClientComponent } from './client/favorites-movies-client
 import { GuardService } from '../services/guard.service';
 const routes: Routes = [
   {
+    //protege a todo este grupo de rutas osea activa y desactiva las rutas
     canActivate: [GuardService], //llamo al guard.service DENTRO DEL COMPONENT-ROUTING MODULE protege estas rutas
     path: 'administrator/:id',
     component: AdministratorComponent,
@@ -52,6 +53,7 @@ const routes: Routes = [
     ],
   },
   {
+    canActivate: [GuardService],//protege a todo este grupo de rutas
     path: 'client/:id',
     component: ClientComponent,
     children: [

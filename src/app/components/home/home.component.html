@@ -12,12 +12,17 @@
     <header>
         <mat-toolbar color="primary" class="navbar">
             <img src="../assets/svg/logo.svg" alt="">
+            <!-- Si uso el refirectTo cuando esta vacio tendria que poner un home delante de cada enlace  -->
             <div class="menu">
-                <button mat-raised-button color="pink" routerLink="home">Inicio</button>
+                <!--  <button mat-raised-button color="pink" routerLink="#portada">Inicio</button>
                 <button mat-raised-button color="pink" routerLink="">Nosotros</button>
-                <button mat-raised-button color="pink" routerLink="">Beneficios</button>
-                <button mat-raised-button color="pink" routerLink="">Planes</button>
-                <button mat-raised-button color="pink" routerLink="/login">Iniciar sesion</button>
+                <button mat-raised-button color="pink" routerLink="#beneficios">Beneficios</button>
+                <button mat-raised-button color="pink" routerLink="">Planes</button> -->
+                <a class="button" mat-raised-button color="pink" href="#portada">Inicio</a>
+                <a class="button" mat-raised-button color="pink" href="#nosotros">Nosotros</a>
+                <a class="button" mat-raised-button color="pink" href="#beneficios">Beneficios</a>
+                <a class="button" mat-raised-button color="pink" href="">Planes</a>
+                <button class="button" mat-raised-button color="pink" routerLink="/login">Iniciar sesion</button>
                 <!--         <button mat-raised-button color="pink" routerLink="/register">Registrar</button>
      -->
             </div>
@@ -38,9 +43,10 @@
                 <button mat-raised-button class="btnRegistrar" routerLink="/register"><span>Registrar</span></button>
             </article>
             <div class="portada-img">
-                
+
                 <div class="mascara">
-                    <img src="../../../assets/images/imgPortada.jpg" alt="">
+                    <!--                     <img src="../../../assets/images/imgPortada.jpg" alt="">
+ --> <img src="../../../assets/images/imgPortada.jpg" alt="">
                     <span></span>
                 </div>
             </div>
@@ -52,14 +58,97 @@
         </section>
 
         <section id="beneficios">
-            <h2>¿Por que elegir nuestra App</h2>
+            <h2>¿Por que elegirnos?</h2>
             <div class="contenido">
-                <figure>
 
-                </figure>
-                <div class="contenido-info">
-
+                <div class="card" data-aos="fade-up-right">
+                    <div class="card-info">
+                        <h4>Pensamos en tu economia y bienestar </h4>
+                        <p>Te damos la opcion apra que escoger las peliculas de streaming de tu preferencia. Y realizar
+                            un
+                            solo pago mensual por todas en general </p>
+                    </div>
+                    <img class="card-img" src="../../../assets/images/ahorro.png" alt="">
                 </div>
+                <div class="card" data-aos="fade-up-left">
+                    <div class="card-info">
+                        <h4>Facilitamos tu entretenimiento con un buscador global </h4>
+                        <p> T e brindamos una variada categoria de peliculas para que puedas encontrar lo que desees en
+                            un solo lugar y asi ahorrar tiempo de busqueda
+                        </p>
+                    </div>
+                    <img class="card-img" src="../../../assets/images/variedad.webp" alt="">
+                </div>
+                <div class="card" data-aos="fade-up-right">
+                    <div class="card-info">
+                        <h4>Podras tener una lista de favoritos</h4>
+                        <p>
+                            Podras agregar todas las peliculas que te fascinan o te gusten a una lista de
+                            peliculas favoritas, para asi evitar volver a realizar la busqueda y puedas continuar con la
+                            visualizacion
+                        <p>
+                    </div>
+                    <img class="card-img" src="../../../assets/images/favoritos.jpg" alt="">
+                </div>
+
+            </div>
+        </section>
+
+        <section id="planes container">
+
+        </section>
+        <section id="nosotros">
+
+            <h2 class="title">¿Que dicen de nosotros?</h2>
+            <div class="cardContainer">
+                <div class="card-item mat-elevation-z8">
+                    <div class="card-profile">
+                        <img src="../../../assets/images/person1.jpg" alt="">
+                        <div class="card-profile-information">
+                            <span><strong>Alonso Rojas</strong></span>
+                            <p><i class="fa-solid fa-location-dot" style="color: #99a2b2;"></i> Lima Peru</p>
+                        </div>
+
+                    </div>
+                    <div class="card-description">
+                        <p> "StreamGo es una app excelente ára aficionados como yo que les gusta la diversidad de
+                            contenido,
+                            es eficiente y brinda calidad de contenido"</p>
+                        <button class="button" mat-raised-button color="pink" routerLink="/login">Registrarte</button>
+                    </div>
+                </div>
+                <div class="card-item mat-elevation-z8">
+                    <div class="card-profile">
+                        <img src="../../../assets/images/person2.jpg" alt="">
+                        <div class="card-profile-information">
+                            <span><strong>Alonso Rojas</strong></span>
+                            <p><i class="fa-solid fa-location-dot" style="color: #99a2b2;"></i>Lima Peru</p>
+                        </div>
+
+                    </div>
+                    <div class="card-description">
+                        <p> "StreamGo es una app excelente ára aficionados como yo que les gusta la diversidad de
+                            contenido,
+                            es eficiente y brinda calidad de contenido"</p>
+                        <button class="button" mat-raised-button color="pink" routerLink="/login">Registrarte</button>
+                    </div>
+                </div>
+                <!--  <div class="card-item">
+                    <div class="card-profile">
+                        <img src="../../../assets/images/person1.jpg" alt="">
+                        <div class="card-profile-information">
+                            <span><strong>Alonso Rojas</strong></span>
+                            <p>Abogado, Lima Peru</p>
+                        </div>
+
+                    </div>
+                    <div class="card-description">
+                        "StreamGo es una app excelente ára aficionados como yo que les gusta la diversidad de
+                        contenido,
+                        es eficiente y brinda calidad de contenido"
+                    </div>
+                </div> -->
+
             </div>
         </section>
     </main>

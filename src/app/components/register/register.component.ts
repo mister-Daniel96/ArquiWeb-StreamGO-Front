@@ -8,6 +8,8 @@ import {
 import { Router } from '@angular/router';
 import { Usuario } from 'src/app/models/usuario';
 import { RegisterService } from 'src/app/services/register.service';
+import * as bcrypt from 'bcryptjs';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-register',
@@ -25,7 +27,8 @@ export class RegisterComponent implements OnInit {
   constructor(
     private rS: RegisterService,
     private FormBuilder: FormBuilder,
-    private router: Router
+    private router: Router,
+    private snackbar: MatSnackBar
   ) {}
   ngOnInit(): void {
     this.form = this.FormBuilder.group({
@@ -38,9 +41,12 @@ export class RegisterComponent implements OnInit {
 
   aceptar() {
     if (this.form.valid) {
-      this.usuarioNuevo.nameUsuario = this.form.value.nameUsuario;
-      this.usuarioNuevo.passwordUsuario = this.form.value.passwordUsuario;
-      this.usuarioNuevo.emailUsuario = this.form.value.emailUsuario;
+      this.usuarioNuevo.nameUsuario = this.form.value.nameUsuario.trim();
+      this.usuarioNuevo.passwordUsuario = bcrypt.hashSync(
+        this.form.value.passwordUsuario.trim(),
+        12
+      );
+      this.usuarioNuevo.emailUsuario = this.form.value.emailUsuario.trim();
       this.usuarioNuevo.enabledUsuario = this.enabledUser;
       console.log(this.usuarioNuevo.nameUsuario);
       console.log(this.usuarioNuevo.passwordUsuario);
@@ -52,8 +58,12 @@ export class RegisterComponent implements OnInit {
           this.rS.setList(data);
         });
       });
-
-      this.router.navigate(['/login']);
+      this.snackbar.open('Usted fue registrado con exito!!! ', 'Aviso', {
+        duration: 2000,
+      });
+      setTimeout(() => {
+        this.router.navigate(['/login']);
+      }, 2500);
     } else {
       this.mensaje = 'ingrese los datos correctos!!!';
     }

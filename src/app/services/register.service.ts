@@ -32,6 +32,7 @@ export class RegisterService {
     return this.listaCambio.asObservable();
   }
   //PARA LOS ROLES
+  /*
   listRoles() {
     return this.http.get<TypeUsers[]>(this.urlRole);
   }
@@ -44,8 +45,9 @@ export class RegisterService {
   getListRole() {
     return this.listaCambioRoles.asObservable();
   }
-  /**
+  
    * @Definicion
    * Para un insert se hace un   insert-list-set
-   */
+   
+  */
 }

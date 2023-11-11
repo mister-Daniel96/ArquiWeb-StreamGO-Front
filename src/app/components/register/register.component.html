@@ -9,54 +9,58 @@
 
 <body>
 
-   <div class="caja">
+    <div class="caja">
 
-    <div class="form-img">
-        <img src="../../../assets/images/avengers.jpg" alt="">
-    </div>
-    <div class="form">
-        <i class="fa-solid fa-user-plus img-user"></i>
-        <h2 class="title-user">Register</h2>
-        <form class="example-form table-form" [formGroup]="form" (submit)="aceptar()">
-            <mat-form-field class="example-full-width">
-                <mat-label>Username</mat-label>
-                <input matInput placeholder="Username" formControlName="nameUsuario">
-                <mat-error *ngIf="obtenerControlCampo('nameUsuario')?.errors?.['required']">
-                    El username es obligatorio.
-                </mat-error>
-            </mat-form-field>
-            <mat-form-field>
-                <mat-label>Password</mat-label>
-                <input matInput [type]="hide ? 'password' : 'text'" formControlName="passwordUsuario">
-                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
-                    [attr.aria-pressed]="hide">
-                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                </button>
-                <mat-error *ngIf="obtenerControlCampo('passwordUsuario')?.errors?.['required']">
-                    El password es obligatorio.
-                </mat-error>
-            </mat-form-field>
-            <mat-form-field>
-                <mat-label>E-mail</mat-label>
-                <input matInput placeholder="pat@example.com"  required formControlName="emailUsuario">
-                <mat-error *ngIf="obtenerControlCampo('emailUsuario')?.errors?.['required']">
-                    El correo es obligatorio.
-                </mat-error>
-            </mat-form-field>
-            <button mat-raised-button color="primary">
-                <!-- routerLink="/login"    NO VA EL ESTO PORQUE SE TIENE QUE VALIDA ESTO DE REDIRIGIR 
+        <div class="form-img">
+            <img class="banner" src="../../../assets/images/avengers.jpg" alt="">
+            <img class="logo" src="../../../assets/images/logoCompleto.png" alt="">
+            <button routerLink="/home" class=" btnBefore">
+                <i class="fa-solid fa-arrow-turn-up fa-rotate-270" style="color: #ffffff;"></i>
+            </button>
+        </div>
+        <div class="form ">
+            <i class="fa-solid fa-user-plus img-user"></i>
+            <h2 class="title-user">Register</h2>
+            <form class="example-form table-form" [formGroup]="form" (submit)="aceptar()">
+                <mat-form-field class="example-full-width">
+                    <mat-label>Username</mat-label>
+                    <input matInput placeholder="Username" formControlName="nameUsuario">
+                    <mat-error *ngIf="obtenerControlCampo('nameUsuario')?.errors?.['required']">
+                        El username es obligatorio.
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Password</mat-label>
+                    <input matInput [type]="hide ? 'password' : 'text'" formControlName="passwordUsuario">
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                        [attr.aria-pressed]="hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                    <mat-error *ngIf="obtenerControlCampo('passwordUsuario')?.errors?.['required']">
+                        El password es obligatorio.
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>E-mail</mat-label>
+                    <input matInput placeholder="pat@example.com" required formControlName="emailUsuario">
+                    <mat-error *ngIf="obtenerControlCampo('emailUsuario')?.errors?.['required']">
+                        El correo es obligatorio.
+                    </mat-error>
+                </mat-form-field>
+                <button mat-raised-button color="primary">
+                    <!-- routerLink="/login"    NO VA EL ESTO PORQUE SE TIENE QUE VALIDA ESTO DE REDIRIGIR 
                 SERA POR CODIGO-->
-                Register </button>
-        </form>
-        <button mat-flat-button color="basic" class="btnRegistrar" routerLink="/login">
-            ¿Ya tienes una cuenta? <span>Login</span>
-        </button>
+                    Register </button>
+            </form>
+            <button mat-flat-button color="basic" class="btnRegistrar" routerLink="/login">
+                ¿Ya tienes una cuenta? <span>Login</span>
+            </button>
+
+        </div>
+
+
 
     </div>
-
-    
-
-   </div>
 </body>
 
 </html>
