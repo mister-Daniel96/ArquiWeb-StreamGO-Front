@@ -6,6 +6,8 @@ import { ContenidoService } from 'src/app/services/contenido.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { ResenaService } from 'src/app/services/resena.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { Calificacion } from 'src/app/models/calificacion';
+import { CalificacionService } from 'src/app/services/calificacion.service';
 
 
 @Component({
@@ -17,15 +19,17 @@ export class ViewMoviesClientComponent {
 
   dataSource: MatTableDataSource<any> = new MatTableDataSource<any>();
   displayedColumns: string[] = ['name_usuario', 'text_resena', 'dateResena'];
-
+  
   movieId: number = 0;
   movie: Contenido = new Contenido();
+  calificacion: Calificacion = new Calificacion();
   urlSegura: SafeResourceUrl="";
 
   constructor(
     private route: ActivatedRoute,
     private cS: ContenidoService,
     private rS: ResenaService,
+    private caS: CalificacionService,
     private sanitizer: DomSanitizer
   ) {}
 
@@ -34,6 +38,8 @@ export class ViewMoviesClientComponent {
     this.obtenerPelicula();
 
     this.obtenerComentariosDePelicula(this.movieId);
+
+    this.obtenerCalificacionPelicula(this.movieId);
 
     this.limpiarurl();
   }
@@ -53,7 +59,12 @@ export class ViewMoviesClientComponent {
       this.dataSource = new MatTableDataSource(data);
     });
   }
-
+  obtenerCalificacionPelicula(movieId: number) {
+    
+    this.caS.promediocalificaciondecontenido(movieId).subscribe((data) => {
+      data;
+    });
+  }
   limpiarurl()
   {
     const urlInsegura = this.movie.urlContenido

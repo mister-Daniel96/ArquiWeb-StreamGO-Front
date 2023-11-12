@@ -34,4 +34,7 @@ export class CalificacionService {
   update(calificacion:Calificacion){
     return this.http.put(this.url,calificacion);
   }
+  promediocalificaciondecontenido(id:number){
+    return this.http.get<any[]>(`${this.url}/promedioCalificaciones?idcontenido=${id}`);
+  }
 }
