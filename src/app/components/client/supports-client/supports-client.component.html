@@ -11,13 +11,14 @@
 
     <div class="form ">
 
-        <h1 style="text-align: center;">Support</h1>
-        <form class="example-form " [formGroup]="form" (submit)="aceptar()">
+        <h1 style="text-align: center;">Soporte al cliente</h1>
+        <form class="example-form  container" [formGroup]="form" (submit)="aceptar()">
 
 
             <mat-form-field class="example-full-width">
                 <mat-label>Descripcion</mat-label>
-                <input matInput placeholder="Descripcion" formControlName="descriptionSupport" >
+                <!-- <input matInput placeholder="Descripcion" formControlName="descriptionSupport" > -->
+                <textarea matInput formControlName="descriptionSupport" [maxLength]="80"></textarea>
                 <mat-error *ngIf="obtenerControlCampo('descriptionSupport')?.errors?.['required']">
                     La descripcion es obligatoria.
                 </mat-error>
@@ -25,7 +26,7 @@
             <br>
             <mat-form-field appearance="fill" class="example-full-width">
                 <input matInput placeholder="Ingrese fecha" [matDatepicker]="picker" formControlName="dateSupport"
-                    [min]="maxFecha" />
+                    [min]="maxFecha" [max]="maxFecha" />
                 <!-- [max]="maxFecha" -->
                 <mat-hint>MM/DD/YYYY</mat-hint>
                 <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
@@ -37,6 +38,7 @@
             <br>
             <button mat-raised-button color="primary">Enviar</button>
         </form>
+        <img class="img-tom " src="../../../../assets/images/tom.png" alt="">
     </div>
 </body>
 
