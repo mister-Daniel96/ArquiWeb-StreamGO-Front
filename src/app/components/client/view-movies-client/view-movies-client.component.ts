@@ -15,8 +15,8 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 })
 export class ViewMoviesClientComponent {
 
-  dataSource: MatTableDataSource<Resena> = new MatTableDataSource<Resena>();
-  displayedColumns: string[] = ['textResena', 'dateResena'];
+  dataSource: MatTableDataSource<any> = new MatTableDataSource<any>();
+  displayedColumns: string[] = ['name_usuario', 'text_resena', 'dateResena'];
 
   movieId: number = 0;
   movie: Contenido = new Contenido();
@@ -31,26 +31,34 @@ export class ViewMoviesClientComponent {
 
   ngOnInit(): void {
     
+    this.obtenerPelicula();
+
+    this.obtenerComentariosDePelicula(this.movieId);
+
+    this.limpiarurl();
+  }
+  
+  //Kurt
+  obtenerPelicula()
+  {
     this.movieId = +this.route.snapshot.params['id'];
     this.cS.listId(this.movieId).subscribe((data) => {
       this.movie = data;
     });
-    this.obtenerComentariosDePelicula(this.movieId);
-    const urlInsegura = this.movie.urlContenido // Reemplaza esto con tu URL
+  }
+  
+  obtenerComentariosDePelicula(movieId: number) {
+    
+    this.rS.listresenasdecontenido(movieId).subscribe((data) => {
+      this.dataSource = new MatTableDataSource(data);
+    });
+  }
+
+  limpiarurl()
+  {
+    const urlInsegura = this.movie.urlContenido
 
     // Marca la URL como segura
     this.urlSegura = this.sanitizer.bypassSecurityTrustResourceUrl(urlInsegura);
-  }
-  
-  //Kurt gaaaaaaa
-  obtenerComentariosDePelicula(movieId: number) {
-    this.rS.list().subscribe((Resena) => {
-      // Filtrar los comentarios relacionados con la película actual
-      const resenasdecontenido = Resena.filter(
-        (Resena) => Resena.contenido.idContenido === movieId
-      );
-      // Asignar los comentarios a la fuente de datos de la tabla
-      this.dataSource.data = resenasdecontenido;
-    });
   }
 }

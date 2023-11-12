@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Resena } from '../models/resena';
 const base_url = environment.base;
@@ -32,5 +32,8 @@ export class ResenaService {
   }
   update(resena:Resena){
     return this.http.put(this.url,resena);
+  }
+  listresenasdecontenido(id:number){
+    return this.http.get<any[]>(`${this.url}/resenasdeContenido?idcontenido=${id}`);
   }
 }

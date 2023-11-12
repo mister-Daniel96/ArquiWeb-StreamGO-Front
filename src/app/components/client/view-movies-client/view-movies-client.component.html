@@ -30,16 +30,18 @@
 
     <div class="container">
         <table mat-table [dataSource]="dataSource">
-            <ng-container matColumnDef="textResena">
+          <ng-container matColumnDef="name_usuario">
+            <th mat-header-cell *matHeaderCellDef>Usuario</th>
+            <td mat-cell *matCellDef="let comentario">{{ comentario.name_usuario }}</td>
+          </ng-container>
+            <ng-container matColumnDef="text_resena">
               <th mat-header-cell *matHeaderCellDef>Comentario</th>
-              <td mat-cell *matCellDef="let comentario">{{ comentario.textResena }}</td>
+              <td mat-cell *matCellDef="let comentario">{{ comentario.text_resena }}</td>
             </ng-container>
             <ng-container matColumnDef="dateResena">
               <th mat-header-cell *matHeaderCellDef>Fecha</th>
               <td mat-cell *matCellDef="let comentario">{{ comentario.dateResena | date }}</td>
             </ng-container>
-            <!-- Agrega más columnas según tus necesidades -->
-          
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
           </table>
