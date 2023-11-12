@@ -33,8 +33,8 @@
             </div>
         </div>
         <div class="video">
-            <iframe  src="https://www.youtube.com/embed/rRAfUcV7KpA?si=lSu-RnEKkAzuC0k2"
-                title="YouTube video player" frameborder="0"
+            <iframe src="https://www.youtube.com/embed/rRAfUcV7KpA?si=lSu-RnEKkAzuC0k2" title="YouTube video player"
+                frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen></iframe>
 
@@ -61,6 +61,26 @@
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen></iframe>
  -->
+        <div class="container">
+            <table mat-table [dataSource]="dataSource">
+                <ng-container matColumnDef="name_usuario">
+                    <th mat-header-cell matHeaderCellDef>Usuario</th>
+                    <td mat-cell *matCellDef="let element"> {{element.name_usuario}} </td>
+                </ng-container>
+                <ng-container matColumnDef="text_resena">
+                    <th mat-header-cell matHeaderCellDef>Comentario</th>
+                    <td mat-cell *matCellDef="let element"> {{element.text_resena}} </td>
+                </ng-container>
+                <ng-container matColumnDef="dateResena">
+                    <th mat-header-cell matHeaderCellDef>Fecha</th>
+                    <td mat-cell *matCellDef="let element"> {{element.dateResena| date }} </td>
+                </ng-container>
+
+                <tr mat-header-row matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-rowmatRowDef="let row; columns: displayedColumns"></tr>
+            </table>
+        </div>
+
     </div>
 
 </body>
