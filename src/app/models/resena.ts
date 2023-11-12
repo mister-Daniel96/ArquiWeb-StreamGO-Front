@@ -1,5 +1,6 @@
-import { Contenido } from './contenido';
-import { Usuario } from './usuario';
+import { Contenido } from "./contenido";
+import { Usuario } from "./usuario";
+
 export class Resena {
   idResena: number = 0;
   textResena: string = '';

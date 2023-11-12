@@ -25,4 +25,13 @@ export class CalificacionService {
   getList() {
     return this.listaCambio.asObservable();
   }
+  delete(id:number){
+    return this.http.delete(`${this.url}/${id}`)
+  }
+  listId(id:number){
+    return this.http.get<Calificacion>(`${this.url}/${id}`);
+  }
+  update(calificacion:Calificacion){
+    return this.http.put(this.url,calificacion);
+  }
 }

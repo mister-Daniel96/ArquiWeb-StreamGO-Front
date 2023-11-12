@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
+import { BrowserModule, SafeResourceUrl } from '@angular/platform-browser';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { MatRadioModule } from '@angular/material/radio';
+import {MatRadioModule} from '@angular/material/radio';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { HttpClientModule } from '@angular/common/http';
 import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
@@ -14,36 +14,63 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatIconModule } from '@angular/material/icon';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatInputModule } from '@angular/material/input';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatInputModule} from '@angular/material/input';
 import { HomeComponent } from './components/home/home.component';
-import { RegisterComponent } from './components/register/register.component';
-import { MatExpansionModule } from '@angular/material/expansion';
-
-import { MatChipsModule } from '@angular/material/chips';
-
-import { MatCardModule } from '@angular/material/card';
-import { MatGridListModule } from '@angular/material/grid-list';
-
-import { MatSidenavModule } from '@angular/material/sidenav';
 import { LoginComponent } from './components/login/login.component';
-import {  MatSnackBarModule } from '@angular/material/snack-bar';
+import { RegisterComponent } from './components/register/register.component';
+import { AdministratorComponent } from './components/administrator/administrator.component';
+import { ClientComponent } from './components/client/client.component';
+import {MatExpansionModule} from '@angular/material/expansion';
+import { ProfileAdministratorComponent } from './components/administrator/profile-administrator/profile-administrator.component';
+import { SupportsAdministratorComponent } from './components/administrator/supports-administrator/supports-administrator.component';
+import { ListUsersAdministratorComponent } from './components/administrator/list-users-administrator/list-users-administrator.component';
+
+import { MatChipsModule} from '@angular/material/chips';
+import { CreaeditaUsersAdministratorComponent } from './components/administrator/creaedita-users-administrator/creaedita-users-administrator.component';
+import { ListMoviesAdministratorComponent } from './components/administrator/list-movies-administrator/list-movies-administrator.component';
+
+import {MatCardModule} from '@angular/material/card';
+import {MatGridListModule} from '@angular/material/grid-list';
+
+import { ListMoviesClientComponent } from './components/client/list-movies-client/list-movies-client.component';
+import { CreaeditaMoviesAdministratorComponent } from './components/administrator/creaedita-movies-administrator/creaedita-movies-administrator.component';
+
+import { TableAdminComponent } from './components/administrator/list-users-administrator/table-admin/table-admin.component';
+import { TableClientComponent } from './components/administrator/list-users-administrator/table-client/table-client.component';
+import { ViewMoviesClientComponent } from './components/client/view-movies-client/view-movies-client.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    LoginComponent,
     RegisterComponent,
-    LoginComponent
+    AdministratorComponent,
+    ClientComponent,
+    ProfileAdministratorComponent,
+    SupportsAdministratorComponent,
+    ListUsersAdministratorComponent,
+    CreaeditaUsersAdministratorComponent,
+    ListMoviesAdministratorComponent,
+    ListMoviesClientComponent,
+
+    CreaeditaMoviesAdministratorComponent,
+    TableAdminComponent,
+    TableClientComponent,
+    ViewMoviesClientComponent,
+   
   ],
   imports: [
-   /*  RouterModule, */
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+
+
+    
     MatPaginatorModule,
     MatTableModule,
     HttpClientModule,
@@ -54,9 +81,9 @@ import {  MatSnackBarModule } from '@angular/material/snack-bar';
     MatDatepickerModule,
     MatNativeDateModule,
     MatButtonModule,
-
+    
     ReactiveFormsModule,
-
+    
     MatToolbarModule,
     MatButtonModule,
     MatMenuModule,
@@ -65,11 +92,10 @@ import {  MatSnackBarModule } from '@angular/material/snack-bar';
     MatChipsModule,
     MatRadioModule,
     MatCardModule,
-    MatGridListModule,
-    MatSidenavModule,
-    MatSnackBarModule
+    MatGridListModule
+    
   ],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
