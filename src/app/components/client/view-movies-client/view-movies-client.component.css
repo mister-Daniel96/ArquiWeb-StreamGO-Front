@@ -53,3 +53,12 @@
    width: 80%;
    height: 90%;
 }
+.table-clients{
+    margin-top: 40px;
+}
+
+th,td{
+    text-align: center;
+} 
+
+

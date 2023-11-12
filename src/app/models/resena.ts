@@ -1,3 +1,4 @@
+import { Contenido } from './contenido';
 import { Usuario } from './usuario';
 export class Resena {
   idResena: number = 0;
