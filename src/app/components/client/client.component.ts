@@ -1,21 +1,36 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-client',
   templateUrl: './client.component.html',
-  styleUrls: ['./client.component.css']
+  styleUrls: ['./client.component.css'],
 })
-export class ClientComponent implements OnInit{
+export class ClientComponent implements OnInit {
+  /*   showFiller = false;
+   */
   id: number = 0;
-  active: boolean = false;
-  constructor(public route:ActivatedRoute){
-
-  }
+  constructor(public route: ActivatedRoute,private loginService:LoginService) {}
+role:string='';
   ngOnInit(): void {
     this.route.params.subscribe((data) => {
       this.id = data['id'];
-      this.active = data['id'] !== null;
     });
+  }
+
+  cerrar() {
+    sessionStorage.clear();
+  }
+  verificar() {
+    this.role = this.loginService.showRole();
+    return this.loginService.verificar();
+  }
+  validarRol() {
+    if (this.role == 'admin' || this.role == 'user') {
+      return true;
+    } else {
+      return false;
+    }
   }
 }

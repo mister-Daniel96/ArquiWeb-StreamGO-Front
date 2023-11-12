@@ -10,58 +10,45 @@ import { UsuarioService } from 'src/app/services/usuario.service';
   styleUrls: ['./profile-client.component.css'],
 })
 export class ProfileClientComponent implements OnInit {
+  hide = true;
+
   form: FormGroup = new FormGroup({});
   usuario: Usuario = new Usuario();
 
-  id: number = 0;
-  active = false;
-  hide = true;
+  idParent: number = 0;
+  active: boolean = true;
   constructor(
     private uS: UsuarioService,
-    private route: ActivatedRoute,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private route: ActivatedRoute
   ) {}
+
   ngOnInit(): void {
-    // PARA ACCEDER A LA RUTA ACTUAL SI TENGO
-    /* SI ESTE COMPONENTE ES LLAMADO DIRECTAMENTE POR EL PADRE SE USA EL PARAMS
-     */
     this.route.params.subscribe((data) => {
-      this.id = data['id'];
-      this.active = data['id'] !== null;
-       this.init();
+      this.idParent = data['id'];
+      this.active = data['id'] != null;
+      this.init();
     });
-
-    //PARA ACCEDER A LA URL DEL PADRE
-    /* if (!this.active) {
-      this.route.parent?.params.subscribe((data) => {
-        this.id = data['id'];
-        this.active = data['id'] != null;
-        // Usa this.parentId según sea necesario
-        this.init();
-      });
-    } */
-
-    //Aqui defino como sera el formulario sin esto no me aparece todo lo del init
     this.form = this.formBuilder.group({
       idUsuario: [''],
       nameUsuario: [''],
       passwordUsuario: [''],
       emailUsuario: [''],
-      enabledUsuario: [''],
+      enabledUsuaio: [''],
     });
   }
 
   init() {
     if (this.active) {
-      this.uS.listId(this.id).subscribe((data) => {
-        this.form = new FormGroup({
-          idUsuario: new FormControl(data.idUsuario),
-          nameUsuario: new FormControl(data.nameUsuario),
-          passwordUsuario: new FormControl(data.passwordUsuario),
-          emailUsuario: new FormControl(data.emailUsuario),
-          enabledUsuario: new FormControl(data.enabledUsuario),
-        });
-      });
+    this.uS.listId(this.idParent).subscribe(data=>{
+      this.form=new FormGroup({
+        idUsuario:new FormControl(data.idUsuario),
+        nameUsuario:new FormControl(data.nameUsuario),
+        passwordUsuario:new FormControl(data.passwordUsuario),
+        emailUsuario:new FormControl(data.emailUsuario),
+        enabledUsuario:new FormControl(data.enabledUsuario)
+      })
+    })
     }
   }
 }

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Usuario } from '../models/usuario';
 import { Subject } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 const base_url = environment.base;
 @Injectable({
@@ -15,28 +15,71 @@ export class UsuarioService {
   constructor(private http: HttpClient) {}
 
   list() {
-    return this.http.get<Usuario[]>(this.url);
+
+    let token=sessionStorage.getItem('token');
+    return this.http.get<Usuario[]>(this.url,{
+      headers:new HttpHeaders()
+      .set('Authorization',`Bearer ${token}`)
+      .set('Content-Type','application/json')
+    });
   }
   listClient(){
-    return this.http.get<Usuario[]>(`${this.url}/usuariosroluser`);
+    let token=sessionStorage.getItem('token');
+    return this.http.get<Usuario[]>(`${this.url}/usuariosroluser`,
+    {
+      headers:new HttpHeaders()
+      .set('Authorization',`Bearer ${token}`)
+      .set('Content-Type','application/json')
+    });
   }
   listAdmin(){
-    return this.http.get<Usuario[]>(`${this.url}/usuariosroladmin`)
+    let token=sessionStorage.getItem('token');
+
+    return this.http.get<Usuario[]>(`${this.url}/usuariosroladmin`,
+    {
+      headers:new HttpHeaders()
+      .set('Authorization',`Bearer ${token}`)
+      .set('Content-Type','application/json')
+    })
   }
   insert(usuario: Usuario) {
-    return this.http.post(this.url, usuario);
+    let token=sessionStorage.getItem('token');
+    return this.http.post(this.url, usuario,
+      {
+        headers:new HttpHeaders()
+        .set('Authorization',`Bearer ${token}`)
+        .set('Content-Type','application/json')
+      });
   }
   update(usuario: Usuario) {
-    return this.http.put(this.url, usuario);
+    let token=sessionStorage.getItem('token');
+    return this.http.put(this.url, usuario,{
+      headers:new HttpHeaders()
+      .set('Authorization',`Bearer ${token}`)
+      .set('Content-Type','application/json')
+    });
   }
   listId(id: number) {
-    return this.http.get<Usuario>(`${this.url}/${id}`);
+    let token=sessionStorage.getItem('token');
+    return this.http.get<Usuario>(`${this.url}/${id}`,
+    {
+      headers:new HttpHeaders()
+      .set('Authorization',`Bearer ${token}`)
+      .set('Content-Type','application/json')
+    });
   }
   delete(id: number) {
-    return this.http.delete(`${this.url}/${id}`);
+    let token=sessionStorage.getItem('token');
+    return this.http.delete(`${this.url}/${id}`,
+    {
+      headers:new HttpHeaders()
+      .set('Authorization',`Bearer ${token}`)
+      .set('Content-Type','application/json')
+    });
   }
 
   setList(listaNueva:Usuario[]){
+    
     return this.listaCambio.next(listaNueva);
   }
   getList(){

@@ -13,31 +13,39 @@
         <div class="form">
             <i class="fa-solid fa-user img-user"></i>
             <h2 class="title-user">Login</h2>
-            <form class="example-form table-form">
+             <form class="example-form table-form" [formGroup]="form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Username</mat-label>
-                    <input matInput placeholder="Username">
+                    <input formControlName="nameUsuario" matInput placeholder="Username">
                 </mat-form-field>
+
                 <mat-form-field>
                     <mat-label>Password</mat-label>
-                    <input matInput [type]="hide ? 'password' : 'text'">
+                    <input formControlName="passwordUsuario" matInput [type]="hide ? 'password' : 'text'">
+
                     <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
                         [attr.aria-pressed]="hide">
                         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                     </button>
                 </mat-form-field>
 
-                <button mat-raised-button color="primary">
-                    login </button>
-            </form>
+                <button mat-raised-button color="primary" (click)="login()">
+                    Ingresar</button>
+            </form> 
+           <!--  <input type="text" [(ngModel)]="username">
+            <input type="text" [(ngModel)]="password">
+            <button mat-raised-button color="primary" (click)="login()">
+                Ingresar</button> -->
             <button mat-flat-button color="basic" class="btnRegistrar" routerLink="/register">
                 ¿No tienes una cuenta? <span>Registrate</span>
-            </button>
+            </button> 
         </div>
 
         <div class="form-img">
-            <img src="../../../assets/images/avengers.jpg" alt="">
+            <img class="banner" src="../../../assets/images/avengers.jpg" alt="">
+            <img class="logo" src="../../../assets/svg/logo.svg" alt="">
         </div>
+        
     </div>
 
 </body>
