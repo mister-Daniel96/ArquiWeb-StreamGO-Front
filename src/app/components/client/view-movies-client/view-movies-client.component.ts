@@ -5,9 +5,11 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import * as moment from 'moment';
+import { PromedioCalificacionesDTO } from 'src/app/models/PromedioCalificacionesDTO';
 import { Contenido } from 'src/app/models/contenido';
 import { Resena } from 'src/app/models/resena';
 import { ResenaDTO } from 'src/app/models/resenaDTO';
+import { CalificacionService } from 'src/app/services/calificacion.service';
 import { ContenidoService } from 'src/app/services/contenido.service';
 import { ResenaService } from 'src/app/services/resena.service';
 @Component({
@@ -27,11 +29,14 @@ export class ViewMoviesClientComponent {
   //====================================================
   form: FormGroup = new FormGroup({});
   resena: Resena = new Resena();
+  promedio: string='';
   mensaje: string = '';
+  stars: number[] = [1, 2, 3, 4, 5];
   constructor(
     private route: ActivatedRoute,
     private cS: ContenidoService,
     private rS: ResenaService,
+    private caS: CalificacionService,
     private formBuilder: FormBuilder,
     private router: Router,
     private snackbar:MatSnackBar
@@ -52,6 +57,9 @@ export class ViewMoviesClientComponent {
     this.rS.listResenasDeContenido(this.id).subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
   
+    });
+    this.caS.promediocalificaciondecontenido(this.id).subscribe((data) => {
+      this.promedio = data[0].promedio_calificado;
     });
    
 
