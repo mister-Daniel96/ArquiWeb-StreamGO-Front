@@ -37,7 +37,7 @@ export class ProfileClientComponent implements OnInit {
       enabledUsuaio: [''],
     });
   }
-
+//
   init() {
     if (this.active) {
     this.uS.listId(this.idParent).subscribe(data=>{

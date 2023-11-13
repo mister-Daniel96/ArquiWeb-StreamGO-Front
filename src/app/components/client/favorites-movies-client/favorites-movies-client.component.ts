@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./favorites-movies-client.component.css']
 })
 export class FavoritesMoviesClientComponent {
-
+//
 }

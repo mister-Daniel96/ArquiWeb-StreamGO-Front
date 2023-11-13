@@ -56,7 +56,7 @@ export class SupportsClientComponent implements OnInit {
     } else {
       this.mensaje = 'Ingrese todos los datos!!!';
     }
-  }
+  }//
 
   obtenerControlCampo(nombreCampo: string) {
     const control = this.form.get(nombreCampo);
