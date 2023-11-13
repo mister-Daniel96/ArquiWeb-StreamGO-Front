@@ -9,8 +9,8 @@ import { UsuarioService } from 'src/app/services/usuario.service';
   templateUrl: './table-admin.component.html',
   styleUrls: ['./table-admin.component.css'],
 })
-export class TableAdminComponent  implements OnInit{
-  dataSource:MatTableDataSource<Usuario>=new MatTableDataSource();
+export class TableAdminComponent implements OnInit {
+  dataSource: MatTableDataSource<Usuario> = new MatTableDataSource();
   displayedColumns: string[] = [
     'codigo',
     'nombre',
@@ -19,22 +19,19 @@ export class TableAdminComponent  implements OnInit{
     'activado',
     'accion01',
   ];
-  id:number=0;
-  constructor(private uS:UsuarioService, private route:ActivatedRoute){
-
-  }
+  id: number = 0;
+  constructor(private uS: UsuarioService, private route: ActivatedRoute) {}
   ngOnInit(): void {
-
     this.route.parent?.params.subscribe((data) => {
       this.id = data['id'];
     });
 
-    this.uS.listAdmin().subscribe(data=>{
-      this.dataSource=new MatTableDataSource(data);
-    })
-    this.uS.getList().subscribe(data=>{
-      this.dataSource=new MatTableDataSource(data);
-    })
+    this.uS.listAdmin().subscribe((data) => {
+      this.dataSource = new MatTableDataSource(data);
+    });
+    this.uS.getList().subscribe((data) => {
+      this.dataSource = new MatTableDataSource(data);
+    });
   }
   eliminar(id: number) {
     this.uS.delete(id).subscribe((data) => {
