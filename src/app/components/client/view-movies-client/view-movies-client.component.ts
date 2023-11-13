@@ -78,7 +78,7 @@ export class ViewMoviesClientComponent {
           this.dataSource.data=data;//    ES LA UNICA FORMA DE ACTUALIZAR UN QUERY
         })
       });
-
+//
       this.router.navigate([
         `/components/client/${this.idParent}/view-movies/${this.id}`,
       ]);

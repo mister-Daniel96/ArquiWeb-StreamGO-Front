@@ -11,7 +11,7 @@ import { ContenidoService } from 'src/app/services/contenido.service';
 export class ListMoviesClientComponent {
   listaContenidos: Contenido[] = [];
   idParent: number = 0;
-
+//
   filterValue = '';
   constructor(private cS: ContenidoService, private route: ActivatedRoute) {}
 

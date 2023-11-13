@@ -18,7 +18,7 @@ role:string='';
       this.id = data['id'];
     });
   }
-
+//
   cerrar() {
     sessionStorage.clear();
   }
