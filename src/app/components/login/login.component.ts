@@ -63,7 +63,7 @@ export class LoginComponent {
         this.mensaje = 'Credenciales incorrectas!!!';
         this.mensaje += this.username + this.password;
         this.snackBar.open(this.mensaje, 'Aviso', { duration: 2000 });
-        // alert(this.mensaje);
+        // alert(this.mensaje);//
       }
     );
   }
