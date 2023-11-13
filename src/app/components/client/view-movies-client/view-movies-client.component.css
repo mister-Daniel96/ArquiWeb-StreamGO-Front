@@ -61,4 +61,19 @@ th,td{
     text-align: center;
 } 
 
-
+textarea{
+    resize: none;
+}
+.example-full-width{
+    width: 400px;
+}
+.form-example{
+    display: flex;
+  
+}
+.btnComentar{
+    margin-left: 50px;
+}
+table{
+    margin-top: 40px;
+}

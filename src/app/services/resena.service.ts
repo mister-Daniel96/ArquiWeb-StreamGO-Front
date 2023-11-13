@@ -12,8 +12,6 @@ const base_url = environment.base;
 export class ResenaService {
   url = `${base_url}/resenas`;
   listaCambio = new Subject<Resena[]>();
-
-  listaDTO=new Subject<ResenaDTO[]>();//agregado
   constructor(private http: HttpClient) {}
 
   list() {
@@ -55,8 +53,5 @@ export class ResenaService {
     )
     
   }
- /*  getListaDTO(){
-      return this.listaDTO.asObservable();
-  }
-   */
+
 }

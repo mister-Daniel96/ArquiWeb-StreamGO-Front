@@ -53,9 +53,7 @@ export class ViewMoviesClientComponent {
       this.dataSource = new MatTableDataSource(data);
   
     });
-   /*  this.rS.getListaDTO().subscribe((data) => {
-      this.dataSource = new MatTableDataSource(data);
-    }); */
+   
 
     this.form = this.formBuilder.group({
       textResena: [''],
@@ -73,9 +71,12 @@ export class ViewMoviesClientComponent {
       this.resena.contenido.idContenido = this.id;
 
       this.rS.insert(this.resena).subscribe((data) => {
-        this.rS.list().subscribe((data) => {
+       /*  this.rS.list().subscribe((data) => {
           this.rS.setList(data);
-        });
+        }); */
+        this.rS.listResenasDeContenido(this.id).subscribe(data=>{
+          this.dataSource.data=data;//    ES LA UNICA FORMA DE ACTUALIZAR UN QUERY
+        })
       });
 
       this.router.navigate([
