@@ -38,7 +38,7 @@ import {  MatSnackBarModule } from '@angular/material/snack-bar';
     HomeComponent,
     RegisterComponent,
     LoginComponent
-  ],
+  ],//
   imports: [
    /*  RouterModule, */
     BrowserModule,

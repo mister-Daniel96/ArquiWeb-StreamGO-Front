@@ -16,7 +16,7 @@ import { ViewMoviesClientComponent } from './client/view-movies-client/view-movi
 import { FavoritesMoviesClientComponent } from './client/favorites-movies-client/favorites-movies-client.component';
 import { GuardService } from '../services/guard.service';
 const routes: Routes = [
-  {
+  {//
     //protege a todo este grupo de rutas osea activa y desactiva las rutas
     canActivate: [GuardService], //llamo al guard.service DENTRO DEL COMPONENT-ROUTING MODULE protege estas rutas
     path: 'administrator/:id',

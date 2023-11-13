@@ -39,7 +39,7 @@ import { ComponentsRoutingModule } from './components-routing.module';
 import { RouterModule } from '@angular/router';
 import {  MatSnackBarModule } from '@angular/material/snack-bar';
 
-@NgModule({
+@NgModule({//
   declarations: [
     AdministratorComponent,
     ClientComponent,
