@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+<!--  -->
+    <div class="form ">
+
+        <h1 style="text-align: center;">Soporte al cliente</h1>
+        <form class="example-form  container" [formGroup]="form" (submit)="aceptar()">
+
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Descripcion</mat-label>
+                <!-- <input matInput placeholder="Descripcion" formControlName="descriptionSupport" > -->
+                <textarea matInput formControlName="descriptionSupport" [maxLength]="80"></textarea>
+                <mat-error *ngIf="obtenerControlCampo('descriptionSupport')?.errors?.['required']">
+                    La descripcion es obligatoria.
+                </mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill" class="example-full-width">
+                <input matInput placeholder="Ingrese fecha" [matDatepicker]="picker" formControlName="dateSupport"
+                    [min]="maxFecha" [max]="maxFecha" />
+                <!-- [max]="maxFecha" -->
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <mat-error *ngIf="obtenerControlCampo('dateSupport')?.errors?.['required']">
+                    La fecha de creación es obligatoria.
+                </mat-error>
+            </mat-form-field>
+            <br>
+            <button mat-raised-button color="primary">Enviar</button>
+        </form>
+        <img class="img-tom " src="../../../../assets/images/tom.png" alt="">
+    </div>
+</body>
+
+</html>

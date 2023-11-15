@@ -1,0 +1,26 @@
+.fomr{
+    position: relative;
+}
+
+.form>h1{
+    font-size: 40px;
+    margin: 40px ;
+}
+
+.example-form{
+    display: grid;
+    place-content: center;
+}
+
+textarea{
+    resize: none;
+}
+.example-full-width{
+    width: 400px;
+}
+.img-tom{
+    position: absolute;
+    top: 80px;
+    right: 80px;
+    width: 250px;
+}/*  */

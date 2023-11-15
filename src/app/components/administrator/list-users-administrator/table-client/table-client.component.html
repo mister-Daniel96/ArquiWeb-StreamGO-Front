@@ -24,7 +24,10 @@
             <ng-container matColumnDef="contrasena">
                 <th mat-header-cell *matHeaderCellDef> Contraseña </th>
                 <td mat-cell *matCellDef="let element">
-                    {{element.passwordUsuario}}
+                    <!-- {{element.passwordUsuario}} -->
+                    <i class="fa-solid fa-lock" style="color: #61718f;"></i><i class="fa-solid fa-lock" style="color: #61718f;"></i>
+                    <i class="fa-solid fa-lock" style="color: #61718f;"></i><i class="fa-solid fa-lock" style="color: #61718f;"></i>
+                    <i class="fa-solid fa-lock" style="color: #61718f;"></i><i class="fa-solid fa-lock" style="color: #61718f;"></i>
                 </td>
             </ng-container>
 
@@ -45,7 +48,7 @@
                 <th mat-header-cell *matHeaderCellDef> Acciones </th>
                 <td mat-cell *matCellDef="let element">
                     <button mat-raised-button color="primary"
-                        [routerLink]="['/administrator',id,'ediciones-users', element.idUsuario]">
+                        [routerLink]="['/components/administrator',id,'ediciones-users', element.idUsuario]">
                         <i class="fa-solid fa-pen-to-square" style="color: #ffffff;"></i>
                     </button>
                 </td>

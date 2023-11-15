@@ -110,7 +110,7 @@ export class CreaeditaMoviesAdministratorComponent implements OnInit {
         });
       }
 
-      this.router.navigate([`administrator/${this.idParent}/list-movies`]);
+      this.router.navigate([`/components/administrator/${this.idParent}/list-movies`]);
     } else {
       this.mensaje = 'Ingrese todos los datos!!!';
     }

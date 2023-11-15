@@ -7,9 +7,10 @@
 .form {
     width: 40%;
     height: 500px;
-    margin-top: 20px;
-    margin-left: 20px;
+    /* margin-top: 20px;
+    margin-left: 20px; */
     padding-top: 20px;
+    margin: auto;
 }
 
 .img-user {
@@ -50,6 +51,10 @@
     width: 50%;
     margin-left: auto;
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
 }
 
 .form-img::before {
@@ -60,17 +65,51 @@
     width: 100%;
     height: 100%;
     background-color: #3f51b57c;
-/*     clip-path: circle(60.4% at 87% 49%);
- */   
- clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 25% 100%, 0% 50%);
- z-index: 1;
+    /*     clip-path: circle(60.4% at 87% 49%);
+ */
+    clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 25% 100%, 0% 50%);
+    z-index: 1;
 
 }
 
-.form-img img {
+.form-img .banner {
     width: 100%;
     height: 100%;
-/*     clip-path: circle(60.4% at 87% 49%);
+    /*     clip-path: circle(60.4% at 87% 49%);
  */
- clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 25% 100%, 0% 50%);
+    clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 25% 100%, 0% 50%);
+}
+
+.form-img .logo {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 300px;
+    z-index: 111;
+    /*     filter: drop-shadow(1px 1px 2px white);
+ */
+    object-fit: contain;
+}
+
+.form-img .btnBefore {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 30px;
+    margin-top: 30px;
+    color: whitesmoke;
+    border: none;
+    background-color: transparent;
+    z-index: 500;
+}
+
+.form-img .btnBefore i {
+    font-size: 40px;
+    color: whitesmoke;
+    transition: 0.3s all;
+}
+.form-img .btnBefore i:hover {
+    font-size: 50px;
+    color: whitesmoke;
 }

@@ -1,26 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
 
-  <body>
-    <div class="container">
-      <h1 >Peliculas</h1>
-      <div class="card-deck container">
-        <div class="card" *ngFor="let item of listaContenidos">
-          <div class="img">
-            <img
-              class="card-img-top"
-              src="{{ item.urlImageContenido }}"
-              alt="{{ item.titleContenido }}"
-              [routerLink]="['/cliente/movie-detail', item.idContenido]"
-            />
-          </div>
-        </div>
-      </div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+<!--  -->
+  <div class="container">
+    <h1 style="text-align: center;">PELICULAS</h1>
+    <div class="search">
+      <mat-form-field class="container-lg">
+        <input matInput [(ngModel)]="filterValue" (input)="filter()" placeholder="Buscar" />
+      </mat-form-field>
+      <button mat-mini-fab color="primary" (click)="resetFilter()">
+        <i class="fa-solid fa-delete-left" style="color: #ffffff;"></i>
+      </button>
     </div>
-  </body>
+
+    <div class="card-deck  container " style="margin-top:50px">
+
+      <mat-card class="example-card card" *ngFor="let item of listaContenidos" data-aos="zoom-in">
+
+        <img class="card-img-top" src="{{ item.urlImageContenido }}" alt="{{ item.titleContenido }}"
+          [routerLink]="['/components/client',idParent,'view-movies', item.idContenido]" />
+
+      </mat-card>
+
+    </div>
+
+  </div>
+
+</body>
+
 </html>

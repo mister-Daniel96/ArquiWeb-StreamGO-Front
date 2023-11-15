@@ -1,16 +1,24 @@
 * {
+    margin: 0;
     box-sizing: border-box;
 }
-html{
+
+html {
     scroll-behavior: smooth;
 }
 
-
-header{
-    position: sticky;
+header {
+   /*  position: sticky;
     top: 0;
+    left: 0;
+    z-index: 11; */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     z-index: 11;
 }
+
 .navbar {
     width: 100%;
     display: flex;
@@ -22,13 +30,15 @@ header{
     width: 180px;
 }
 
-.menu button {
+.menu .button {
+    /*  display: block; */
     margin: 0 10px;
     box-shadow: none;
     transition: 0.2s all;
+    border: none;
 }
 
-.menu button:hover {
+.menu .button:hover {
     transform: scale(1.2);
 }
 
@@ -36,11 +46,13 @@ header{
     background-color: whitesmoke;
     color: #3F51B5;
 }
-a{
+
+a {
     font-size: hidden;
     text-decoration: none;
-    color:whitesmoke;
+    color: whitesmoke;
 }
+
 .container {
     padding: 20px 40px;
 }
@@ -52,6 +64,7 @@ a{
     display: flex;
     align-items: center;
     position: relative;
+    background-color: rgba(245, 245, 245, 0.473);
 }
 
 .portada-info {
@@ -127,6 +140,7 @@ a{
     height: 45px;
     font-weight: bold;
     overflow: hidden;
+    box-shadow: 1px 1px 10px 1px;
 }
 
 .portada-img {
@@ -159,7 +173,7 @@ a{
 
 #variedad {
     margin-top: 80px;
-    background:  linear-gradient(to top, #4a608a 0%, rgb(186, 200, 224) 100%),url(../../../assets/images/avengers.jpg);
+    background: linear-gradient(to top, #4a608a 0%, rgb(186, 200, 224) 100%), url(../../../assets/images/avengers.jpg);
     padding: 20px 40px;
     padding-top: 40px;
 }
@@ -169,9 +183,10 @@ a{
     font-size: 35px;
     transition: 0.2s all;
 }
+
 #variedad h2:hover {
-   font-weight: bold;
-   
+    font-weight: bold;
+
 }
 
 #variedad img {
@@ -180,9 +195,133 @@ a{
 }
 
 
-#beneficios{
+#beneficios {
     margin-top: 20px;
+    width: 100%;
+    padding: 20px 40px;
+    overflow: hidden;
 }
-#beneficios h2{
+
+#beneficios h2 {
     text-align: center;
+}
+
+.card {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    padding: 10px 20px;
+    justify-content: space-around;
+    align-items: center;
+    margin: 20px 0;
+    border: none;
+}
+
+.card:nth-child(2) {
+    flex-direction: row-reverse;
+}
+
+.card h4 {
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+}
+
+.card .card-info {
+    width: 40%;
+    display: block;
+}
+
+.card .card-info p {
+    text-align: justify;
+}
+
+.card .card-img {
+    width: 30%;
+    display: block;
+    max-height: 300px;
+    object-fit: cover;
+}
+
+#nosotros {
+    margin-top: 20px;
+    width: 100%;
+    padding: 50px 40px;
+    background-color: whitesmoke;
+}
+#nosotros .title{
+    font-size: 40px;
+    text-align: center;
+    margin:20px;
+
+    margin-bottom: 60px;
+}
+.cardContainer {
+    width: 80%;
+    display: flex;
+    gap: 30px;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+.card-item {
+    width: 45%;
+    background-color: whitesmoke;
+    /*  background-image: linear-gradient(to left, #8f8eb9 0%, #8989ba 52%, #7d7dac 100%);
+    background-size: 68% 100%;
+    background-repeat: no-repeat;
+    background-position: right; */
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+
+}
+
+.card-profile {
+    display: flex;
+    min-width: 150px;
+    padding: 10px 15px;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card-item .card-profile img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto;
+}
+
+
+.card-item .card-profile .card-profile-information {
+    width: 100%;
+    height: 100px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+.card-item .card-description {
+    background-image: linear-gradient(to left, #8f8eb9 0%, #8989ba 52%, #7d7dac 100%);
+    height: 100%;
+    padding: 5px 20px;
+    display: grid;
+    place-content: center;
+}
+
+.card-item .card-description p {
+    text-align: justify;
+    color: whitesmoke;
+}
+
+.card-item .card-description button {
+    color: #5e5e8a;
+    background-color: whitesmoke;
+    font-weight: bold;
+    width: 50%;
+    margin: 0 auto;
 }
