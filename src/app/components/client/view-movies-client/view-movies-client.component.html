@@ -29,21 +29,19 @@
                 <div style="float: right; clear: right;">
                     <img mat-card-image class="card-img-top" src="{{ movie.urlImageContenido }}"
                         alt="{{ movie.titleContenido }}">
+                        <p>Calificacion:{{ promedio }} <mat-icon class="star-icon">star</mat-icon></p>    
                 </div>
-                    <span>Calificacion:{{ promedio }} <mat-icon class="star-icon">star</mat-icon></span>
             </div>
-            
         </div>
         <div class="video">
-            <iframe src="https://www.youtube.com/embed/rRAfUcV7KpA?si=lSu-RnEKkAzuC0k2" title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen></iframe>
-
+                <iframe [src]="getVideoUrl()" title="YouTube video player" width="640" height="360"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+                </iframe>
         </div>
         <div class="addComments">
             <form class="example-form  container" [formGroup]="form" (submit)="aceptar()">
-
 
                 <mat-form-field class="example-full-width">
                     <mat-label>Descripcion</mat-label>
@@ -53,7 +51,12 @@
                         La descripcion es obligatoria.
                     </mat-error>
                 </mat-form-field>
-
+                <form class="example-form  container" [formGroup]="form2" (submit)="aceptar()">
+                <mat-form-field class="example-full-width">
+                    <mat-label>Puntaje</mat-label>
+                    <input matInput type="number" formControlName="score" min="0" max="10" step="1" />
+                  </mat-form-field>
+                </form>
                 <button mat-raised-button color="primary" class="btnComentar">Comentar</button>
             </form>
         </div>
@@ -74,12 +77,9 @@
                 <th mat-header-cell *matHeaderCellDef> Fecha </th>
                 <td mat-cell *matCellDef="let element"> {{element.dateResena}} </td>
             </ng-container>
-
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
-
-
     </div>
 
 </body>

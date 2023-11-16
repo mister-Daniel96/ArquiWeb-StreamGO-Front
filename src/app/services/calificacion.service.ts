@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Calificacion } from '../models/calificacion';
-import { PromedioCalificacionesDTO } from '../models/PromedioCalificacionesDTO';
+import { PromedioCalificacionesDTO } from '../models/promediocalificacionesDTO';
 const base_url = environment.base;
 
 @Injectable({
@@ -15,10 +15,22 @@ export class CalificacionService {
   private listaCambio = new Subject<Calificacion[]>();
   constructor(private http: HttpClient) { }
   list() {
-    return this.http.get<Calificacion[]>(this.url);
+    let token=sessionStorage.getItem('token')
+    return this.http.get<Calificacion[]>(this.url,{
+      headers:new HttpHeaders()
+      .set('Authorization',`Bearer ${token}`)
+      .set('Content-Type','application/json')
+    });
   }
-  insert(c: Calificacion) {
-    return this.http.post(this.url, c);
+  insert(calificacion:Calificacion){
+    let token=sessionStorage.getItem('token')
+    return this.http.post(this.url,calificacion,
+      {
+        headers:new HttpHeaders()
+        .set('Authorization',`Bearer ${token}`)
+        .set('Content-Type','application/json')
+      }
+      )
   }
   setList(listaNueva: Calificacion[]) {
     this.listaCambio.next(listaNueva);
@@ -39,7 +51,7 @@ export class CalificacionService {
   promediocalificaciondecontenido(id: number) {
     let token= sessionStorage.getItem('token'); //aunqeu sea de tipo any igual funciona any[]
     return this.http.get<PromedioCalificacionesDTO[]>(//no es exactamente igual al model, este es un query
-      `${this.url}/promedioCalificaciones?idcontenido=${id}}`,
+      `${this.url}/promedioCalificaciones?idcontenido=${id}`,
       {
         headers:new HttpHeaders()
         .set('Authorization',`Bearer ${token}`)

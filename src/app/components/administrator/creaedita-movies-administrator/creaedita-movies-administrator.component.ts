@@ -33,7 +33,7 @@ export class CreaeditaMoviesAdministratorComponent implements OnInit {
   ];
   languajes: { value: string; viewValue: string }[] = [
     { value: 'latino', viewValue: 'Latino' },
-    { value: 'ingles', viewValue: 'Ingles' },
+    { value: 'americano', viewValue: 'Americano' },
   ];
   genders: { value: string; viewValue: string }[] = [
     { value: 'comedia', viewValue: 'Comedia' },
