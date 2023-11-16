@@ -11,10 +11,11 @@ export class CardClientComponent {
 
   cardData: Card = {
     idCard: 0, // Puedes inicializar con un valor predeterminado o dejar en blanco
-    typeCard: '', // Ajusta según tus necesidades
+    typeCard: 'Debito', // Ajusta según tus necesidades
     numCard: '',
     nameCard: '',
-    fechaVencimientoCard: new Date(),
+    MM: 0,
+    YY: 0,
     cvvCard: 0
   };
 
@@ -28,7 +29,8 @@ export class CardClientComponent {
       typeCard: cardData.typeCard,
       numCard: cardData.numCard,
       nameCard: cardData.nameCard,
-      fechaVencimientoCard: cardData.fechaVencimientoCard,
+      MM: cardData.MM,
+      YY: cardData.YY,
       cvvCard: cardData.cvvCard
     };
 
@@ -36,10 +38,6 @@ export class CardClientComponent {
       (response) => {
         console.log('Tarjeta registrada exitosamente', response);
         // Puedes realizar acciones adicionales después del registro
-      },
-      (error) => {
-        console.error('Error al registrar la tarjeta', error);
-        // Manejar errores según sea necesario
       }
     );
   }

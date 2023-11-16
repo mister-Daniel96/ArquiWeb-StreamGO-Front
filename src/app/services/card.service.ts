@@ -11,7 +11,7 @@ const base_url = environment.base;
 })
 export class CardService {
 
-  url = `${base_url}/contenidos`;
+  url = `${base_url}/cards`;
 
   listaCambio = new Subject<Card[]>();
   constructor(private http: HttpClient) {}
