@@ -77,3 +77,39 @@ textarea{
 table{
     margin-top: 40px;
 }/*  */
+
+/* Estilos card */
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+  }
+  .date {
+    font-size: 0.6em;
+    color: rgb(223, 223, 223);
+  }
+  mat-card {
+    width: 350px; 
+    border: 2px solid #2e88c5;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  mat-card-title {
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 15px;
+    color: white;
+    border-bottom: 2px solid #2e88c5; /* Línea entre el título y el resto de datos */
+    background-color: rgb(75, 112, 190); /* Fondo del título */
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  mat-card-content p.text {
+    margin-top: 10px;
+    font-size: 1.2em;
+  }
+  

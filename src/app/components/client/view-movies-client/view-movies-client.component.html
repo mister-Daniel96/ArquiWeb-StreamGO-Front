@@ -54,7 +54,25 @@
             </form>
         </div>
 
-        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 table-comments">
+        <div class="card-container">
+            <div *ngFor="let resena of dataSource.data">
+                <mat-card>
+                  <mat-card-title>
+                    <div>
+                        {{ resena.name_usuario }}
+                    </div>
+                    <div>
+                        <p class="date">{{ resena.dateResena | date:'dd/MM/yyyy' }}</p>
+                    </div>
+                </mat-card-title>
+                  <mat-card-content>
+                    <p class="text">{{ resena.text_resena }}</p>
+                  </mat-card-content>
+                </mat-card>
+              </div>
+        </div>
+        
+        <!-- <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 table-comments">
 
             <ng-container matColumnDef="usuario">
                 <th mat-header-cell *matHeaderCellDef> Usuario</th>
@@ -73,7 +91,7 @@
 
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        </table>
+        </table> -->
 
 
     </div>
