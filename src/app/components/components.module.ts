@@ -38,6 +38,7 @@ import { ComponentsRoutingModule } from './components-routing.module';
 
 import { RouterModule } from '@angular/router';
 import {  MatSnackBarModule } from '@angular/material/snack-bar';
+import { CardClientComponent } from './client/card-client/card-client.component';
 
 @NgModule({//
   declarations: [
@@ -56,6 +57,7 @@ import {  MatSnackBarModule } from '@angular/material/snack-bar';
     ViewMoviesClientComponent,
     ProfileClientComponent,
     FavoritesMoviesClientComponent,
+    CardClientComponent,
   ],
   imports: [
     CommonModule,
@@ -85,7 +87,8 @@ import {  MatSnackBarModule } from '@angular/material/snack-bar';
     MatCardModule,
     MatGridListModule,
     MatSidenavModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatInputModule
   ],
 })
 export class ComponentsModule {}
