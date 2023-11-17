@@ -38,6 +38,9 @@ import { ComponentsRoutingModule } from './components-routing.module';
 
 import { RouterModule } from '@angular/router';
 import {  MatSnackBarModule } from '@angular/material/snack-bar';
+import { ReportsAdministratorComponent } from './administrator/reports-administrator/reports-administrator.component';
+import { Report01Component } from './administrator/reports-administrator/report01/report01.component';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({//
   declarations: [
@@ -56,6 +59,8 @@ import {  MatSnackBarModule } from '@angular/material/snack-bar';
     ViewMoviesClientComponent,
     ProfileClientComponent,
     FavoritesMoviesClientComponent,
+    ReportsAdministratorComponent,
+    Report01Component,
   ],
   imports: [
     CommonModule,
@@ -85,7 +90,8 @@ import {  MatSnackBarModule } from '@angular/material/snack-bar';
     MatCardModule,
     MatGridListModule,
     MatSidenavModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    NgChartsModule
   ],
 })
 export class ComponentsModule {}

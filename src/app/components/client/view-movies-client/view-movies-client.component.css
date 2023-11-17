@@ -1,7 +1,10 @@
+
+
 .contenido {
     display: flex;
     align-items: center;
     margin-top: 50px;
+    justify-content: center;
 }
 
 .contenido-info {
@@ -44,36 +47,89 @@
 .video {
     width: 100%;
     margin-top: 100px;
+    margin-bottom: 100px;
     display: flex;
     justify-content: center;
-    height: 100vh;
+    height: 80vh;
+    z-index: 55555;
 }
 
 .video iframe {
-   width: 80%;
-   height: 90%;
+    width: 90%;
+    height: 100%;
 }
-.table-clients{
+
+.table-clients {
     margin-top: 40px;
 }
 
-th,td{
+th,
+td {
     text-align: center;
-} 
+}
 
-textarea{
+textarea {
     resize: none;
 }
-.example-full-width{
+
+.example-full-width {
     width: 400px;
 }
-.form-example{
+
+.example-form {
     display: flex;
-  
+    align-items: center;
 }
-.btnComentar{
+
+.addComments {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.btnComentar {
     margin-left: 50px;
 }
-table{
+
+table {
     margin-top: 40px;
-}/*  */
+}
+
+/*  */
+.cardsContainer {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    width: 40%;
+    margin: 5px;
+    display: block;
+}
+mat-card{
+    height: 100%;
+}
+mat-card  mat-card-header{
+    width: 100%;
+    display: flex;
+}
+.contenido-image-item{
+    position: relative;
+    width: 60%;
+}
+.calificacion{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    display: block;
+    background-color: whitesmoke;
+    box-shadow: 1px 1px 10px 1px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

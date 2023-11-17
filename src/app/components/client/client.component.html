@@ -13,20 +13,22 @@
             <i class="fa-solid fa-user-tie"></i>
             <span>Cliente</span>
         </button>
-<!--  -->
+        <!--  -->
         <div class="btnOptions">
 
 
             <button mat-flat-button class="btnMenu" color="primary" [routerLink]="['/components/client',id]">
                 <i class="fa-regular fa-user" style="color: #ffffff;"></i>
                 Mi Perfil</button>
-            <button mat-flat-button class="btnMenu" color="primary"  [routerLink]="['/components/client',id,'favorites']">
+            <button mat-flat-button class="btnMenu" color="primary"
+                [routerLink]="['/components/client',id,'favorites']">
                 <i class="fa-solid fa-list" style="color: #ffffff;"></i>
                 Favoritos</button>
-            <button mat-flat-button class="btnMenu" color="primary" [routerLink]="['/components/client',id,'supports']"> 
+            <button mat-flat-button class="btnMenu" color="primary" [routerLink]="['/components/client',id,'supports']">
                 <i class="fa-solid fa-screwdriver-wrench" style="color: #ffffff;"></i>
                 Soporte</button>
-            <button mat-flat-button class="btnMenu" color="primary" [routerLink]="['/components/client',id,'list-movies']">
+            <button mat-flat-button class="btnMenu" color="primary"
+                [routerLink]="['/components/client',id,'list-movies']">
                 <i class="fa-solid fa-film" style="color: #ffffff;"></i>
                 Peliculas</button>
             <button mat-flat-button class="btnMenu cerrar" color="primary" routerLink="/login">
@@ -39,6 +41,8 @@
         <router-outlet></router-outlet>
         <div [hidden]="route.children.length!==0">
             <app-profile-client></app-profile-client>
+            <!--             <app-list-movies-client></app-list-movies-client>
+ -->
         </div>
     </div>
 

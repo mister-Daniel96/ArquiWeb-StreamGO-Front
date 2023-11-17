@@ -5,22 +5,48 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+
+
 </head>
 
 <body>
-<!--  -->
-  <div class="container">
-    <h1 style="text-align: center;">PELICULAS</h1>
-    <div class="search">
-      <mat-form-field class="container-lg">
-        <input matInput [(ngModel)]="filterValue" (input)="filter()" placeholder="Buscar" />
-      </mat-form-field>
-      <button mat-mini-fab color="primary" (click)="resetFilter()">
-        <i class="fa-solid fa-delete-left" style="color: #ffffff;"></i>
-      </button>
+  <!--  -->
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide" style="position: relative;">
+        <h4 class="title">Lo mejor de StreamGO</h4>
+        <img src="../../../../assets/images/fondo-portada.jpg" alt="">
+      </div>
+      <div class="swiper-slide">
+        <img src="../../../../assets/images/Accion.jpg" alt="">
+        <h4 class="title">Accion</h4>
+      </div>
+      <div class="swiper-slide">
+        <h4 class="title">Animadas</h4>
+        <img src="../../../../assets/images/animadas.jpg" alt="">
+      </div>
+      <div class="swiper-slide">
+        <h4 class="title">Ficcion</h4>
+        <img src="../../../../assets/images/Ciencia ficcion.jpg" alt="">
+      </div>
+      <div class="swiper-slide">
+        <h4 class="title">Clasicas</h4>
+        <img src="../../../../assets/images/Clasicos o antiguo.jpg" alt="">
+      </div>
     </div>
+  </div>
+  <div class="search">
+    <mat-form-field class="container-lg">
+      <input matInput [(ngModel)]="filterValue" (input)="filter()" placeholder="Buscar" />
+    </mat-form-field>
+    <button mat-mini-fab color="primary" (click)="resetFilter()">
+      <i class="fa-solid fa-delete-left" style="color: #ffffff;"></i>
+    </button>
+  </div>
+  <div class="container">
 
-    <div class="card-deck  container " style="margin-top:50px">
+
+    <div class="card-deck " style="margin-top:50px">
 
       <mat-card class="example-card card" *ngFor="let item of listaContenidos" data-aos="zoom-in">
 
@@ -30,8 +56,10 @@
       </mat-card>
 
     </div>
-
   </div>
+
+
+
 
 </body>
 

@@ -10,10 +10,11 @@
 <body>
     <div class="container">
 
-<!--  -->
+      
+        <!--  -->
         <div class="contenido">
             <div class="contenido-info">
-                <h2 class="movie-title">{{ movie.titleContenido }}</h2>
+                <h2 class="movie-title" style="font-size: 60px;">{{ movie.titleContenido }}</h2>
                 <div class="movie-metadata">
                     <p><strong>Año:</strong> {{ movie.yearContenido | date }}</p>
                     <p><strong>Director:</strong> {{ movie.directorContenido }}</p>
@@ -26,25 +27,29 @@
 
             </div>
             <div class="contenido-image">
-                <div style="float: right; clear: right;">
+                <div class="contenido-image-item">
                     <img mat-card-image class="card-img-top" src="{{ movie.urlImageContenido }}"
                         alt="{{ movie.titleContenido }}">
+                    <span class="calificacion" >
+                        {{calificacion}}
+                        <i class="fa-solid fa-star" style="color: #f8cc2a;"></i>
+                    </span>
                 </div>
+
             </div>
         </div>
         <div class="video">
-            <iframe src="https://www.youtube.com/embed/rRAfUcV7KpA?si=lSu-RnEKkAzuC0k2" title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            <iframe [src]="getSafeUrl(movie.urlContenido)" title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen></iframe>
 
         </div>
-        <div class="addComments">
+        <div class="addComments ">
             <form class="example-form  container" [formGroup]="form" (submit)="aceptar()">
 
 
                 <mat-form-field class="example-full-width">
-                    <mat-label>Descripcion</mat-label>
+                    <mat-label>Comentar</mat-label>
                     <!-- <input matInput placeholder="Descripcion" formControlName="descriptionSupport" > -->
                     <textarea matInput formControlName="textResena" [maxLength]="80"></textarea>
                     <mat-error *ngIf="obtenerControlCampo('textResena')?.errors?.['required']">
@@ -56,7 +61,7 @@
             </form>
         </div>
 
-        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 table-comments">
+        <!--  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 table-comments">
 
             <ng-container matColumnDef="usuario">
                 <th mat-header-cell *matHeaderCellDef> Usuario</th>
@@ -75,7 +80,23 @@
 
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        </table>
+        </table> -->
+
+        <div class="cardsContainer">
+            <div *ngFor="let item of resenasDTO" class="card">
+                <mat-card>
+                    <mat-card-header>
+                        <mat-card-title>{{item.name_usuario}}</mat-card-title>
+                        <mat-card-subtitle>{{item.dateResena}}</mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content>{{item.text_resena}}</mat-card-content>
+                    <mat-card-actions align="end">
+                        <button mat-button>LIKE</button>
+                        <button mat-button>SHARE</button>
+                    </mat-card-actions>
+                </mat-card>
+            </div>
+        </div>
 
 
     </div>
