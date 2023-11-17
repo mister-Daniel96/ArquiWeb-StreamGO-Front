@@ -28,3 +28,6 @@ mat-form-field {
     display: grid;
     place-content: center;
 }
+.imgActual img{
+    width: 100%;
+}

@@ -9,15 +9,15 @@
 
 <body>
 
-  <div class="container">
+  <div class="main">
     <h1 style="text-align: center;">PELICULAS</h1>
     <div style="width: 100%;display: flex;justify-content: center;">
-      <button routerLink="/administrator/nuevo-movies" mat-raised-button color="primary" class="btnNuevo">Nuevo</button>
+      <button [routerLink]="['/components/administrator',idParent,'nuevo-movies']" mat-raised-button color="primary" class="btnNuevo">Nuevo</button>
     </div>
 
     <div class="card-deck  container " style="margin-top:50px">
 
-      <mat-card class="example-card card" *ngFor="let item of listaContenidos">
+      <mat-card class="example-card card" *ngFor="let item of listaContenidos" data-aos="zoom-in">
        <!--  <mat-card-header>
             <div mat-card-avatar class="example-header-image"></div>
           <mat-card-title>{{item.titleContenido}}</mat-card-title> 
@@ -29,7 +29,7 @@
         </mat-card-content>
         <mat-card-actions class="options">
           <button mat-mini-fab color="primary" aria-label="Example icon button with a menu icon"
-            [routerLink]="['/administrator/ediciones-movies',item.idContenido]">
+            [routerLink]="['/components/administrator',idParent,'ediciones-movies',item.idContenido]">
             <!--<mat-icon></mat-icon>-->
             <i class="fa-solid fa-pen-to-square" style="color: #ffffff;"></i>
           </button>

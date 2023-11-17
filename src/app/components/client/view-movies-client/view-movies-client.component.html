@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+
+      
+        <!--  -->
+        <div class="contenido">
+            <div class="contenido-info">
+                <h2 class="movie-title" style="font-size: 60px;">{{ movie.titleContenido }}</h2>
+                <div class="movie-metadata">
+                    <p><strong>Año:</strong> {{ movie.yearContenido | date }}</p>
+                    <p><strong>Director:</strong> {{ movie.directorContenido }}</p>
+                    <p><strong>Tipo:</strong> {{ movie.typeContenido }}</p>
+                    <p><strong>Género:</strong> {{ movie.genderContenido }}</p>
+                    <p><strong>País de origen:</strong> {{ movie.originCountryContenido }}</p>
+                    <p><strong>Idioma:</strong> {{ movie.languageContenido }}</p>
+                    <p style="text-align: justify;"><strong>Descripcion:</strong> {{ movie.descripContenido }}</p>
+                </div>
+
+            </div>
+            <div class="contenido-image">
+                <div class="contenido-image-item">
+                    <img mat-card-image class="card-img-top" src="{{ movie.urlImageContenido }}"
+                        alt="{{ movie.titleContenido }}">
+                    <span class="calificacion" >
+                        {{calificacion}}
+                        <i class="fa-solid fa-star" style="color: #f8cc2a;"></i>
+                    </span>
+                </div>
+
+            </div>
+        </div>
+        <div class="video">
+            <iframe [src]="getSafeUrl(movie.urlContenido)" title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+
+        </div>
+        <div class="addComments ">
+            <form class="example-form  container" [formGroup]="form" (submit)="aceptar()">
+
+
+                <mat-form-field class="example-full-width">
+                    <mat-label>Comentar</mat-label>
+                    <!-- <input matInput placeholder="Descripcion" formControlName="descriptionSupport" > -->
+                    <textarea matInput formControlName="textResena" [maxLength]="80"></textarea>
+                    <mat-error *ngIf="obtenerControlCampo('textResena')?.errors?.['required']">
+                        La descripcion es obligatoria.
+                    </mat-error>
+                </mat-form-field>
+
+                <button mat-raised-button color="primary" class="btnComentar">Comentar</button>
+            </form>
+        </div>
+
+        <!--  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 table-comments">
+
+            <ng-container matColumnDef="usuario">
+                <th mat-header-cell *matHeaderCellDef> Usuario</th>
+                <td mat-cell *matCellDef="let element"> {{element.name_usuario}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="texto">
+                <th mat-header-cell *matHeaderCellDef> Comentario </th>
+                <td mat-cell *matCellDef="let element"> {{element.text_resena}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="fecha">
+                <th mat-header-cell *matHeaderCellDef> Fecha </th>
+                <td mat-cell *matCellDef="let element"> {{element.dateResena}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table> -->
+
+        <div class="cardsContainer">
+            <div *ngFor="let item of resenasDTO" class="card">
+                <mat-card>
+                    <mat-card-header>
+                        <mat-card-title>{{item.name_usuario}}</mat-card-title>
+                        <mat-card-subtitle>{{item.dateResena}}</mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content>{{item.text_resena}}</mat-card-content>
+                    <mat-card-actions align="end">
+                        <button mat-button>LIKE</button>
+                        <button mat-button>SHARE</button>
+                    </mat-card-actions>
+                </mat-card>
+            </div>
+        </div>
+
+
+    </div>
+
+</body>
+
+</html>

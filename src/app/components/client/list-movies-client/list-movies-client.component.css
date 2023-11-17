@@ -1,0 +1,148 @@
+
+html,
+body {
+    position: relative;
+    height: 100%;
+}
+
+body {
+    background: #eee;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #000;
+    margin: 0;
+    padding: 0;
+}
+
+.swiper {
+    width: 100%;
+    height: 100%;
+    /*     border: 1px solid red;
+ */
+}
+
+.swiper-slide {
+    height: 540px;
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.swiper-slide .title {
+    position: absolute;
+    top: 0;
+    z-index: 555;
+    color: whitesmoke;
+    font-weight: bold;
+    font-size: 80px;
+    background-color: rgba(37, 37, 37, 0.74);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Courier New', Courier, monospace;
+}
+/* todo lo de arriba es para swipe */
+
+.card-deck {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+h1 {
+    font-size: 36px;
+    /* Tamaño de fuente */
+    font-weight: bold;
+    /* Peso de la fuente */
+    text-align: center;
+    /* Alineación del texto */
+    color: #2c3e50;
+    /* Color del texto */
+    margin-top: 30px;
+    /* Margen superior */
+    margin-bottom: 30px;
+    /* Margen inferior */
+    text-transform: uppercase;
+    /* Transformación de texto a mayúsculas */
+    letter-spacing: 2px;
+    /* Espaciado entre letras */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    /* Sombra de texto */
+}
+
+.card-img-top {
+    width: 256px;
+    height: 380px;
+}
+
+.card {
+    position: relative;
+    cursor: pointer;
+    transition: 0.3s all;
+
+}
+
+.card:hover {
+    box-shadow: 2px 2px 5px 5px rgba(0, 0, 0, 0.466);
+}
+
+.options {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.options button {
+    background-color: transparent;
+    border: none;
+    font-size: 60px;
+    transition: 0.3s all;
+    color: rgba(245, 245, 245, 0.459);
+}
+
+.options button:hover {
+    color: whitesmoke;
+    transform: scale(1.2);
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    height: 90px;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1111;
+    padding: 10px 15px;
+    padding-top: 20px;
+   background-color: #2c3e508a;
+}
+
+.search button {
+    margin-bottom: 20px;
+}
+
+/* PARA EL SWIPE
+ */
+
+ /* .card-deck{
+background-color: #2c3e50;
+ } */

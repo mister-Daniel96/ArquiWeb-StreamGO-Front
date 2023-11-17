@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Support } from '../models/support';
 import { Subject } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 const base_url = environment.base;
 @Injectable({
@@ -14,10 +14,23 @@ export class SupportService {
   constructor(private http: HttpClient) {}
 
   list() {
-    return this.http.get<Support[]>(this.url);
+    let token = sessionStorage.getItem('token');
+    return this.http.get<Support[]>(this.url,
+      {
+        headers:new HttpHeaders()
+        .set('Authorization',`Bearer ${token}`)
+        .set('Content-Type','application/json')
+      }
+      );
   }
   insert(support: Support) {
-    return this.http.post(this.url, support);
+    let token = sessionStorage.getItem('token');
+    return this.http.post(this.url, support,
+      {
+        headers:new HttpHeaders()
+        .set('Authorization',`Bearer ${token}`)
+        .set('Content-Type','application/json')
+      });
   }
 
   setList(nuevaLista: Support[]) {
@@ -27,13 +40,30 @@ export class SupportService {
     return this.listaCambio.asObservable();
   }
   delete(id: number) {
-    return this.http.delete(`${this.url}/${id}`);//ruta
+    let token = sessionStorage.getItem('token');
+    return this.http.delete(`${this.url}/${id}`,
+    {
+      headers:new HttpHeaders()
+      .set('Authorization',`Bearer ${token}`)
+      .set('Content-Type','application/json')
+    }); //ruta
   }
   listId(id: number) {
-    return this.http.get<Support>(`${this.url}/${id}`);//ruta
+    let token = sessionStorage.getItem('token');
+    return this.http.get<Support>(`${this.url}/${id}`,
+    {
+      headers:new HttpHeaders()
+      .set('Authorization',`Bearer ${token}`)
+      .set('Content-Type','application/json')
+    }); //ruta
   }
   update(support: Support) {
+    let token = sessionStorage.getItem('token');
     //es lo mismo que el insert pero con put
-    return this.http.put(this.url, support);
+    return this.http.put(this.url, support,{
+      headers:new HttpHeaders()
+      .set('Authorization',`Bearer ${token}`)
+      .set('Content-Type','application/json')
+    });
   }
 }
