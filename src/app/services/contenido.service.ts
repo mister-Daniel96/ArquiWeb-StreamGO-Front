@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Contenido } from '../models/contenido';
+import { QuantityResenaMovies } from '../models/quantityResenaMovies';
 
 const base_url = environment.base;
 @Injectable({
@@ -59,5 +60,17 @@ export class ContenidoService {
         .set('Authorization', `Bearer ${token}`)
         .set('Content-Type', 'application/json'),
     });
+  }
+
+  getCountResenasContenido() {
+    let token=sessionStorage.getItem('token');
+    return this.http.get<QuantityResenaMovies[]>(
+      `${this.url}/CantidadPorResenas`,
+      {
+        headers: new HttpHeaders()
+          .set('Authorization', `Bearer ${token}`)
+          .set('Content-Type', 'application/json'),
+      }
+    );
   }
 }
