@@ -41,6 +41,7 @@ import {  MatSnackBarModule } from '@angular/material/snack-bar';
 import { ReportsAdministratorComponent } from './administrator/reports-administrator/reports-administrator.component';
 import { Report01Component } from './administrator/reports-administrator/report01/report01.component';
 import { NgChartsModule } from 'ng2-charts';
+import { Report02Component } from './administrator/reports-administrator/report02/report02.component';
 
 @NgModule({//
   declarations: [
@@ -61,6 +62,7 @@ import { NgChartsModule } from 'ng2-charts';
     FavoritesMoviesClientComponent,
     ReportsAdministratorComponent,
     Report01Component,
+    Report02Component,
   ],
   imports: [
     CommonModule,
