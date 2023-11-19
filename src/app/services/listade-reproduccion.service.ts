@@ -61,4 +61,14 @@ export class ListadeReproduccionService {
       .set('Content-Type','application/json')
     });
   }
+
+  deleteContenidoDeLista(idUsuario:number,idContenido:number){
+
+    let token=sessionStorage.getItem('token')
+    return this.http.delete(`${this.url}/${idUsuario}/${idContenido}`,{
+      headers:new HttpHeaders()
+      .set('Authorization',`Bearer ${token}`)
+      .set('Content-Type','application/json')
+    })
+  }
 }
