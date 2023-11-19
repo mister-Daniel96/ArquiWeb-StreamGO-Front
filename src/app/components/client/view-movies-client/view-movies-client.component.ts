@@ -8,10 +8,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 import * as moment from 'moment';
 import { PromedioCalificacionDTO } from 'src/app/models/PromedioCalificacionDTO';
 import { Contenido } from 'src/app/models/contenido';
+import { ListaDeReproduccion } from 'src/app/models/listaDeReproduccion';
 import { Resena } from 'src/app/models/resena';
 import { ResenaDTO } from 'src/app/models/resenaDTO';
 import { CalificacionService } from 'src/app/services/calificacion.service';
 import { ContenidoService } from 'src/app/services/contenido.service';
+import { ListadeReproduccionService } from 'src/app/services/listade-reproduccion.service';
 import { ResenaService } from 'src/app/services/resena.service';
 @Component({
   selector: 'app-view-movies-client',
@@ -25,20 +27,21 @@ export class ViewMoviesClientComponent {
 
   //=================================================
   resenasDTO: ResenaDTO[] = [];
-  /*  ESTO ERA LA TABLA
-  dataSource: MatTableDataSource<ResenaDTO> = new MatTableDataSource();
-  displayedColumns: string[] = ['usuario', 'texto', 'fecha']; */
 
   //====================================================
   form: FormGroup = new FormGroup({});
   resena: Resena = new Resena();
   mensaje: string = '';
   calificacion: string = '';
+  //====================================================
+  /*   formFavorito: FormGroup = new FormGroup({});
+   */ listaFavorito: ListaDeReproduccion = new ListaDeReproduccion();
   constructor(
     private route: ActivatedRoute,
     private cS: ContenidoService,
     private rS: ResenaService,
     private clS: CalificacionService,
+    private lrS: ListadeReproduccionService,
     private formBuilder: FormBuilder,
     private router: Router,
     private snackbar: MatSnackBar,
@@ -67,8 +70,7 @@ export class ViewMoviesClientComponent {
     });
 
     this.clS.getPromedioCalificacion(this.id).subscribe((data) => {
-      this.calificacion = data.map(data=>data.promedio_calificado)[0];
-     
+      this.calificacion = data.map((data) => data.promedio_calificado)[0];
     });
     this.form = this.formBuilder.group({
       textResena: [''],
@@ -76,6 +78,13 @@ export class ViewMoviesClientComponent {
       usuario: [''],
       contenido: [''],
     });
+
+    //================================
+    /*  this.formFavorito = this.formBuilder.group({
+      nameListaDeReproduccion: [''],
+      usuario: [''],
+      contenido: [''],
+    }); */
   }
 
   aceptar() {
@@ -124,5 +133,24 @@ export class ViewMoviesClientComponent {
 
   getSafeUrl(url: string): SafeResourceUrl {
     return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+  }
+
+  agregarFavorito() {
+    try {
+      this.listaFavorito.nameListaDeReproduccion = 'favoritos';
+      this.listaFavorito.usuario.idUsuario = this.idParent;
+      this.listaFavorito.contenido.idContenido = this.id;
+      this.lrS.insert(this.listaFavorito).subscribe((data) => {
+        this.lrS.list().subscribe((data) => {
+          this.lrS.setList(data);
+        });
+      });
+
+      this.router.navigate([
+        `/components/client/${this.idParent}/view-movies/${this.id}`,
+      ]);
+    } catch {
+      throw new Error('No se registro la lista');
+    }
   }
 }

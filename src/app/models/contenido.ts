@@ -12,7 +12,6 @@ export class Contenido {
   urlContenido: string = '';
   urlImageContenido: string = '';
   languageContenido: string = '';
-  listadereproduccion?: ListaDeReproduccion | null = null;
 
   /* listadereproduccion?:ListaDeReproduccion|null=null; */
 }

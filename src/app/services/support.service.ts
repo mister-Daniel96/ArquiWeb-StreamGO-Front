@@ -3,6 +3,7 @@ import { environment } from 'src/environments/environment';
 import { Support } from '../models/support';
 import { Subject } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { CantidadSupportMesDTO } from '../models/cantidadSupportMesDTO';
 
 const base_url = environment.base;
 @Injectable({
@@ -65,5 +66,15 @@ export class SupportService {
       .set('Authorization',`Bearer ${token}`)
       .set('Content-Type','application/json')
     });
+  }
+
+  getQuantitySupportMesDTO(){
+
+    let token=sessionStorage.getItem('token')
+    return this.http.get<CantidadSupportMesDTO[]>(`${this.url}/supportMes`,{
+      headers:new HttpHeaders()
+      .set('Authorization',`Bearer ${token}`)
+      .set('Content-Type','application/json')
+    })
   }
 }

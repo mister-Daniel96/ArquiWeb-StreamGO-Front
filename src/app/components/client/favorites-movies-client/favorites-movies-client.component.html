@@ -14,35 +14,20 @@
 
 
 
-    <div class="swiper mySwiper">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide" style="position: relative;">
-                <h4 class="title">Lo mejor de StreamGO</h4>
-                <img src="../../../../assets/images/fondo-portada.jpg" alt="">
-            </div>
-            <div class="swiper-slide">
-                <img src="../../../../assets/images/Accion.jpg" alt="">
-                <h4 class="title">Accion</h4>
-            </div>
-            <div class="swiper-slide">
-                <h4 class="title">Animadas</h4>
-                <img src="../../../../assets/images/animadas.jpg" alt="">
-            </div>
-            <div class="swiper-slide">
-                <h4 class="title">Ficcion</h4>
-                <img src="../../../../assets/images/Ciencia ficcion.jpg" alt="">
-            </div>
-            <div class="swiper-slide">
-                <h4 class="title">Clasicas</h4>
-                <img src="../../../../assets/images/Clasicos o antiguo.jpg" alt="">
-            </div>
+    <div class="container">
+
+
+        <div class="card-deck " style="margin-top:50px">
+    
+          <mat-card class="example-card card" *ngFor="let item of peliculasFavoritas" data-aos="zoom-in">
+    
+            <img class="card-img-top" src="{{ item.urlImageContenido }}" alt="{{ item.titleContenido }}"
+              [routerLink]="['/components/client',idParent,'view-movies', item.idContenido]" />
+    
+          </mat-card>
+    
         </div>
     </div>
-
-
-    <!--   <script>
-        var swiper = new Swiper(".mySwiper", {});
-      </script> -->
 </body>
 
 </html>

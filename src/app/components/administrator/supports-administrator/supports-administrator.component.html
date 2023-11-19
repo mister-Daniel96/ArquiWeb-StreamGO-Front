@@ -39,10 +39,15 @@
                         <td mat-cell *matCellDef="let element"> {{element.usuario.nameUsuario}} </td>
                     </ng-container>
                     <!-- Symbol Column -->
+                    <ng-container matColumnDef="pendiente">
+                        <th mat-header-cell *matHeaderCellDef> Pendiente </th>
+                        <td mat-cell *matCellDef="let element"> {{element.pendienteSupport}} </td>
+                    </ng-container>
+                    <!-- Symbol Column -->
                     <ng-container matColumnDef="accion01">
                         <th mat-header-cell *matHeaderCellDef>Acciones</th>
                         <td mat-cell *matCellDef="let element">
-                            <button mat-raised-button color="warn" (click)="eliminar(element.idSupport)">
+                            <button mat-raised-button color="warn" >
                                 <i class="fa-solid fa-trash" style="color: #ffffff;"></i>
                             </button>
                         </td>

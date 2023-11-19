@@ -28,7 +28,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
-import { MatExpansionModule } from '@angular/material/expansion';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
@@ -41,7 +40,8 @@ import {  MatSnackBarModule } from '@angular/material/snack-bar';
 import { ReportsAdministratorComponent } from './administrator/reports-administrator/reports-administrator.component';
 import { Report01Component } from './administrator/reports-administrator/report01/report01.component';
 import { NgChartsModule } from 'ng2-charts';
-
+import { Report02Component } from './administrator/reports-administrator/report02/report02.component';
+import { MatExpansionModule } from '@angular/material/expansion';
 @NgModule({//
   declarations: [
     AdministratorComponent,
@@ -61,6 +61,7 @@ import { NgChartsModule } from 'ng2-charts';
     FavoritesMoviesClientComponent,
     ReportsAdministratorComponent,
     Report01Component,
+    Report02Component,
   ],
   imports: [
     CommonModule,
@@ -91,7 +92,9 @@ import { NgChartsModule } from 'ng2-charts';
     MatGridListModule,
     MatSidenavModule,
     MatSnackBarModule,
-    NgChartsModule
+    NgChartsModule,
+    MatExpansionModule
+  
   ],
 })
 export class ComponentsModule {}

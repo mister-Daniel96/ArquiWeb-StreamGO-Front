@@ -50,7 +50,7 @@ export class CreaeditaUsersAdministratorComponent implements OnInit {
 
     this.form = this.formBuilder.group({
       idUsuario: [''],
-      nameUsuario: ['', Validators.required, Validators.toString],
+      nameUsuario: ['', Validators.required],
       passwordUsuario: ['', Validators.required],
       emailUsuario: ['', Validators.required, Validators.email],
       enabledUsuario: ['', Validators.required],
@@ -105,4 +105,6 @@ export class CreaeditaUsersAdministratorComponent implements OnInit {
       });
     }
   }
+
+  
 }
