@@ -18,6 +18,7 @@ import { GuardService } from '../services/guard.service';
 import { ReportsAdministratorComponent } from './administrator/reports-administrator/reports-administrator.component';
 import { Report01Component } from './administrator/reports-administrator/report01/report01.component';
 import { Report02Component } from './administrator/reports-administrator/report02/report02.component';
+import { Report03Component } from './administrator/reports-administrator/report03/report03.component';
 const routes: Routes = [
   {//
     //protege a todo este grupo de rutas osea activa y desactiva las rutas
@@ -60,6 +61,9 @@ const routes: Routes = [
           },
           {
             path:'report02',component:Report02Component
+          },
+          {
+            path:'report03',component:Report03Component
           }
         ]
       }

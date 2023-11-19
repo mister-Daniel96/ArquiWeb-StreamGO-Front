@@ -1,0 +1,11 @@
+.table-clients{
+    margin-top: 40px;
+}
+
+th,td{
+    text-align: center;
+} 
+
+.fa-circle-check, .fa-clock{
+    font-size: 22px;
+}
