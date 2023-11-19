@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -14,10 +14,25 @@ export class CalificacionService {
   private listaCambio = new Subject<Calificacion[]>();
   constructor(private http: HttpClient) { }
   list() {
-    return this.http.get<Calificacion[]>(this.url);
+    let token=sessionStorage.getItem('token')
+    return this.http.get<Calificacion[]>(this.url,
+      {
+        headers:new HttpHeaders()
+        .set('Authorization',`Bearer ${token}`)
+        .set('Content-Type','application/json')
+      }
+      );
+    
   }
   insert(c: Calificacion) {
-    return this.http.post(this.url, c);
+    let token=sessionStorage.getItem('token')
+    return this.http.post(this.url, c,
+      {
+        headers:new HttpHeaders()
+        .set('Authorization',`Bearer ${token}`)
+        .set('Content-Type','application/json')
+      }
+      );
   }
   setList(listaNueva: Calificacion[]) {
     this.listaCambio.next(listaNueva);

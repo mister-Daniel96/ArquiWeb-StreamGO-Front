@@ -37,9 +37,10 @@
                 allowfullscreen></iframe>
 
         </div>
+
+        <!-- Agregar comentario -->
         <div class="addComments">
             <form class="example-form  container" [formGroup]="form" (submit)="aceptar()">
-
 
                 <mat-form-field class="example-full-width">
                     <mat-label>Descripcion</mat-label>
@@ -50,7 +51,24 @@
                     </mat-error>
                 </mat-form-field>
 
-                <button mat-raised-button color="primary" class="btnComentar">Comentar</button>
+                <button mat-raised-button color="primary" class="btnComentar"[disabled]="!form.valid">Comentar</button>
+            </form>
+        </div>
+        
+        <!-- Agregar calificacion -->
+        <div class="addCalification">
+            <form class="example-form  container" [formGroup]="formCalificacion" (submit)="aceptarCalificacion()">
+
+                <mat-form-field class="example-full-width">
+                    <mat-label>Calificacion</mat-label>
+                    <mat-select formControlName="score">
+                        <mat-option *ngFor="let p of calificaciones" [value]="p.value">
+                            {{p.viewValue}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <button mat-raised-button color="primary" class="btnCalificar" [disabled]="!formCalificacion.valid">Calificar</button>
             </form>
         </div>
 
