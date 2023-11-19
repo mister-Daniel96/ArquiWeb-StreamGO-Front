@@ -1,4 +1,4 @@
-h1{
+/* h1{
     margin: 40px 0;
 }
 .example-form {
@@ -8,4 +8,82 @@ h1{
 }
 mat-form-field{
     width: 100%;
-}/*  */
+} */
+.container {
+    padding: 40px 20px;
+}
+
+.myInfo {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 40px;
+}
+
+
+.example-form {
+    width: 40%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-height: 50vh;
+}
+
+mat-form-field {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+input.mat-input {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+button.mat-icon-button {
+    background-color: #007bff;
+    /* Color de fondo */
+    color: #fff;
+    /* Color del texto */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button.mat-icon-button:hover {
+    background-color: #0056b3;
+    /* Cambia el color al pasar el ratón */
+}
+
+.img-profile {
+    width: 40%;
+    display: grid;
+    place-content: center;
+    gap: 15px;
+}
+
+.img-profile img {
+    width: 80%;
+    margin: 0 auto;
+}
+@media  screen and (max-width:600px) {
+    .myInfo {
+       flex-direction: column;
+       gap: 30px;
+      
+    }
+    .example-form{
+        width: 100%;
+    }
+    
+}
