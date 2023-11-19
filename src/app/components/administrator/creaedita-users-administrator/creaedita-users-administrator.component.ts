@@ -8,6 +8,7 @@ import {
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Usuario } from 'src/app/models/usuario';
 import { UsuarioService } from 'src/app/services/usuario.service';
+import * as bcrypt from 'bcryptjs';
 
 @Component({
   selector: 'app-creaedita-users-administrator',
@@ -61,7 +62,16 @@ export class CreaeditaUsersAdministratorComponent implements OnInit {
     if (this.form.valid) {
       this.usuario.idUsuario = this.form.value.idUsuario;
       this.usuario.nameUsuario = this.form.value.nameUsuario;
-      this.usuario.passwordUsuario = this.form.value.passwordUsuario;
+      //cuando modificamos se vuelve a encriptar caso contrario no
+      if (this.form.value.passwordUsuario.length > 16) {
+        this.usuario.passwordUsuario = this.form.value.passwordUsuario;
+      } else {
+        this.usuario.passwordUsuario = bcrypt.hashSync(
+          this.form.value.passwordUsuario.trim(),
+          12
+        );
+      }
+
       this.usuario.emailUsuario = this.form.value.emailUsuario;
       this.usuario.enabledUsuario = this.form.value.enabledUsuario;
 
@@ -79,7 +89,9 @@ export class CreaeditaUsersAdministratorComponent implements OnInit {
         });
       }
 
-      this.router.navigate([`/components/administrator/${this.idPantent}/list-users`]);
+      this.router.navigate([
+        `/components/administrator/${this.idPantent}/list-users`,
+      ]);
     } else {
       this.mensaje = 'Ingrese todos los datos e ingrese los datos correctos!!';
     }
@@ -105,6 +117,4 @@ export class CreaeditaUsersAdministratorComponent implements OnInit {
       });
     }
   }
-
-  
 }

@@ -67,7 +67,7 @@ export class RegisterComponent implements OnInit {
       });
       setTimeout(() => {
         this.router.navigate(['/login']);
-      }, 2500);
+      }, 1000);
     } else {
       this.mensaje = 'ingrese los datos correctos!!!';
     }

@@ -34,7 +34,10 @@ import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { ComponentsRoutingModule } from './components-routing.module';
-
+import {
+  MatSlideToggleModule,
+  _MatSlideToggleRequiredValidatorModule,
+} from '@angular/material/slide-toggle';
 import { RouterModule } from '@angular/router';
 import {  MatSnackBarModule } from '@angular/material/snack-bar';
 import { ReportsAdministratorComponent } from './administrator/reports-administrator/reports-administrator.component';
@@ -42,6 +45,7 @@ import { Report01Component } from './administrator/reports-administrator/report0
 import { NgChartsModule } from 'ng2-charts';
 import { Report02Component } from './administrator/reports-administrator/report02/report02.component';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { Report03Component } from './administrator/reports-administrator/report03/report03.component';
 @NgModule({//
   declarations: [
     AdministratorComponent,
@@ -62,6 +66,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
     ReportsAdministratorComponent,
     Report01Component,
     Report02Component,
+    Report03Component,
   ],
   imports: [
     CommonModule,
@@ -93,7 +98,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
     MatSidenavModule,
     MatSnackBarModule,
     NgChartsModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatSlideToggleModule
   
   ],
 })
