@@ -16,7 +16,7 @@
             <img class="logo" src="../../../assets/images/logoCompleto.png" alt="">
         </div>
         <button routerLink="/home" class=" btnBefore">
-            <i class="fa-solid fa-arrow-turn-up fa-rotate-270" ></i>
+            <i class="fa-solid fa-arrow-turn-up fa-rotate-270"></i>
         </button>
         <div class="form ">
             <i class="fa-solid fa-user-plus img-user"></i>
@@ -39,12 +39,19 @@
                     <mat-error *ngIf="obtenerControlCampo('passwordUsuario')?.errors?.['required']">
                         El password es obligatorio.
                     </mat-error>
+                    <mat-error  *ngIf="obtenerControlCampo('passwordUsuario')?.errors?.['pattern']">
+                        Debe tener mayúsculas, minúsculas, caracteres especiales, números y al menos 8 caracteres.
+                    </mat-error>
                 </mat-form-field>
+                <br>
                 <mat-form-field>
                     <mat-label>E-mail</mat-label>
                     <input matInput placeholder="pat@example.com" required formControlName="emailUsuario">
                     <mat-error *ngIf="obtenerControlCampo('emailUsuario')?.errors?.['required']">
                         El correo es obligatorio.
+                    </mat-error>
+                    <mat-error *ngIf="obtenerControlCampo('emailUsuario')?.errors?.['email']">
+                        El correo es no es valido.
                     </mat-error>
                 </mat-form-field>
                 <button mat-raised-button color="primary">

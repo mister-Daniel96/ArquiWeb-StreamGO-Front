@@ -61,9 +61,20 @@ export class ContenidoService {
         .set('Content-Type', 'application/json'),
     });
   }
+  getContenidoFavorito(idUsuario: number) {
+    let token = sessionStorage.getItem('token');
+    return this.http.get<Contenido[]>(
+      `${this.url}/peliculasFavoritas?idUsuario=${idUsuario}`,
+      {
+        headers: new HttpHeaders()
+          .set('Authorization', `Bearer ${token}`)
+          .set('Content-Type', 'application/json'),
+      }
+    );
+  }
 
   getCountResenasContenido() {
-    let token=sessionStorage.getItem('token');
+    let token = sessionStorage.getItem('token');
     return this.http.get<QuantityResenaMovies[]>(
       `${this.url}/CantidadPorResenas`,
       {

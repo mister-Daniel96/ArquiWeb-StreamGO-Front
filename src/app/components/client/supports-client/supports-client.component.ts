@@ -35,6 +35,7 @@ export class SupportsClientComponent implements OnInit {
     this.form = this.formBuilder.group({
       dateSupport: ['', Validators.required],
       descriptionSupport: ['', Validators.required],
+      pendienteSupport:[''],
       usuario: [''],
     });
   }
@@ -44,6 +45,7 @@ export class SupportsClientComponent implements OnInit {
       this.support.dateSupport = this.form.value.dateSupport;
       this.support.descriptionSupport = this.form.value.descriptionSupport;
       /* this.support.usuario.idUsuario = this.form.value.usuario; */
+     this.support.pendienteSupport=true;
       this.support.usuario.idUsuario = this.idParent;
 
       this.sS.insert(this.support).subscribe((data) => {

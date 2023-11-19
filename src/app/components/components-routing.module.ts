@@ -16,6 +16,8 @@ import { ViewMoviesClientComponent } from './client/view-movies-client/view-movi
 import { FavoritesMoviesClientComponent } from './client/favorites-movies-client/favorites-movies-client.component';
 import { GuardService } from '../services/guard.service';
 import { ReportsAdministratorComponent } from './administrator/reports-administrator/reports-administrator.component';
+import { Report01Component } from './administrator/reports-administrator/report01/report01.component';
+import { Report02Component } from './administrator/reports-administrator/report02/report02.component';
 const routes: Routes = [
   {//
     //protege a todo este grupo de rutas osea activa y desactiva las rutas
@@ -52,7 +54,14 @@ const routes: Routes = [
         component: CreaeditaMoviesAdministratorComponent,
       },{
         path:'reports',
-        component:ReportsAdministratorComponent
+        component:ReportsAdministratorComponent,children:[
+          {
+            path:'report01',component:Report01Component
+          },
+          {
+            path:'report02',component:Report02Component
+          }
+        ]
       }
     ],
   },
