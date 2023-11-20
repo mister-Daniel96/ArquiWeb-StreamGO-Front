@@ -2,23 +2,48 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { PromedioCalificacionDTO } from '../models/PromedioCalificacionDTO';
 import { Calificacion } from '../models/calificacion';
-import { PromedioCalificacionesDTO } from '../models/PromedioCalificacionesDTO';
-const base_url = environment.base;
 
+const base_url = environment.base;
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CalificacionService {
+  url = `${base_url}/calificacion`;
 
-  private url = `${base_url}/calificacion`;
-  private listaCambio = new Subject<Calificacion[]>();
-  constructor(private http: HttpClient) { }
+  listaCambio= new Subject<Calificacion[]>();
+  constructor(private http: HttpClient) {}
+
+  getPromedioCalificacion(id:number) {
+    let token = sessionStorage.getItem('token');
+    return this.http.get<PromedioCalificacionDTO[]>(`${this.url}/promedioCalificaciones?idcontenido=${id}`, {
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'),
+    });
+  }
+
   list() {
-    return this.http.get<Calificacion[]>(this.url);
+    let token=sessionStorage.getItem('token')
+    return this.http.get<Calificacion[]>(this.url,
+      {
+        headers:new HttpHeaders()
+        .set('Authorization',`Bearer ${token}`)
+        .set('Content-Type','application/json')
+      }
+      );
+
   }
   insert(c: Calificacion) {
-    return this.http.post(this.url, c);
+    let token=sessionStorage.getItem('token')
+    return this.http.post(this.url, c,
+      {
+        headers:new HttpHeaders()
+        .set('Authorization',`Bearer ${token}`)
+        .set('Content-Type','application/json')
+      }
+      );
   }
   setList(listaNueva: Calificacion[]) {
     this.listaCambio.next(listaNueva);
@@ -34,19 +59,5 @@ export class CalificacionService {
   }
   update(calificacion:Calificacion){
     return this.http.put(this.url,calificacion);
-  }
-
-  promediocalificaciondecontenido(id: number) {
-    let token= sessionStorage.getItem('token'); //aunqeu sea de tipo any igual funciona any[]
-    return this.http.get<PromedioCalificacionesDTO[]>(//no es exactamente igual al model, este es un query
-      `${this.url}/promedioCalificaciones?idcontenido=${id}}`,
-      {
-        headers:new HttpHeaders()
-        .set('Authorization',`Bearer ${token}`)
-        .set('Content-Type','application/json')
-      }
-      
-    )
-    
   }
 }

@@ -34,10 +34,41 @@
                 [routerLink]="['/components/administrator',id,'list-movies']">
                 <i class="fa-solid fa-film" style="color: #ffffff;"></i>
                 Peliculas</button>
+          <!--   <button mat-flat-button class="btnMenu" color="primary"
+                [routerLink]="['/components/administrator',id,'reports']">
+                <i class="fa-solid fa-film" style="color: #ffffff;"></i>
+                Reportes</button> -->
+
+           
+
+            <!-- PARA LOS REPORTES -->
+            <mat-expansion-panel style="background-color: transparent; box-shadow: none;">
+                <mat-expansion-panel-header  >
+                    <mat-panel-title style="color: whitesmoke; border: none ;">
+                        <i class="fa-solid fa-file" ></i> Reportes
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div class="menuReportes">
+                    <button  mat-menu-item [routerLink]="['/components/administrator', id, 'reports', 'report01']">
+                        Reporte 01
+                    </button>
+                    <button mat-menu-item [routerLink]="['/components/administrator', id, 'reports', 'report02']">
+                        Reporte 02
+                    </button>
+                    <button mat-menu-item [routerLink]="['/components/administrator', id, 'reports', 'report03']">
+                        Reporte 03
+                    </button>
+                </div>
+
+                <!-- Agrega más botones según sea necesario -->
+
+            </mat-expansion-panel>
             <button mat-flat-button class="btnMenu cerrar" color="primary" routerLink="/login" (click)="cerrar()">
                 <i class="fa-solid fa-right-from-bracket fa-rotate-180 " style="color: #ffffff;font-size: 25px;"></i>
-
             </button>
+            <!-- Otros botones y secciones de menú aquí -->
+
+          
             <!-- DENTRO DE LA RUTA DE ADMINISTRADORES USAMOS EL   administrator/:id -->
 
             <!-- <button mat-flat-button class="btnMenu" color="primary" routerLink="/administrator/profile">Mi

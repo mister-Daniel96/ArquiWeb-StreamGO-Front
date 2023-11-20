@@ -91,7 +91,7 @@
     object-fit: contain;
 }
 
-.form-img .btnBefore {
+.btnBefore {
     display: block;
     position: absolute;
     top: 0;
@@ -104,12 +104,34 @@
     z-index: 500;
 }
 
-.form-img .btnBefore i {
+
+.btnBefore i {
     font-size: 40px;
     color: whitesmoke;
     transition: 0.3s all;
 }
-.form-img .btnBefore i:hover {
+
+.btnBefore i:hover {
     font-size: 50px;
     color: whitesmoke;
+}
+
+@media screen and (max-width:600px){
+    .form{
+        width: 80%;
+    }
+    .form-img{
+        display: none;
+    }
+    .btnBefore i {
+        font-size: 40px;
+        color: #3f51b5c7;
+        transition: 0.3s all;
+        z-index: 99998;
+    }
+    
+    .btnBefore i:hover {
+        font-size: 50px;
+        color: #3f51b5e8;
+    }
 }

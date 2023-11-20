@@ -1,15 +1,19 @@
-.fomr{
+.form{
     position: relative;
+    margin-top: 50px;
 }
 
 .form>h1{
     font-size: 40px;
     margin: 40px ;
+    font-family: 'Courier New', Courier, monospace;
+
 }
 
 .example-form{
     display: grid;
     place-content: center;
+    width: 40%;
 }
 
 textarea{
@@ -18,9 +22,9 @@ textarea{
 .example-full-width{
     width: 400px;
 }
+.content{
+    display: flex;
+}
 .img-tom{
-    position: absolute;
-    top: 80px;
-    right: 80px;
-    width: 250px;
+margin-right: 50px;
 }/*  */
