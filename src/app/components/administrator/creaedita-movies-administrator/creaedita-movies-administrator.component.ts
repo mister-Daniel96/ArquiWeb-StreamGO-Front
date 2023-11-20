@@ -94,7 +94,7 @@ export class CreaeditaMoviesAdministratorComponent implements OnInit {
       this.contenido.urlImageContenido = this.form.value.urlImageContenido;
       this.contenido.languageContenido = this.form.value.languageContenido;
 
-      this.contenido.listadereproduccion = this.form.value.listadereproduccion; //no guarda ni hace nada solo nullo
+    //no guarda ni hace nada solo nullo
 
       if (this.edicion) {
         this.cS.update(this.contenido).subscribe((data) => {
@@ -136,8 +136,7 @@ export class CreaeditaMoviesAdministratorComponent implements OnInit {
           originCountryContenido: new FormControl(data.originCountryContenido),
           urlContenido: new FormControl(data.urlContenido),
           urlImageContenido: new FormControl(data.urlImageContenido),
-          languageContenido: new FormControl(data.languageContenido),
-          listadereproduccion: new FormControl(data.listadereproduccion),
+          languageContenido: new FormControl(data.languageContenido)
         });
         this.imgActual = data.urlImageContenido;
       });

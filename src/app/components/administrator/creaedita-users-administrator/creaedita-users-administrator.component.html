@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <div class="form ">
+    <div class="form container">
         <form class="example-form" [formGroup]="form" (submit)="aceptar()">
             <h2 *ngIf="edicion" style="text-align: center;">Editar Usuario</h2>
             <mat-form-field class="example-full-width">
@@ -37,7 +37,7 @@
                 <mat-error *ngIf="obtenerControlCampo('passwordUsuario')?.errors?.['required']">
                     El password es obligatorio.
                 </mat-error>
-            </mat-form-field>
+            </mat-form-field> 
             <br>
             <mat-form-field>
                 <mat-label>E-mail</mat-label>

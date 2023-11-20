@@ -16,34 +16,35 @@ export class SupportsClientComponent implements OnInit {
   support: Support = new Support();
   mensaje: string = '';
 
-  maxFecha: Date = moment().toDate();
+  fechaActual: Date = moment().toDate();
 
-  idParent:number=0;
+  idParent: number = 0;
   constructor(
     private sS: SupportService,
     private uS: UsuarioService,
     private formBuilder: FormBuilder,
     private router: Router,
-    private route:ActivatedRoute
+    private route: ActivatedRoute
   ) {}
   ngOnInit(): void {
-    
-    this.route.parent?.params.subscribe(data=>{
-      this.idParent=data['id'];
-    })
+    this.route.parent?.params.subscribe((data) => {
+      this.idParent = data['id'];
+    });
 
     this.form = this.formBuilder.group({
-      dateSupport: ['', Validators.required],
+      dateSupport: [''],
       descriptionSupport: ['', Validators.required],
+      pendienteSupport: [''],
       usuario: [''],
     });
   }
 
   aceptar() {
     if (this.form.valid) {
-      this.support.dateSupport = this.form.value.dateSupport;
+      this.support.dateSupport = this.fechaActual;
       this.support.descriptionSupport = this.form.value.descriptionSupport;
       /* this.support.usuario.idUsuario = this.form.value.usuario; */
+      this.support.pendienteSupport = true;
       this.support.usuario.idUsuario = this.idParent;
 
       this.sS.insert(this.support).subscribe((data) => {
@@ -56,7 +57,7 @@ export class SupportsClientComponent implements OnInit {
     } else {
       this.mensaje = 'Ingrese todos los datos!!!';
     }
-  }//
+  } //
 
   obtenerControlCampo(nombreCampo: string) {
     const control = this.form.get(nombreCampo);

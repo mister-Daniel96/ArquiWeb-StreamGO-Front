@@ -16,6 +16,31 @@
      padding: 20px 0;
  }
 
+ .menuReportes {
+     display: flex;
+     flex-direction: column;
+ }
+
+ .menuReportes button {
+     border: none;
+     background-color: transparent;
+     color: whitesmoke;
+     font-weight: 500;
+     padding: 10px 0 !important;
+     transition: 0.2s all;
+ }
+ .menuReportes button:hover {
+  transform: scale(1.1);
+ }
+
+ mat-panel-title {
+     display: flex;
+     gap: 5px;
+     font-size: 15px;
+ }
+
+
+
  .cerrar {
      position: absolute;
      bottom: 0;
@@ -49,7 +74,7 @@
  }
 
  .btnOptions {
-     margin-top: 40px;
+     margin-top: 30px;
      display: flex;
      flex-direction: column;
      width: 100%;
@@ -59,9 +84,13 @@
      width: 100%;
      padding: 25px 0;
  }
+ .mdc-button__label{
+    display: flex !important;
+    flex-direction: column !important;
+ }
 
  /*   CONTENIDO */
  .contenido {
      margin-left: 150px;
-    /*  padding: 1px; */
+     /*  padding: 1px; */
  }

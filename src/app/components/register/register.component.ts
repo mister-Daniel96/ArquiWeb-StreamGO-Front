@@ -19,6 +19,10 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class RegisterComponent implements OnInit {
   hide = true; //es para el password
 
+  contrasenaPattern =
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$@$!%*?&])([A-Za-z\d$@$!%*?&]|[^ ]){8,16}$/;
+  emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
   //TODO ES PARA LA VALIDACION DEL CORREO
   form: FormGroup = new FormGroup({});
   usuarioNuevo: Usuario = new Usuario();
@@ -32,9 +36,9 @@ export class RegisterComponent implements OnInit {
   ) {}
   ngOnInit(): void {
     this.form = this.FormBuilder.group({
-      nameUsuario: ['', Validators.required],
-      passwordUsuario: ['', Validators.required],
-      emailUsuario: ['', Validators.required],
+      nameUsuario: ['', [Validators.required]],
+      passwordUsuario: ['', [Validators.required,Validators.pattern(this.contrasenaPattern)]],
+      emailUsuario: ['', [Validators.required, Validators.email]],
       enabledUsuario: [],
     });
   }
@@ -63,7 +67,7 @@ export class RegisterComponent implements OnInit {
       });
       setTimeout(() => {
         this.router.navigate(['/login']);
-      }, 2500);
+      }, 1000);
     } else {
       this.mensaje = 'ingrese los datos correctos!!!';
     }
@@ -76,5 +80,9 @@ export class RegisterComponent implements OnInit {
     return control;
   }
 
-  
+  error(){
+    this.snackbar.open('Usted fue registrado con exito!!! ', 'Aviso', {
+      duration: 2000,
+    });
+  }
 }

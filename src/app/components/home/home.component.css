@@ -8,10 +8,6 @@ html {
 }
 
 header {
-    /*  position: sticky;
-    top: 0;
-    left: 0;
-    z-index: 11; */
     position: fixed;
     top: 0;
     left: 0;
@@ -58,8 +54,9 @@ a {
 }
 
 #portada {
+    margin-top: 64px;
     /*  max-height: 80vh;  */
-   min-height: 100vh;
+    min-height: 100vh;
     width: 100%;
     display: flex;
     align-items: center;
@@ -172,7 +169,7 @@ a {
 /*AAAAAAAAAAAAAAAAAAAAAAAAA */
 
 #variedad {
-    margin-top: 80px;
+    margin-top: 50px;
     background: linear-gradient(to top, #4a608a 0%, rgb(186, 200, 224) 100%), url(../../../assets/images/avengers.jpg);
     padding: 20px 40px;
     padding-top: 40px;
@@ -259,7 +256,7 @@ a {
 }
 
 .cardContainer {
-    width: 80%;
+    width: 100%;
     display: flex;
     gap: 30px;
     margin: 0 auto;
@@ -267,7 +264,7 @@ a {
 }
 
 .card-item {
-    width: 45%;
+    width: 50%;
     background-color: whitesmoke;
     /*  background-image: linear-gradient(to left, #8f8eb9 0%, #8989ba 52%, #7d7dac 100%);
     background-size: 68% 100%;
@@ -276,7 +273,7 @@ a {
     border-radius: 10px;
     display: flex;
     align-items: center;
-
+    height: 200px;
 }
 
 .card-profile {
@@ -309,10 +306,13 @@ a {
 
 .card-item .card-description {
     background-image: linear-gradient(to left, #8f8eb9 0%, #8989ba 52%, #7d7dac 100%);
-    height: 100%;
     padding: 5px 20px;
-    display: grid;
-    place-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    font-weight: bold;
+    min-height: 100%;
 }
 
 .card-item .card-description p {
@@ -320,11 +320,11 @@ a {
     color: whitesmoke;
 }
 
-.card-item .card-description button {
+.card-item .card-description .button {
     color: #5e5e8a;
     background-color: whitesmoke;
     font-weight: bold;
-    width: 50%;
+    width: 70%;
     margin: 0 auto;
 }
 
@@ -339,13 +339,14 @@ a {
         width: 100%;
     }
 
-    ¿ .card-item .card-profile img {
+    .card-item .card-profile img {
         width: 100px;
         height: 100px;
         border-radius: 50%;
         object-fit: cover;
         margin: 0 auto;
     }
+
 
     .card-item .card-description {
         height: 100%;

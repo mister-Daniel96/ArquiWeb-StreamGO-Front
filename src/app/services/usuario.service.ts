@@ -86,10 +86,11 @@ export class UsuarioService {
   getList(){
     return this.listaCambio.asObservable();
   }
+
   getCantidadUsuariosActivos() {
     let token=sessionStorage.getItem('token');
     return this.http.get<CantidadDeClientesActivosDTO[]>(
-      `${this.url}/cantclientesactivos`,
+     ` ${this.url}/cantclientesactivos`,
       {
         headers: new HttpHeaders()
           .set('Authorization', `Bearer ${token}`)
@@ -97,4 +98,6 @@ export class UsuarioService {
       }
     );
   }
+
+
 }

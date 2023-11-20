@@ -14,7 +14,8 @@
         <!--  -->
         <div class="contenido">
             <div class="contenido-info">
-                <h2 class="movie-title" style="font-size: 60px;">{{ movie.titleContenido }}</h2>
+                <h4 class="movie-title" >{{ movie.titleContenido }}</h4>
+               <br>
                 <div class="movie-metadata">
                     <p><strong>Año:</strong> {{ movie.yearContenido | date }}</p>
                     <p><strong>Director:</strong> {{ movie.directorContenido }}</p>
@@ -24,6 +25,8 @@
                     <p><strong>Idioma:</strong> {{ movie.languageContenido }}</p>
                     <p style="text-align: justify;"><strong>Descripcion:</strong> {{ movie.descripContenido }}</p>
                 </div>
+
+                <button mat-raised-button color="primary" (click)="agregarFavorito()">Agregar favorito</button>
 
             </div>
             <div class="contenido-image">
@@ -35,8 +38,23 @@
                         <i class="fa-solid fa-star" style="color: #f8cc2a;"></i>
                     </span>
                 </div>
-
+                <div class="addCalification">
+                    <form class="example-form form-calificacion  container" [formGroup]="formCalificacion" (submit)="aceptarCalificacion()">
+        
+                        <mat-form-field class="example-full-width">
+                            <!-- <mat-label>Calificacion</mat-label> -->
+                            <mat-select formControlName="score">
+                                <mat-option *ngFor="let p of calificaciones" [value]="p.value">
+                                    {{p.viewValue}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+        
+                        <button mat-raised-button color="primary" class="btnCalificar" [disabled]="!formCalificacion.valid">Calificar</button>
+                    </form>
+                </div>
             </div>
+            
         </div>
         <div class="video">
             <iframe [src]="getSafeUrl(movie.urlContenido)" title="YouTube video player" frameborder="0"
@@ -44,6 +62,7 @@
                 allowfullscreen></iframe>
 
         </div>
+      
         <div class="addComments ">
             <form class="example-form  container" [formGroup]="form" (submit)="aceptar()">
 
@@ -57,30 +76,11 @@
                     </mat-error>
                 </mat-form-field>
 
-                <button mat-raised-button color="primary" class="btnComentar">Comentar</button>
+                <button mat-raised-button color="primary" class="btnComentar"  [disabled]="!form.valid">Comentar</button>
             </form>
         </div>
 
-        <!--  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 table-comments">
-
-            <ng-container matColumnDef="usuario">
-                <th mat-header-cell *matHeaderCellDef> Usuario</th>
-                <td mat-cell *matCellDef="let element"> {{element.name_usuario}} </td>
-            </ng-container>
-
-            <ng-container matColumnDef="texto">
-                <th mat-header-cell *matHeaderCellDef> Comentario </th>
-                <td mat-cell *matCellDef="let element"> {{element.text_resena}} </td>
-            </ng-container>
-
-            <ng-container matColumnDef="fecha">
-                <th mat-header-cell *matHeaderCellDef> Fecha </th>
-                <td mat-cell *matCellDef="let element"> {{element.dateResena}} </td>
-            </ng-container>
-
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        </table> -->
+        
 
         <div class="cardsContainer">
             <div *ngFor="let item of resenasDTO" class="card">
