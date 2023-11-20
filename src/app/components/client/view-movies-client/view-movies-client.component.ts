@@ -43,7 +43,7 @@ export class ViewMoviesClientComponent {
     { value: 2, viewValue: '2' },
     { value: 3, viewValue: '3' },
     { value: 4, viewValue: '4' },
-    { value: 5, viewValue: '5' }
+    { value: 5, viewValue: '5' },
   ];
   //=======================================================
   /*   formFavorito: FormGroup = new FormGroup({});
@@ -159,18 +159,19 @@ export class ViewMoviesClientComponent {
       this.listaFavorito.nameListaDeReproduccion = 'favoritos';
       this.listaFavorito.usuario.idUsuario = this.idParent;
       this.listaFavorito.contenido.idContenido = this.id;
+      console.log(this.listaFavorito);
       this.lrS.insert(this.listaFavorito).subscribe((data) => {
         this.lrS.list().subscribe((data) => {
           this.lrS.setList(data);
         });
       });
-
       this.router.navigate([
         `/components/client/${this.idParent}/view-movies/${this.id}`,
       ]);
     } catch {
       throw new Error('No se registro la lista');
     }
+    console.log('ENVIADO');
   }
 
   //Calificacion obvio (lo dice ahi abajo :V)
@@ -186,14 +187,15 @@ export class ViewMoviesClientComponent {
         });
       });
       //
-      this.router.navigate([`/components/client/${this.idParent}/view-movies/${this.id}`]);
+      this.router.navigate([
+        `/components/client/${this.idParent}/view-movies/${this.id}`,
+      ]);
       this.snackbar.open('Calificación agregada', 'Agregado', {
         duration: 2000,
       });
       setTimeout(() => {
         this.form.reset();
       }, 0);
-
     } else {
       this.mensaje = 'Ingrese una calificacion válida';
     }
