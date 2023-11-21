@@ -23,7 +23,8 @@ export class Report02Component implements OnInit {
       this.barChartData = [
         {
           data: data.map((item) => item.quantitySupports),
-          label: 'cantidad de incidencias',
+          label: `cantidad de incidencias ${data.map(item=>item.year)[0]}`,
+          
         },
       ];
     });
