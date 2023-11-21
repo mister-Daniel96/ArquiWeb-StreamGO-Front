@@ -100,7 +100,7 @@ import { Report03Component } from './administrator/reports-administrator/report0
     NgChartsModule,
     MatExpansionModule,
     MatSlideToggleModule
-  
+
   ],
 })
 export class ComponentsModule {}
